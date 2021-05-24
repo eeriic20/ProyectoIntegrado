@@ -94,3 +94,29 @@ ul li a:hover {
   height: auto;
   padding: 10px;
 }
+
+.piepagina {
+  background: #202525;
+  border: 1px solid none;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  color: white;
+}
+
+.derechos {
+  background: black;
+  color: white;
+  width: auto;
+  height: auto;
+  padding: 10px;
+}
+
+a {
+  color: grey;
+  
+}
+
+a:hover {
+  color: brown;
+}
