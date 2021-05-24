@@ -51,7 +51,6 @@ body {
 .encabezado {
   width: auto;
   height: auto;
-  
 }
 
 .logo {
@@ -86,4 +85,12 @@ ul li a {
 
 ul li a:hover {
   color: brown;
+}
+
+.contenido {
+  background: white;
+  text-align: justify;
+  width: auto;
+  height: auto;
+  padding: 10px;
 }
