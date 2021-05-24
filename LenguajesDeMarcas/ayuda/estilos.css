@@ -1,0 +1,346 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?bxurgd');
+  src:  url('fonts/icomoon.eot?bxurgd#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?bxurgd') format('truetype'),
+    url('fonts/icomoon.woff?bxurgd') format('woff'),
+    url('fonts/icomoon.svg?bxurgd#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home3:before {
+  content: "\e902";
+}
+
+.icon-download3:before {
+    content: "\e9c7";
+}
+
+.icon-phone:before {
+  content: "\e942";
+}
+
+.icon-user-tie:before {
+  content: "\e976";
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: barlow condensed, sans-serif;
+  background-image: url("fondo.png");
+}
+
+.primero {
+  border: 1px solid none;
+  width: auto;
+  height: auto;
+  margin: 0px 10%;
+  position: absolute;
+}
+
+.segundo {
+  background: white;
+}
+
+.logo {
+  margin-left: 450px;
+}
+
+.tercero {
+  width: auto;
+  height: auto;
+  padding: 10px;
+  background: black;
+  color: white;
+}
+
+ul li {
+  float: left;
+  width: auto;
+  text-align: center;
+  padding: 8px;
+  list-style-type: none;
+  font-family: barlow condensed, sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+}
+ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+ul li a:hover {
+  color: red;
+}
+
+.cuarto {
+  background: white;
+  border: 1px solid none;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin-bottom: auto;
+}
+
+ol li {
+  margin-top: auto;
+  float: left;
+  width: auto;
+  list-style-type: none;
+
+}
+
+.juegos {
+  border: 1px solid #efefef;
+  width: auto;
+  margin-top: auto;
+  margin-left: auto;
+  background: #efefef;
+}
+
+.juegos:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+h3 {
+  text-align: center;
+  font-size: 23px;
+  font-weight: normal;
+  color: black;
+  padding: 5px;
+}
+
+.quinto {
+  background: #202525;
+  border: 1px solid none;
+  width: auto;
+  height: auto;
+  margin-left: auto;
+  margin-top: auto;
+}
+
+.sexto {
+  background: black;
+  border: 1px solid none;
+  width: auto;
+  height: auto;
+  margin-left: auto;
+}
+
+.piepagina {
+  color: white;
+  margin-left: auto;
+}
+
+.interes {
+  font-weight: bold;
+  color: white;
+  margin-left: auto;
+}
+
+.derechos {
+  color: white;
+  margin-left: auto;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+}
+
+.sobremi {
+  margin-left: auto;
+}
+
+.minombre {
+  text-align: center;
+  margin-top: auto;
+  font-weight: bold;
+}
+
+.descripcion {
+  text-align: center;
+  margin-top: auto;
+}
+
+.septimo {
+  background: white;
+  border: 1px solid none;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin-bottom: auto;
+}
+
+.formulario {
+  float: left;
+  margin-left: auto;
+  padding: 15px;
+}
+
+h1 {
+  margin-left: auto;
+}
+
+.barra:hover {
+  background-color: cyan;
+  border-radius: 20px;
+}
+
+.nombre {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.boton {
+  float: right;
+}
+
+.premio {
+  background: #202525;
+  border: 1px solid none;
+  width: auto;
+  height: auto;
+  margin-left: auto;
+  margin-top: auto;
+}
+
+.gordo {
+  background: black;
+  border: 1px solid none;
+  width: auto;
+  height: auto;
+  margin-left: auto;
+}
+
+.decimo {
+  background: white;
+  border: 1px solid none;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin-bottom: auto;
+  margin-top: auto;
+  text-align: justify;
+}
+
+.onceavo {
+  background: white;
+  border: 1px solid none;
+  width: auto;
+  height: auto;
+  padding: 10px;
+}
+
+.duodecimo {
+  background: white;
+  border: 1px solid none;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.textoentradas {
+  margin-top: auto;
+  text-align: justify;
+}
+
+.tituloentradas {
+  margin-top: auto;
+  text-align: center;
+}
+
+.imagenesentradas {
+  margin-left: auto; 
+}
+
+.videoentradas {
+  margin-left: auto;
+}
+
+.imagenescod {
+  height: auto;
+  margin-left: auto;
+}
+
+.trece {
+  background: white;
+  border: 1px solid none;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.catorce {
+  background: white;
+  border: 1px solid none;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.quince {
+  background: white;
+  border: 1px solid none;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin-bottom: auto;
+  margin-top: auto;  
+}
+
+.dieciseis {
+  background: white;
+  border: 1px solid none;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin-bottom: auto;
+  margin-top: auto;    
+}
+
+.veinte {
+  background: white;
+  border: 1px solid none;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin-bottom: auto;
+  margin-top: auto;      
+}
+
+.enlacesjuegos {
+  color: black;
+}
