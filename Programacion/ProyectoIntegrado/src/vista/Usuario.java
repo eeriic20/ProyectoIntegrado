@@ -45,16 +45,11 @@ public class Usuario {
 	 * @param contrasenya es la contraseña del usuario necesaria para logearse
 	 * @param nombre el nombre real del usuario
 	 * @param apellido es el apellido del usuario
-<<<<<<< HEAD
 	 * @param correoElectronico hola
-	 * @param fechaNacimiento
-=======
-	 * @param correoElectronico
 	 * @param fechaNacimiento hola
->>>>>>> master
 	 * @param direccion
-	 * @param codigoPostal
-	 * @param localidad
+	 * @param codigoPostal 46740
+	 * @param localidad alzira
 	 * @param genero
 	 */
 
