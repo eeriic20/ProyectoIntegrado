@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INDEX VERSION 1.131+C:\Users\DAM\Desktop\ProyectoIntegrado\Programacion\.metadata\.plugins\org.eclipse.jdt.core
 <<<<<<< HEAD
 2158205419.index
@@ -5,8 +6,17 @@ INDEX VERSION 1.131+C:\Users\DAM\Desktop\ProyectoIntegrado\Programacion\.metadat
 1301684271.index
 =======
 1301684271.index
+=======
+INDEX VERSION 1.131+C:\Users\DAM\Desktop\ProyectoInt\Programacion\.metadata\.plugins\org.eclipse.jdt.core
+2777612265.index
+>>>>>>> daa74de37e012e321f3349e5f90350ede4f1ba39
 3929848548.index
+971378871.index
+2254571451.index
+2923218292.index
+3259301653.index
 2158205419.index
+<<<<<<< HEAD
 >>>>>>> 0669a6f7e7f50ab01980d6636a1548264f5a7334
 1558234620.index
 555507292.index
@@ -24,10 +34,18 @@ INDEX VERSION 1.131+C:\Users\DAM\Desktop\ProyectoIntegrado\Programacion\.metadat
 >>>>>>> 0669a6f7e7f50ab01980d6636a1548264f5a7334
 741416789.index
 911398812.index
+=======
+555507292.index
+91639485.index
+1301684271.index
+4276758565.index
+>>>>>>> daa74de37e012e321f3349e5f90350ede4f1ba39
 2155685345.index
-971378871.index
-2458036738.index
-2476351216.index
 2831726757.index
+2458036738.index
 2408710212.index
-2777612265.index
+741416789.index
+911398812.index
+1558234620.index
+2476351216.index
+408771512.index
