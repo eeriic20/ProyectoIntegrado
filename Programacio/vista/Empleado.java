@@ -2,7 +2,7 @@ package vista;
 
 import java.sql.Date;
 
-public class Emleado extends Usuario {
+public class Empleado extends Usuario {
 
 	private int nomina;
 	private String dni;
@@ -10,13 +10,13 @@ public class Emleado extends Usuario {
 	private String tipoVehiculo;
 	private int numRepartos;
 
-	public Emleado() {
+	public Empleado() {
 
 		super();
 
 	}
 
-	public Emleado(String nombreUsuario, String contrasenya, String nombre, String apellidos, String correoElectronico,
+	public Empleado(String nombreUsuario, String contrasenya, String nombre, String apellidos, String correoElectronico,
 			String direccion, Date fechaNacimiento, int cP, String localidad, String genero, int nomina, String dni,
 			boolean carnet, String tipoVehiculo, int numRepartos) {
 
