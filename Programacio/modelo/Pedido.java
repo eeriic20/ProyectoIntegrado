@@ -1,4 +1,4 @@
-package vista;
+package modelo;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -6,10 +6,14 @@ import java.sql.Time;
 public class Pedido {
 
 	/**
-	 * @since 25-05-2021
+	 * <h1>Clase Pedido-Proyecto Integrado.</h1>
 	 * 
+	 * @author David, Alex y Eric.
+	 * 
+	 * @since 25/05/2021
+	 *
 	 */
-	
+
 	private Time horaPedido;
 	private Date fechaPedido;
 	private String estadoPedido;
@@ -17,24 +21,35 @@ public class Pedido {
 	private Empleado empleado;
 	private Cliente cliente;
 	private Comida menu;
+
 	/**
-	 * Constructor sin parametros
+	 * <h2>Constructor sin parametros.</h2>
+	 * 
+	 * Este es el constructor con todos los parametros por defecto.
 	 */
+
 	public Pedido() {
-		
+
 	}
+
 	/**
 	 * 
-	 * @param horaPedido
-	 * @param fechaPedido
-	 * @param estadoPedido
-	 * @param precioPedido
-	 * @param empleado
-	 * @param cliente
-	 * @param menu
+	 * <h2>Constructor con todos los datos insertados por parametro.</h2>
+	 * 
+	 * Este es elconstructor con todos los datos modificables por parametro.
+	 * 
+	 * @param horaPedido   es la hora a la que se ha realizado el pedido.
+	 * @param fechaPedido  es la fecha en la que se ha realizado el pedido.
+	 * @param estadoPedido es el estado del pedido, se refiere a si esta en camino o
+	 *                     se esta haciendo...
+	 * @param precioPedido es el coste del pedido.
+	 * @param empleado     es el empleado encargado de llevar el pedido.
+	 * @param cliente      es el cliente que ha realizado el pedido.
+	 * @param menu         el menu que ha sido pedido.
 	 */
-	public Pedido(Time horaPedido, Date fechaPedido, String estadoPedido, double precioPedido, Empleado empleado,Cliente cliente, Comida menu) {
-	
+	public Pedido(Time horaPedido, Date fechaPedido, String estadoPedido, double precioPedido, Empleado empleado,
+			Cliente cliente, Comida menu) {
+
 		this.horaPedido = horaPedido;
 		this.fechaPedido = fechaPedido;
 		this.estadoPedido = estadoPedido;
@@ -43,8 +58,11 @@ public class Pedido {
 		this.cliente = cliente;
 		this.menu = menu;
 	}
-	
+
 	/**
+	 * <h2>Getters y setters.</h2>
+	 * 
+	 * estos son los getters y setters de la clase.
 	 * 
 	 * @return
 	 */
@@ -103,10 +121,5 @@ public class Pedido {
 	public void setMenu(Comida menu) {
 		this.menu = menu;
 	}
-	
-	
-	
-	
-	
-	
+
 }
