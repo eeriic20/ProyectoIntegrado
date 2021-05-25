@@ -46,7 +46,7 @@ public class Usuario {
 	 * @param nombre el nombre real del usuario
 	 * @param apellido es el apellido del usuario
 	 * @param correoElectronico
-	 * @param fechaNacimiento
+	 * @param fechaNacimiento hola
 	 * @param direccion
 	 * @param codigoPostal
 	 * @param localidad
