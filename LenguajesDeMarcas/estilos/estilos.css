@@ -107,6 +107,7 @@ ul li a:hover {
 .derechos {
   background: black;
   color: white;
+  text-align: center;
   width: auto;
   height: auto;
   padding: 10px;
