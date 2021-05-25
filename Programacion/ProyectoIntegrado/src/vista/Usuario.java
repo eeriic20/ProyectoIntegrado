@@ -48,8 +48,8 @@ public class Usuario {
 	 * @param correoElectronico hola
 	 * @param fechaNacimiento hola
 	 * @param direccion
-	 * @param codigoPostal
-	 * @param localidad
+	 * @param codigoPostal 46740
+	 * @param localidad alzira
 	 * @param genero
 	 */
 
