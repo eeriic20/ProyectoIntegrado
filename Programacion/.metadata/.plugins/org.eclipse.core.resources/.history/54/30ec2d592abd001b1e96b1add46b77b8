@@ -1,0 +1,14 @@
+package vista;
+
+import java.util.Date;
+
+public class Usuario {
+	
+	private String nombreUsuario;
+	private String contrasenya;
+	private String nombre;
+	private String apellido;
+	private String correoElectronico;
+	private Date fechaNacimiento;
+
+}
