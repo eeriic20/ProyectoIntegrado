@@ -106,18 +106,127 @@ ul li a:hover {
 
 .derechos {
   background: black;
-  color: white;
   text-align: center;
   width: auto;
   height: auto;
+  color: white;
   padding: 10px;
 }
 
-a {
-  color: grey;
-  
+.interes{
+  margin-left: 5%;
+  color: white;
 }
 
-a:hover {
+.paginasfinales {
+  margin-left: 5%;
+  color: grey;
+}
+
+.paginasfinales:hover {
   color: brown;
+}
+
+.avisolegal {
+  text-align: center;
+}
+
+.paginacookies {
+  text-align: center;
+}
+
+.paginaprivacidad {
+  text-align: center;
+}
+
+.sobremi {
+  list-style-type: none;
+}
+
+.minombre {
+  text-align: center;
+  font-weight: bold;
+  margin-right: 7%;
+  margin-top: -2%;
+}
+
+.descripcion {
+  text-align: center;
+  margin-right: 7%;
+}
+
+.fotos {
+  margin-left: 30%
+}
+
+.descargartitulo {
+  font-weight: bold;
+  text-align: center;
+}
+
+.subtitulosdescargar {
+  text-align: center;
+}
+
+.linksdescargar {
+  text-decoration: none;
+  color: blue;
+}
+
+.linksdescargar:hover {
+  color: brown;
+}
+
+.tabla {
+  border-collapse: collapse;
+  border: 1px solid black;
+  text-align: center;
+  margin-left: 25%;
+  width: 50%;
+}
+
+.tablatitulo {
+  border-collapse: collapse;
+  border: 1px solid black;
+  text-align: center;
+  margin-left: 25%;
+  width: 50%;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.formulario{
+  border-collapse: collapse;
+  border: 1px solid black;
+  padding: 10px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.barra {
+  width: 30%;
+
+}
+
+.barra:hover {
+  background-color: #3D3006;
+  border-radius: 20px;
+  opacity: 80%;
+  color: white;
+}
+
+.barramensaje {
+  resize: none;
+}
+
+.barramensaje:hover {
+  background-color: #3D3006;
+  border-radius: 20px;
+  opacity: 80%;
+  color: white;
+}
+
+.boton:hover {
+  color: white;
+  background-color: #3D3006;
 }
