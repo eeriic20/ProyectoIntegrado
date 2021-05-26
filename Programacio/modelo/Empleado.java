@@ -17,6 +17,7 @@ public class Empleado extends Usuario {
 	private boolean carnet;
 	private String tipoVehiculo;
 	private int numRepartos;
+	private boolean disponibilidad;
 
 	/**
 	 * 
@@ -60,7 +61,7 @@ public class Empleado extends Usuario {
 
 	public Empleado(String nombreUsuario, String contrasenya, String nombre, String apellidos, String correoElectronico,
 			String direccion, Date fechaNacimiento, int cP, String localidad, String genero, int nomina, String dni,
-			boolean carnet, String tipoVehiculo, int numRepartos) {
+			boolean carnet, String tipoVehiculo, int numRepartos, boolean disponibilidad) {
 
 		super(nombreUsuario, contrasenya, nombre, apellidos, correoElectronico, direccion, fechaNacimiento, cP,
 				localidad, genero);
@@ -70,6 +71,7 @@ public class Empleado extends Usuario {
 		this.nomina = nomina;
 		this.numRepartos = numRepartos;
 		this.tipoVehiculo = tipoVehiculo;
+		this.disponibilidad = disponibilidad;
 
 	}
 
@@ -119,6 +121,14 @@ public class Empleado extends Usuario {
 
 	public void setNumRepartos(int numRepartos) {
 		this.numRepartos = numRepartos;
+	}
+	
+	public boolean isDisponibilidad() {
+		return disponibilidad;
+	}
+
+	public void setDisponibilidad(boolean disponibilidad) {
+		this.disponibilidad = disponibilidad;
 	}
 
 }
