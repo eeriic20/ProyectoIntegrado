@@ -43,7 +43,7 @@
 
 body {
   font-family: barlow condensed, sans-serif;
-  background-image: url("img/fondo.png");
+  background-image: url("fondo2.png");
   width: 80%;
   margin: 0 auto;
 }
@@ -64,7 +64,7 @@ body {
   width: auto;
   height: 50px;
   padding: 10px;
-  background: black;
+  background: #131212;
   color: white;
 }
 
@@ -84,7 +84,7 @@ ul li a {
 }
 
 ul li a:hover {
-  color: brown;
+  color: yellow;
 }
 
 .contenido {
@@ -93,6 +93,7 @@ ul li a:hover {
   width: auto;
   height: auto;
   padding: 10px;
+  color: #131212;
 }
 
 .piepagina {
@@ -124,7 +125,7 @@ ul li a:hover {
 }
 
 .paginasfinales:hover {
-  color: brown;
+  color: yellow;
 }
 
 .avisolegal {
@@ -174,12 +175,12 @@ ul li a:hover {
 }
 
 .linksdescargar:hover {
-  color: brown;
+  color: yellow;
 }
 
 .tabla {
   border-collapse: collapse;
-  border: 1px solid black;
+  border: 1px solid #131212;
   text-align: center;
   margin-left: 25%;
   width: 50%;
@@ -187,7 +188,7 @@ ul li a:hover {
 
 .tablatitulo {
   border-collapse: collapse;
-  border: 1px solid black;
+  border: 1px solid #131212;
   text-align: center;
   margin-left: 25%;
   width: 50%;
@@ -198,21 +199,23 @@ ul li a:hover {
 .formulario{
   border-collapse: collapse;
   border: 1px solid black;
+  border-radius: 20px;
   padding: 10px;
   margin-left: 25%;
   margin-right: 25%;
+  background-color: #B01818;
 }
 
 .barra {
   width: 30%;
-
+  height: 20px;
 }
 
 .barra:hover {
-  background-color: #3D3006;
+  background-color: yellow;
   border-radius: 20px;
   opacity: 80%;
-  color: white;
+  color: red;
 }
 
 .barramensaje {
@@ -220,13 +223,13 @@ ul li a:hover {
 }
 
 .barramensaje:hover {
-  background-color: #3D3006;
+  background-color: yellow;
   border-radius: 20px;
   opacity: 80%;
-  color: white;
+  color: red;
 }
 
 .boton:hover {
-  color: white;
-  background-color: #3D3006;
+  color: red;
+  background-color: yellow;
 }
