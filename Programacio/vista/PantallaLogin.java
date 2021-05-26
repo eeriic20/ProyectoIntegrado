@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -12,6 +13,11 @@ import javax.swing.JTextField;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import javax.swing.JRadioButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JCheckBox;
 
 public class PantallaLogin extends JFrame {
 	/**
@@ -24,13 +30,17 @@ public class PantallaLogin extends JFrame {
 	 */
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField usuario;
 	private JTextField textField_2;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
+	private JLabel lblUser;
 	private JLabel lblContrasea;
 	private JLabel lblNewLabel_1;
+	private JPasswordField password;
+	private JButton btnNewButton;
+	private JButton btnNewButton_1;
+	private JButton btnRegister;
 
 	/**
 	 * Create the frame.
@@ -48,33 +58,72 @@ public class PantallaLogin extends JFrame {
 		lblNewLabel_2.setBounds(0, -14, 186, 115);
 		contentPane.add(lblNewLabel_2);
 		
-		lblNewLabel_3 = new JLabel("Usuario:");
-		lblNewLabel_3.setFont(new Font("Segoe Print", Font.PLAIN, 30));
-		lblNewLabel_3.setBounds(351, 132, 136, 50);
-		contentPane.add(lblNewLabel_3);
+		lblUser = new JLabel("Usuario:");
+		lblUser.setFont(new Font("Segoe Print", Font.PLAIN, 30));
+		lblUser.setBounds(364, 127, 136, 50);
+		contentPane.add(lblUser);
 		
 		lblContrasea = new JLabel("Contrase\u00F1a:");
 		lblContrasea.setFont(new Font("Segoe Print", Font.PLAIN, 30));
-		lblContrasea.setBounds(330, 280, 194, 34);
+		lblContrasea.setBounds(331, 248, 194, 34);
 		contentPane.add(lblContrasea);
 		
-		JButton btnNewButton = new JButton("Login");
-		btnNewButton.setBounds(381, 391, 89, 23);
+		JButton btnLogin = new JButton("Login");
+		btnLogin.setBounds(317, 405, 89, 23);
+		contentPane.add(btnLogin);
+		
+		btnRegister = new JButton("Registrase");
+		btnRegister.setBounds(436, 405, 101, 23);
+		contentPane.add(btnRegister);
+		
+		usuario = new JTextField();
+		usuario.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		usuario.setBounds(317, 177, 220, 34);
+		contentPane.add(usuario);
+		usuario.setColumns(10);
+		
+		password = new JPasswordField();
+		password.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		password.setBounds(317, 303, 220, 34);
+		contentPane.add(password);
+		password.setColumns(10);
+		password.setEchoChar('*');
+		
+		btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				password.setEchoChar((char)0);
+				
+				btnNewButton.setVisible(false);
+				btnNewButton_1.setVisible(true);
+				
+			}
+		});
+		
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\verpass1.png"));
+		btnNewButton.setBounds(542, 303, 34, 34);
 		contentPane.add(btnNewButton);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(310, 325, 220, 34);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		btnNewButton_1 = new JButton("");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				password.setEchoChar('*');
+				
+				btnNewButton_1.setVisible(false);
+				btnNewButton.setVisible(true);
+				
+			}
+		});
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\noverPass1.png"));
+		btnNewButton_1.setBounds(542, 303, 34, 34);
+		contentPane.add(btnNewButton_1);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(310, 193, 220, 34);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
-		
-		lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\fondo4.jpg"));
-		lblNewLabel_1.setBounds(246, 99, 343, 370);
+		lblNewLabel_1.setBounds(250, 96, 363, 393);
 		contentPane.add(lblNewLabel_1);
 		
 		lblNewLabel = new JLabel("New label");
