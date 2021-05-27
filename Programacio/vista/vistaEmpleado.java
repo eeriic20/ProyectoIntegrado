@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.SwingConstants;
+import java.awt.Toolkit;
 
 public class vistaEmpleado extends JFrame {
 
@@ -24,6 +25,8 @@ public class vistaEmpleado extends JFrame {
 	 * Create the frame.
 	 */
 	public vistaEmpleado() {
+		setTitle("DELIVERY BUFA");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
 		contentPane = new JPanel();
