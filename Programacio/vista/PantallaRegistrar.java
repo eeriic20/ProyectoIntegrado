@@ -18,7 +18,6 @@ import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
-import java.awt.Toolkit;
 
 public class PantallaRegistrar extends JFrame {
 

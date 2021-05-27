@@ -82,14 +82,6 @@ public class PantallaLogin extends JFrame {
 		contentPane.add(btnLogin);
 		
 		btnRegister = new JButton("Registrase");
-		btnRegister.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				PantallaRegistrar frameRegis = new PantallaRegistrar();
-				frameRegis.setVisible(true);
-				
-			}
-		});
 		btnRegister.setBounds(436, 405, 101, 23);
 		contentPane.add(btnRegister);
 		
