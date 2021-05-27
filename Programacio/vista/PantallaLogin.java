@@ -12,10 +12,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
+
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 
@@ -45,17 +49,22 @@ public class PantallaLogin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
 	public PantallaLogin() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setFont(null);
+		setTitle("DELIVERY BUFA");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		this.setResizable(false);
 		
 		lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\logo.PNG"));
-		lblNewLabel_2.setBounds(0, -14, 186, 115);
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logo.PNG"));
+		lblNewLabel_2.setBounds(331, -12, 186, 115);
 		contentPane.add(lblNewLabel_2);
 		
 		lblUser = new JLabel("Usuario:");
@@ -101,7 +110,7 @@ public class PantallaLogin extends JFrame {
 			}
 		});
 		
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\verpass1.png"));
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\verpass1.png"));
 		btnNewButton.setBounds(542, 303, 34, 34);
 		contentPane.add(btnNewButton);
 		
@@ -116,22 +125,20 @@ public class PantallaLogin extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\noverPass1.png"));
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\noverPass1.png"));
 		btnNewButton_1.setBounds(542, 303, 34, 34);
 		contentPane.add(btnNewButton_1);
 		
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\fondo4.jpg"));
-		lblNewLabel_1.setBounds(250, 96, 363, 393);
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fondo4.jpg"));
+		lblNewLabel_1.setBounds(250, 93, 363, 393);
 		contentPane.add(lblNewLabel_1);
 		
-		lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\FondoLogearse.jpg"));
-		lblNewLabel.setBounds(-14, -35, 1136, 754);
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\FondoLogearse.jpg"));
+		lblNewLabel.setBounds(-133, -81, 1136, 754);
 		contentPane.add(lblNewLabel);
-		
-
 		
 
 	}
