@@ -24,7 +24,9 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
@@ -133,11 +135,11 @@ public class Registrarse2 extends JFrame {
 		textField.setBounds(435, 355, 111, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
+
 		JButton btnRegistrarse = new JButton("Registrarse");
 		btnRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				nombre = textField_Nombr.getText();
 				apellidos = textField_Apelli.getText();
 				cP = textField_CP.getText();
@@ -147,17 +149,15 @@ public class Registrarse2 extends JFrame {
 				contrasenya = contrasenyaC;
 				correo = correoC;
 				nombreUsuario = nombreUsuarioC;
-				
+
 				System.out.println(contrasenya);
 				System.out.println(correo);
 				System.out.println(nombreUsuario);
-				
-				
+
 				if (cP.equals("")) {
 
 					JOptionPane.showMessageDialog(null, "Rellena el Campo de Código Postal", "INFORMATION_MESSAGE",
 							JOptionPane.INFORMATION_MESSAGE);
-					
 
 				} else {
 
@@ -181,41 +181,63 @@ public class Registrarse2 extends JFrame {
 										"INFORMATION_MESSAGE", JOptionPane.INFORMATION_MESSAGE);
 
 							} else {
-								
+
 								Conexion cn = new Conexion();
 								Connection miConexion = cn.getConexion();
 								String mysql = "INSERT INTO persona(Nombre, Apellidos, NombreUsuario, Contraseña, Correo, Direccion, Localidad, CodigoPostal, FechaNacimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-								
+
 								try {
 									PreparedStatement pst = miConexion.prepareStatement(mysql);
-									
-								pst.setString(1, nombre);
-								pst.setString(2, apellidos);
-								pst.setString(3, nombreUsuario);
-								pst.setString(4, contrasenya);
-								pst.setString(5, correo);
-								pst.setString(6, direccion);
-								pst.setString(7, localidad);
-								pst.setString(8, cP);
-								pst.setString(9, fechaNac);
-									
-								if(pst.executeUpdate()==1) {
-									
-									PantallaLogin pL = new PantallaLogin();
-									pL.setVisible(true);
-									
-								}
-								
-								}
-								catch (SQLException e1){
-									
+
+									pst.setString(1, nombre);
+									pst.setString(2, apellidos);
+									pst.setString(3, nombreUsuario);
+									pst.setString(4, contrasenya);
+									pst.setString(5, correo);
+									pst.setString(6, direccion);
+									pst.setString(7, localidad);
+									pst.setString(8, cP);
+									pst.setString(9, fechaNac);
+
+									if (pst.executeUpdate() == 1) {
+
+										mysql = "INSERT INTO cliente(idCliente) VALUES (?)";
+
+										try {
+											pst = miConexion.prepareStatement(mysql);
+											
+											
+											Statement s = cn.getConexion().createStatement();
+											String sql = "select ID from persona where nombreUsuario = '"
+													+ nombreUsuario + "'";
+											ResultSet rs = s.executeQuery(sql);
+											
+											if(rs.next()) {
+												
+												String id = rs.getString("ID");
+												pst.setString(1, id);
+												
+											}
+
+											
+										} catch (SQLException e1) {
+
+											e1.printStackTrace();
+
+										}
+										if (pst.executeUpdate()==1) {
+
+											PantallaLogin pL = new PantallaLogin();
+											pL.setVisible(true);
+										}
+
+									}
+
+								} catch (SQLException e1) {
+
 									e1.printStackTrace();
-									
+
 								}
-								
-								
-								
-								
 
 							}
 
@@ -224,9 +246,9 @@ public class Registrarse2 extends JFrame {
 					}
 
 				}
-			
+
 			}
-				
+
 		});
 		btnRegistrarse.setBounds(403, 427, 89, 23);
 		contentPane.add(btnRegistrarse);
