@@ -1,8 +1,8 @@
-package conexion;
+package Conexion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+import vista.*;
 public class Conexion {
 
 	private final static String url = "jdbc:mysql://52.45.93.173/deliverybufa";
@@ -17,6 +17,7 @@ public class Conexion {
 
 			conexion = DriverManager.getConnection(url, user, pass);
 
+			
 		} catch (Exception e) {
 
 			e.printStackTrace();
