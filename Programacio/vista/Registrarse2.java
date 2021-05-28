@@ -23,6 +23,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
@@ -46,16 +48,14 @@ public class Registrarse2 extends JFrame {
 	private String localidad;
 	private PantallaRegistrar p = new PantallaRegistrar();
 	private String fechaNac;
-	JCheckBox chckbxChico;
-	JCheckBox chckbxChica;
 	private String contrasenya;
-	private String nombreUsuario;
 	private String correo;
+	private String nombreUsuario;
 
 	/**
 	 * Create the frame.
 	 */
-	public Registrarse2() {
+	public Registrarse2(String contrasenyaC, String correoC, String nombreUsuarioC) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
 		contentPane = new JPanel();
@@ -98,11 +98,6 @@ public class Registrarse2 extends JFrame {
 		lblDireccion.setFont(new Font("Segoe Print", Font.PLAIN, 15));
 		lblDireccion.setBounds(283, 287, 119, 16);
 		contentPane.add(lblDireccion);
-
-		JLabel lblGnero = new JLabel("G\u00E9nero:");
-		lblGnero.setFont(new Font("Segoe Print", Font.PLAIN, 15));
-		lblGnero.setBounds(283, 325, 70, 16);
-		contentPane.add(lblGnero);
 
 		JLabel lblLocalidad = new JLabel("Localidad:");
 		lblLocalidad.setFont(new Font("Segoe Print", Font.PLAIN, 15));
@@ -149,15 +144,20 @@ public class Registrarse2 extends JFrame {
 				direccion = textField_Direccion.getText();
 				localidad = textField.getText();
 				fechaNac = textField_FechaNac.getText();
-				nombreUsuario = p.nombreUsuario;
-				contrasenya = p.contrasenya;
-				correo = p.correoE;
+				contrasenya = contrasenyaC;
+				correo = correoC;
+				nombreUsuario = nombreUsuarioC;
+				
+				System.out.println(contrasenya);
+				System.out.println(correo);
+				System.out.println(nombreUsuario);
 				
 				
 				if (cP.equals("")) {
 
 					JOptionPane.showMessageDialog(null, "Rellena el Campo de Código Postal", "INFORMATION_MESSAGE",
 							JOptionPane.INFORMATION_MESSAGE);
+					
 
 				} else {
 
@@ -182,9 +182,40 @@ public class Registrarse2 extends JFrame {
 
 							} else {
 								
-								PantallaLogin pL = new PantallaLogin();
+								Conexion cn = new Conexion();
+								Connection miConexion = cn.getConexion();
+								String mysql = "INSERT INTO persona(Nombre, Apellidos, NombreUsuario, Contraseña, Correo, Direccion, Localidad, CodigoPostal, FechaNacimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 								
-								pL.setVisible(true);
+								try {
+									PreparedStatement pst = miConexion.prepareStatement(mysql);
+									
+								pst.setString(1, nombre);
+								pst.setString(2, apellidos);
+								pst.setString(3, nombreUsuario);
+								pst.setString(4, contrasenya);
+								pst.setString(5, correo);
+								pst.setString(6, direccion);
+								pst.setString(7, localidad);
+								pst.setString(8, cP);
+								pst.setString(9, fechaNac);
+									
+								if(pst.executeUpdate()==1) {
+									
+									PantallaLogin pL = new PantallaLogin();
+									pL.setVisible(true);
+									
+								}
+								
+								}
+								catch (SQLException e1){
+									
+									e1.printStackTrace();
+									
+								}
+								
+								
+								
+								
 
 							}
 
@@ -193,47 +224,12 @@ public class Registrarse2 extends JFrame {
 					}
 
 				}
-
-				Conexion cn = new Conexion();
-				Connection miConexion = cn.getConexion();
-				String mysql = "INSERT INTO persona(Nombre, Apellidos, NombreUsuario, Contraseña, Correo, Direccion, Localidad, CodigoPostal, FechaNacimiento) VALUES ('"+nombre+"','"+ apellidos+"', '"+nombreUsuario +"', '"+contrasenya +"', '"+correo +"', '"+direccion+"', '"+localidad +"', '"+cP +"','"+ fechaNac+"')";
-				
-				
+			
 			}
 				
 		});
 		btnRegistrarse.setBounds(403, 427, 89, 23);
 		contentPane.add(btnRegistrarse);
-
-		chckbxChico = new JCheckBox("Chico");
-		chckbxChico.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				if (chckbxChico.isSelected()) {
-
-					genero = "Chico";
-
-				}
-
-			}
-		});
-		chckbxChico.setBounds(492, 324, 81, 23);
-		contentPane.add(chckbxChico);
-
-		chckbxChica = new JCheckBox("Chica");
-		chckbxChica.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-
-				if (chckbxChica.isSelected()) {
-
-					genero = "Chica";
-
-				}
-
-			}
-		});
-		chckbxChica.setBounds(438, 324, 79, 23);
-		contentPane.add(chckbxChica);
 
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(

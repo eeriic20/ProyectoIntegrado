@@ -102,7 +102,7 @@ public class PantallaRegistrar extends JFrame {
 
 						if(pass1.equals(pass2)) {
 
-							Registrarse2 frame = new Registrarse2();
+							Registrarse2 frame = new Registrarse2(pass2, correo, usuario);
 							
 							frame.setVisible(true);
 							
