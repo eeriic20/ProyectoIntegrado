@@ -6,12 +6,18 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import conexion.Conexion;
+
 import javax.swing.JList;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.Color;
@@ -21,10 +27,11 @@ import java.awt.Toolkit;
 public class vistaEmpleado extends JFrame {
 
 	private JPanel contentPane;
+	private PantallaLogin pL = new PantallaLogin();
 	/**
 	 * Create the frame.
 	 */
-	public vistaEmpleado() {
+	public vistaEmpleado(String nombreUsuario) {
 		setTitle("DELIVERY BUFA");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -66,29 +73,78 @@ public class vistaEmpleado extends JFrame {
 		lblDisponibilidad.setBounds(29, 141, 129, 38);
 		contentPane.add(lblDisponibilidad);
 		
-		JLabel lblNombre_1 = new JLabel("**");
-		lblNombre_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNombre_1.setBounds(143, 141, 129, 38);
-		contentPane.add(lblNombre_1);
+		JLabel lblDisponibilidadR = new JLabel("**");
+		lblDisponibilidadR.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblDisponibilidadR.setBounds(143, 141, 129, 38);
+		contentPane.add(lblDisponibilidadR);
 		
-		JLabel lblNombre_2 = new JLabel("**");
-		lblNombre_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNombre_2.setBounds(143, 102, 129, 38);
-		contentPane.add(lblNombre_2);
+		JLabel lblLocalidadR = new JLabel("**");
+		lblLocalidadR.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblLocalidadR.setBounds(143, 102, 129, 38);
+		contentPane.add(lblLocalidadR);
 		
-		JLabel lblNombre_3 = new JLabel("**");
-		lblNombre_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNombre_3.setBounds(143, 61, 129, 38);
-		contentPane.add(lblNombre_3);
+		JLabel lblApellidosR = new JLabel("**");
+		lblApellidosR.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblApellidosR.setBounds(143, 61, 129, 38);
+		contentPane.add(lblApellidosR);
 		
-		JLabel lblNombre_4 = new JLabel("**");
-		lblNombre_4.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNombre_4.setBounds(143, 26, 129, 38);
-		contentPane.add(lblNombre_4);
+		JLabel lblNombreR = new JLabel("**");
+		lblNombreR.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNombreR.setBounds(143, 26, 129, 38);
+		contentPane.add(lblNombreR);
+
+		
+		JLabel lblrojo = new JLabel("No disponible");
+		lblrojo.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\rojo.jpg"));
+		lblrojo.setBackground(Color.WHITE);
+		lblrojo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblrojo.setBounds(704, 75, 102, 58);
+		contentPane.add(lblrojo);
+		
+		JLabel lblVerde = new JLabel("Disponible");
+		lblVerde.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\verde.jpg"));
+		lblVerde.setHorizontalAlignment(SwingConstants.CENTER);
+		lblVerde.setBackground(Color.WHITE);
+		lblVerde.setBounds(704, 75, 102, 58);
+		contentPane.add(lblVerde);
+		lblVerde.setVisible(false);
 		
 		JButton btnNewButton = new JButton("Disponible");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				lblrojo.setVisible(false);
+				lblVerde.setVisible(true);
+				
+				Conexion c = new Conexion();
+
+				try {
+					
+					
+					Statement s = c.getConexion().createStatement();
+					String sql = "select Nombre, Apellidos, Localidad from persona where NombreUsuario = '" +nombreUsuario+"'" ;  
+					ResultSet rs = s.executeQuery(sql);
+					
+					if(rs.next()) {
+					
+					String nombreEmp = rs.getString("Nombre");
+					String ApellidosEmp = rs.getString("Apellidos");
+					String LocalidadEmp = rs.getString("Localidad");
+					
+					lblNombreR.setText(nombreEmp);
+					lblApellidosR.setText(ApellidosEmp);
+					lblLocalidadR.setText(LocalidadEmp);
+					
+					lblDisponibilidadR.setText("Disponible");
+					
+					}
+					
+					
+				}catch (SQLException e) {
+					
+					e.printStackTrace();
+					
+				}
 				
 				
 				
@@ -100,24 +156,20 @@ public class vistaEmpleado extends JFrame {
 		JButton btnNewButton_1 = new JButton("No disponible");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				lblVerde.setVisible(false);
+				lblrojo.setVisible(true);
+				
+				lblNombreR.setText("**");
+				lblApellidosR.setText("**");
+				lblLocalidadR.setText("**");
+				
+				lblDisponibilidadR.setText("No disponible");
+				
 			}
 		});
 		btnNewButton_1.setBounds(327, 188, 113, 23);
 		contentPane.add(btnNewButton_1);
-		
-		JLabel lblNewLabel_4 = new JLabel("No disponible");
-		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\rojo.jpg"));
-		lblNewLabel_4.setBackground(Color.WHITE);
-		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4.setBounds(704, 75, 102, 58);
-		contentPane.add(lblNewLabel_4);
-		
-		JLabel lblNewLabel_4_1 = new JLabel("Disponible");
-		lblNewLabel_4_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\verde.jpg"));
-		lblNewLabel_4_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4_1.setBackground(Color.WHITE);
-		lblNewLabel_4_1.setBounds(704, 75, 102, 58);
-		contentPane.add(lblNewLabel_4_1);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logo.PNG"));
