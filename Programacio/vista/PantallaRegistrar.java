@@ -21,6 +21,7 @@ import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
+import java.awt.Toolkit;
 
 public class PantallaRegistrar extends JFrame {
 
@@ -41,6 +42,8 @@ public class PantallaRegistrar extends JFrame {
 	 * Create the frame.
 	 */
 	public PantallaRegistrar() {
+		setTitle("DELIVERY BUFA");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
 		contentPane = new JPanel();
@@ -103,7 +106,6 @@ public class PantallaRegistrar extends JFrame {
 						if(pass1.equals(pass2)) {
 
 							Registrarse2 frame = new Registrarse2(pass2, correo, usuario);
-							
 							frame.setVisible(true);
 							
 						}

@@ -33,7 +33,7 @@ public class MenuMcDonalds extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuMcDonalds() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\logofinal.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -49,49 +49,49 @@ public class MenuMcDonalds extends JFrame {
 		contentPane.add(lblEligeTuMen);
 		
 		JButton bigMac = new JButton("New button");
-		bigMac.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\mc\\menu-big-mac.png"));
+		bigMac.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\menu-big-mac.png"));
 		bigMac.setForeground(Color.WHITE);
 		bigMac.setBackground(Color.WHITE);
 		bigMac.setBounds(106, 52, 150, 150);
 		contentPane.add(bigMac);
 		
 		JButton cuartoLibra = new JButton("New button");
-		cuartoLibra.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\mc\\cuartodelibra.jpg"));
+		cuartoLibra.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\cuartodelibra.jpg"));
 		cuartoLibra.setForeground(Color.WHITE);
 		cuartoLibra.setBackground(Color.WHITE);
 		cuartoLibra.setBounds(336, 52, 150, 150);
 		contentPane.add(cuartoLibra);
 		
 		JButton mcPollo = new JButton("New button");
-		mcPollo.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\mc\\Mcmenu-mediano-mcpollo.jpg"));
+		mcPollo.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\Mcmenu-mediano-mcpollo.jpg"));
 		mcPollo.setForeground(Color.WHITE);
 		mcPollo.setBackground(Color.WHITE);
 		mcPollo.setBounds(569, 52, 150, 150);
 		contentPane.add(mcPollo);
 		
 		JButton styleChiken = new JButton("New button");
-		styleChiken.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\mc\\american-style-chicken-324x324.png"));
+		styleChiken.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\american-style-chicken-324x324.png"));
 		styleChiken.setForeground(Color.WHITE);
 		styleChiken.setBackground(Color.WHITE);
 		styleChiken.setBounds(106, 244, 150, 150);
 		contentPane.add(styleChiken);
 		
 		JButton happyMeal = new JButton("New button");
-		happyMeal.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\mc\\harapymeal.png"));
+		happyMeal.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\harapymeal.png"));
 		happyMeal.setForeground(Color.WHITE);
 		happyMeal.setBackground(Color.WHITE);
 		happyMeal.setBounds(336, 244, 150, 150);
 		contentPane.add(happyMeal);
 		
 		JButton grandMcExtreme = new JButton("New button");
-		grandMcExtreme.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\mc\\mc_menu_grand-mcextreme_double_bacon.png"));
+		grandMcExtreme.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\mc_menu_grand-mcextreme_double_bacon.png"));
 		grandMcExtreme.setForeground(Color.WHITE);
 		grandMcExtreme.setBackground(Color.WHITE);
 		grandMcExtreme.setBounds(569, 244, 150, 150);
 		contentPane.add(grandMcExtreme);
 		
 		JButton mcFish = new JButton("New button");
-		mcFish.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\mc\\Mcfish.png"));
+		mcFish.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\Mcfish.png"));
 		mcFish.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -102,14 +102,14 @@ public class MenuMcDonalds extends JFrame {
 		contentPane.add(mcFish);
 		
 		JButton hamburguesaConQueso = new JButton("New button");
-		hamburguesaConQueso.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\mc\\menu-hamburguesa-doble-cheese-burger.jpg"));
+		hamburguesaConQueso.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\menu-hamburguesa-doble-cheese-burger.jpg"));
 		hamburguesaConQueso.setForeground(Color.WHITE);
 		hamburguesaConQueso.setBackground(Color.WHITE);
 		hamburguesaConQueso.setBounds(336, 418, 150, 150);
 		contentPane.add(hamburguesaConQueso);
 		
 		JButton mcWrap = new JButton("New button");
-		mcWrap.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\mc\\mcwrap.jpg"));
+		mcWrap.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\mcwrap.jpg"));
 		mcWrap.setForeground(Color.WHITE);
 		mcWrap.setBackground(Color.WHITE);
 		mcWrap.setBounds(569, 418, 150, 150);

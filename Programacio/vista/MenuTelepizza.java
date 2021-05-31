@@ -33,7 +33,7 @@ public class MenuTelepizza extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuTelepizza() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\logofinal.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -49,49 +49,49 @@ public class MenuTelepizza extends JFrame {
 		contentPane.add(lblEligeTuMen);
 
 		JButton barbacoa = new JButton("New button");
-		barbacoa.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\telepizza\\barbacoa.jpg"));
+		barbacoa.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\barbacoa.jpg"));
 		barbacoa.setForeground(Color.WHITE);
 		barbacoa.setBackground(Color.WHITE);
 		barbacoa.setBounds(106, 52, 150, 150);
 		contentPane.add(barbacoa);
 
 		JButton carbonara = new JButton("New button");
-		carbonara.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\telepizza\\carbonara.jpg"));
+		carbonara.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\carbonara.jpg"));
 		carbonara.setForeground(Color.WHITE);
 		carbonara.setBackground(Color.WHITE);
 		carbonara.setBounds(336, 52, 150, 150);
 		contentPane.add(carbonara);
 
 		JButton hawaiana = new JButton("New button");
-		hawaiana.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\telepizza\\hawaina.jpg"));
+		hawaiana.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\hawaina.jpg"));
 		hawaiana.setForeground(Color.WHITE);
 		hawaiana.setBackground(Color.WHITE);
 		hawaiana.setBounds(569, 52, 150, 150);
 		contentPane.add(hawaiana);
 
 		JButton cebolla = new JButton("New button");
-		cebolla.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\telepizza\\cebolla.jpg"));
+		cebolla.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\cebolla.jpg"));
 		cebolla.setForeground(Color.WHITE);
 		cebolla.setBackground(Color.WHITE);
 		cebolla.setBounds(106, 244, 150, 150);
 		contentPane.add(cebolla);
 
 		JButton peperoni = new JButton("New button");
-		peperoni.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\telepizza\\peperoni.jpg"));
+		peperoni.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\peperoni.jpg"));
 		peperoni.setForeground(Color.WHITE);
 		peperoni.setBackground(Color.WHITE);
 		peperoni.setBounds(336, 244, 150, 150);
 		contentPane.add(peperoni);
 
 		JButton baconCrispy = new JButton("New button");
-		baconCrispy.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\telepizza\\baconcrispy.jpg"));
+		baconCrispy.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\baconcrispy.jpg"));
 		baconCrispy.setForeground(Color.WHITE);
 		baconCrispy.setBackground(Color.WHITE);
 		baconCrispy.setBounds(569, 244, 150, 150);
 		contentPane.add(baconCrispy);
 
 		JButton vulcanoNachos = new JButton("New button");
-		vulcanoNachos.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\telepizza\\vulcanonachos.jpg"));
+		vulcanoNachos.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\vulcanonachos.jpg"));
 		vulcanoNachos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -102,14 +102,14 @@ public class MenuTelepizza extends JFrame {
 		contentPane.add(vulcanoNachos);
 
 		JButton tandemGourmet = new JButton("New button");
-		tandemGourmet.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\telepizza\\tandemgourmet.jpg"));
+		tandemGourmet.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\tandemgourmet.jpg"));
 		tandemGourmet.setForeground(Color.WHITE);
 		tandemGourmet.setBackground(Color.WHITE);
 		tandemGourmet.setBounds(336, 418, 150, 150);
 		contentPane.add(tandemGourmet);
 
 		JButton supreme = new JButton("New button");
-		supreme.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\telepizza\\supreme.jpg"));
+		supreme.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\supreme.jpg"));
 		supreme.setForeground(Color.WHITE);
 		supreme.setBackground(Color.WHITE);
 		supreme.setBounds(569, 418, 150, 150);

@@ -33,7 +33,7 @@ public class MenuKFC extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuKFC() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\logofinal.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -49,49 +49,53 @@ public class MenuKFC extends JFrame {
 		contentPane.add(lblEligeTuMen);
 
 		JButton doble = new JButton("New button");
-		doble.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kfc\\doble bbq cheesburger.jpg"));
+		doble.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\doble bbq cheesburger.jpg"));
 		doble.setForeground(Color.WHITE);
 		doble.setBackground(Color.WHITE);
 		doble.setBounds(106, 52, 150, 150);
 		contentPane.add(doble);
 
 		JButton cheese = new JButton("New button");
-		cheese.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kfc\\doblecheesburger.jpg"));
+		cheese.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\doblecheesburger.jpg"));
 		cheese.setForeground(Color.WHITE);
 		cheese.setBackground(Color.WHITE);
 		cheese.setBounds(336, 52, 150, 150);
 		contentPane.add(cheese);
 
 		JButton baconcheese = new JButton("New button");
-		baconcheese.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kfc\\bbqbaconcheesburger.jpg"));
+		baconcheese.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\bbqbaconcheesburger.jpg"));
 		baconcheese.setForeground(Color.WHITE);
 		baconcheese.setBackground(Color.WHITE);
 		baconcheese.setBounds(569, 52, 150, 150);
 		contentPane.add(baconcheese);
 
 		JButton sobrada = new JButton("New button");
-		sobrada.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kfc\\sobrada.jpg"));
+		sobrada.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\sobrada.jpg"));
 		sobrada.setForeground(Color.WHITE);
 		sobrada.setBackground(Color.WHITE);
 		sobrada.setBounds(106, 244, 150, 150);
 		contentPane.add(sobrada);
 
 		JButton mazorca = new JButton("New button");
-		mazorca.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kfc\\41379.jpg"));
+		mazorca.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\41379.jpg"));
 		mazorca.setForeground(Color.WHITE);
 		mazorca.setBackground(Color.WHITE);
 		mazorca.setBounds(336, 244, 150, 150);
 		contentPane.add(mazorca);
 
 		JButton twister = new JButton("New button");
-		twister.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kfc\\twister.jpg"));
+		twister.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		twister.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\twister.jpg"));
 		twister.setForeground(Color.WHITE);
 		twister.setBackground(Color.WHITE);
 		twister.setBounds(569, 244, 150, 150);
 		contentPane.add(twister);
 
 		JButton orginal = new JButton("New button");
-		orginal.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kfc\\originalburger.jpg"));
+		orginal.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\originalburger.jpg"));
 		orginal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -102,14 +106,14 @@ public class MenuKFC extends JFrame {
 		contentPane.add(orginal);
 
 		JButton bucket = new JButton("New button");
-		bucket.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kfc\\bucketmix.jpg"));
+		bucket.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\bucketmix.jpg"));
 		bucket.setForeground(Color.WHITE);
 		bucket.setBackground(Color.WHITE);
 		bucket.setBounds(336, 418, 150, 150);
 		contentPane.add(bucket);
 
 		JButton picantes = new JButton((String) null);
-		picantes.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kfc\\picantes.jpg"));
+		picantes.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\picantes.jpg"));
 		picantes.setForeground(Color.WHITE);
 		picantes.setBackground(Color.WHITE);
 		picantes.setBounds(569, 418, 150, 150);

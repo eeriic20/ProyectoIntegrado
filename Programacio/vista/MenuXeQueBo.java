@@ -49,49 +49,49 @@ public class MenuXeQueBo extends JFrame {
 		contentPane.add(lblEligeTuMen);
 
 		JButton chivito = new JButton("New button");
-		chivito.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\xequebo\\xivito.jpg"));
+		chivito.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\xivito.jpg"));
 		chivito.setForeground(Color.WHITE);
 		chivito.setBackground(Color.WHITE);
 		chivito.setBounds(106, 52, 150, 150);
 		contentPane.add(chivito);
 
 		JButton breton = new JButton("New button");
-		breton.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\xequebo\\lomo-con-queso.jpg"));
+		breton.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\lomo-con-queso.jpg"));
 		breton.setForeground(Color.WHITE);
 		breton.setBackground(Color.WHITE);
 		breton.setBounds(336, 52, 150, 150);
 		contentPane.add(breton);
 
 		JButton brascada = new JButton("New button");
-		brascada.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\xequebo\\Brascada-o-Bocadillo-de-ternera-Receta-tipica-de-Valencia.jpg"));
+		brascada.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\Brascada-o-Bocadillo-de-ternera-Receta-tipica-de-Valencia.jpg"));
 		brascada.setForeground(Color.WHITE);
 		brascada.setBackground(Color.WHITE);
 		brascada.setBounds(569, 52, 150, 150);
 		contentPane.add(brascada);
 
 		JButton caballo = new JButton("New button");
-		caballo.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\xequebo\\CARNE-DE-CABALLO-e1572524562624.png"));
+		caballo.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\CARNE-DE-CABALLO-e1572524562624.png"));
 		caballo.setForeground(Color.WHITE);
 		caballo.setBackground(Color.WHITE);
 		caballo.setBounds(106, 244, 150, 150);
 		contentPane.add(caballo);
 
 		JButton calamares = new JButton("New button");
-		calamares.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\xequebo\\bocadillo-calamares.jpg"));
+		calamares.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\bocadillo-calamares.jpg"));
 		calamares.setForeground(Color.WHITE);
 		calamares.setBackground(Color.WHITE);
 		calamares.setBounds(336, 244, 150, 150);
 		contentPane.add(calamares);
 
 		JButton sepia = new JButton("New button");
-		sepia.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\xequebo\\SEPIA-e1572524731254-1024x422.png"));
+		sepia.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\SEPIA-e1572524731254-1024x422.png"));
 		sepia.setForeground(Color.WHITE);
 		sepia.setBackground(Color.WHITE);
 		sepia.setBounds(569, 244, 150, 150);
 		contentPane.add(sepia);
 
 		JButton crujiente = new JButton("New button");
-		crujiente.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\xequebo\\bocadillo-tortilla-variada.jpg"));
+		crujiente.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\bocadillo-tortilla-variada.jpg"));
 		crujiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -102,14 +102,14 @@ public class MenuXeQueBo extends JFrame {
 		contentPane.add(crujiente);
 
 		JButton jamon = new JButton("New button");
-		jamon.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\xequebo\\jamwich.jpg"));
+		jamon.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\jamwich.jpg"));
 		jamon.setForeground(Color.WHITE);
 		jamon.setBackground(Color.WHITE);
 		jamon.setBounds(336, 418, 150, 150);
 		contentPane.add(jamon);
 
 		JButton boquerones = new JButton((String) null);
-		boquerones.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\xequebo\\boquerones-1.jpg"));
+		boquerones.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\boquerones-1.jpg"));
 		boquerones.setForeground(Color.WHITE);
 		boquerones.setBackground(Color.WHITE);
 		boquerones.setBounds(569, 418, 150, 150);

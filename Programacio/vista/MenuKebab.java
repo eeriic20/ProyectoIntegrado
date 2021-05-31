@@ -33,7 +33,7 @@ public class MenuKebab extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuKebab() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\logofinal.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -49,49 +49,49 @@ public class MenuKebab extends JFrame {
 		contentPane.add(lblEligeTuMen);
 
 		JButton mixto = new JButton("New button");
-		mixto.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kebab\\mixto.jpg"));
+		mixto.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\mixto.jpg"));
 		mixto.setForeground(Color.WHITE);
 		mixto.setBackground(Color.WHITE);
 		mixto.setBounds(106, 52, 150, 150);
 		contentPane.add(mixto);
 
 		JButton ternera = new JButton("New button");
-		ternera.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kebab\\ternera.jpg"));
+		ternera.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\ternera.jpg"));
 		ternera.setForeground(Color.WHITE);
 		ternera.setBackground(Color.WHITE);
 		ternera.setBounds(336, 52, 150, 150);
 		contentPane.add(ternera);
 
 		JButton pollo = new JButton("New button");
-		pollo.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kebab\\kebab_de_pollo_casero.jpg"));
+		pollo.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\pollo.jpg"));
 		pollo.setForeground(Color.WHITE);
 		pollo.setBackground(Color.WHITE);
 		pollo.setBounds(569, 52, 150, 150);
 		contentPane.add(pollo);
 
 		JButton mixtoPita = new JButton("New button");
-		mixtoPita.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kebab\\mixtopanpita.png"));
+		mixtoPita.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\mixtopanpita.png"));
 		mixtoPita.setForeground(Color.WHITE);
 		mixtoPita.setBackground(Color.WHITE);
 		mixtoPita.setBounds(106, 244, 150, 150);
 		contentPane.add(mixtoPita);
 
 		JButton terneraPita = new JButton("New button");
-		terneraPita.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kebab\\ternerapanpita.png"));
+		terneraPita.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\ternerapanpita.png"));
 		terneraPita.setForeground(Color.WHITE);
 		terneraPita.setBackground(Color.WHITE);
 		terneraPita.setBounds(336, 244, 150, 150);
 		contentPane.add(terneraPita);
 
 		JButton polloPita = new JButton("New button");
-		polloPita.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kebab\\pollopanpita.jpg"));
+		polloPita.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\pollopanpita.jpg"));
 		polloPita.setForeground(Color.WHITE);
 		polloPita.setBackground(Color.WHITE);
 		polloPita.setBounds(569, 244, 150, 150);
 		contentPane.add(polloPita);
 
 		JButton pizzaKebab = new JButton("New button");
-		pizzaKebab.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kebab\\kebabpizza2.jpg"));
+		pizzaKebab.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\kebabpizza2.jpg"));
 		pizzaKebab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -102,14 +102,14 @@ public class MenuKebab extends JFrame {
 		contentPane.add(pizzaKebab);
 
 		JButton jamonQueso = new JButton("New button");
-		jamonQueso.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kebab\\pizza_jamonyqueso_sinlactosa_730x470.jpg"));
+		jamonQueso.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\pizza_jamonyqueso_sinlactosa_730x470.jpg"));
 		jamonQueso.setForeground(Color.WHITE);
 		jamonQueso.setBackground(Color.WHITE);
 		jamonQueso.setBounds(336, 418, 150, 150);
 		contentPane.add(jamonQueso);
 
 		JButton barbacoa = new JButton((String) null);
-		barbacoa.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\kebab\\pizza-barbacoa-xxl.jpg"));
+		barbacoa.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\pizza-barbacoa-xxl.jpg"));
 		barbacoa.setForeground(Color.WHITE);
 		barbacoa.setBackground(Color.WHITE);
 		barbacoa.setBounds(569, 418, 150, 150);

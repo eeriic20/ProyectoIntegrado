@@ -18,22 +18,11 @@ import javax.swing.border.EmptyBorder;
 public class MenuFosters extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	/*
-	 * public static void main(String[] args) { EventQueue.invokeLater(new
-	 * Runnable() { public void run() { try { MenusFosters frame = new
-	 * MenusFosters(); frame.setVisible(true); } catch (Exception e) {
-	 * e.printStackTrace(); } } }); }
-	 */
-
 	/**
 	 * Create the frame.
 	 */
 	public MenuFosters() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\logofinal.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -49,49 +38,49 @@ public class MenuFosters extends JFrame {
 		contentPane.add(lblEligeTuMen);
 
 		JButton combo = new JButton("New button");
-		combo.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\fosters\\hollywood-combo.png"));
+		combo.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\hollywood-combo.png"));
 		combo.setForeground(Color.WHITE);
 		combo.setBackground(Color.WHITE);
 		combo.setBounds(106, 52, 150, 150);
 		contentPane.add(combo);
 
 		JButton newyorker = new JButton("New button");
-		newyorker.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\fosters\\new_yorker_1000x495_0.png"));
+		newyorker.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\new_yorker_1000x495_0.png"));
 		newyorker.setForeground(Color.WHITE);
 		newyorker.setBackground(Color.WHITE);
 		newyorker.setBounds(336, 52, 150, 150);
 		contentPane.add(newyorker);
 
 		JButton national = new JButton("New button");
-		national.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\fosters\\national-ribs-de-cerdo.png"));
+		national.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\national-ribs-de-cerdo.png"));
 		national.setForeground(Color.WHITE);
 		national.setBackground(Color.WHITE);
 		national.setBounds(569, 52, 150, 150);
 		contentPane.add(national);
 
 		JButton tribella = new JButton("New button");
-		tribella.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\fosters\\fosters_burgers_2_tribeca.png"));
+		tribella.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\fosters_burgers_2_tribeca.png"));
 		tribella.setForeground(Color.WHITE);
 		tribella.setBackground(Color.WHITE);
 		tribella.setBounds(106, 244, 150, 150);
 		contentPane.add(tribella);
 
 		JButton guacamole = new JButton("New button");
-		guacamole.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\fosters\\guacamole-hecho-en-tu-mesa.png"));
+		guacamole.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\guacamole-hecho-en-tu-mesa.png"));
 		guacamole.setForeground(Color.WHITE);
 		guacamole.setBackground(Color.WHITE);
 		guacamole.setBounds(336, 244, 150, 150);
 		contentPane.add(guacamole);
 
 		JButton bone = new JButton("New button");
-		bone.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\fosters\\beef-bone.png"));
+		bone.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\beef-bone.png"));
 		bone.setForeground(Color.WHITE);
 		bone.setBackground(Color.WHITE);
 		bone.setBounds(569, 244, 150, 150);
 		contentPane.add(bone);
 
 		JButton costillas = new JButton("New button");
-		costillas.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\fosters\\costillas-ibericas-black-label.png"));
+		costillas.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\costillas-ibericas-black-label.png"));
 		costillas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -102,14 +91,14 @@ public class MenuFosters extends JFrame {
 		contentPane.add(costillas);
 
 		JButton raclette = new JButton("New button");
-		raclette.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\fosters\\xracllette-fh.pngqitoknyfqozeb.pagespeed.ic_.8pekl6yknf.png"));
+		raclette.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\xracllette-fh.pngqitoknyfqozeb.pagespeed.ic_.8pekl6yknf.png"));
 		raclette.setForeground(Color.WHITE);
 		raclette.setBackground(Color.WHITE);
 		raclette.setBounds(336, 418, 150, 150);
 		contentPane.add(raclette);
 
 		JButton cheese = new JButton((String) null);
-		cheese.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\fosters\\cheese-burger_optimizado.png"));
+		cheese.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\cheese-burger_optimizado.png"));
 		cheese.setForeground(Color.WHITE);
 		cheese.setBackground(Color.WHITE);
 		cheese.setBounds(569, 418, 150, 150);

@@ -7,17 +7,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import org.jdatepicker.impl.JDatePanelImpl;
-import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
-
-import Conexion.Conexion;
 import modelo.Cliente;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Font;
+import java.awt.Window;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -32,6 +29,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 import javax.swing.JList;
 import javax.swing.JProgressBar;
+import conexion.*;
 
 public class Registrarse2 extends JFrame {
 
@@ -48,7 +46,6 @@ public class Registrarse2 extends JFrame {
 	private String genero;
 	private String direccion;
 	private String localidad;
-	private PantallaRegistrar p = new PantallaRegistrar();
 	private String fechaNac;
 	private String contrasenya;
 	private String correo;
@@ -64,6 +61,7 @@ public class Registrarse2 extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		this.setResizable(false);
 
 		JLabel lblNewLabel_Logo = new JLabel("");
 		lblNewLabel_Logo.setIcon(new ImageIcon(
@@ -150,10 +148,6 @@ public class Registrarse2 extends JFrame {
 				correo = correoC;
 				nombreUsuario = nombreUsuarioC;
 
-				System.out.println(contrasenya);
-				System.out.println(correo);
-				System.out.println(nombreUsuario);
-
 				if (cP.equals("")) {
 
 					JOptionPane.showMessageDialog(null, "Rellena el Campo de Código Postal", "INFORMATION_MESSAGE",
@@ -228,7 +222,10 @@ public class Registrarse2 extends JFrame {
 										if (pst.executeUpdate()==1) {
 
 											PantallaLogin pL = new PantallaLogin();
+											contentPane.setVisible(false);
 											pL.setVisible(true);
+											
+											
 										}
 
 									}

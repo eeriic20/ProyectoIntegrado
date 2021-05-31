@@ -33,7 +33,7 @@ public class MenuPans extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuPans() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\logofinal.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -49,49 +49,49 @@ public class MenuPans extends JFrame {
 		contentPane.add(lblEligeTuMen);
 
 		JButton pechuga = new JButton("New button");
-		pechuga.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\pans\\1pechugapollo.jpg"));
+		pechuga.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\pans\\1pechugapollo.jpg"));
 		pechuga.setForeground(Color.WHITE);
 		pechuga.setBackground(Color.WHITE);
 		pechuga.setBounds(106, 52, 150, 150);
 		contentPane.add(pechuga);
 
 		JButton breton = new JButton("New button");
-		breton.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\pans\\BRET\u00D3N.jpg"));
+		breton.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\pans\\BRET\u00D3N.jpg"));
 		breton.setForeground(Color.WHITE);
 		breton.setBackground(Color.WHITE);
 		breton.setBounds(336, 52, 150, 150);
 		contentPane.add(breton);
 
 		JButton iberico = new JButton("New button");
-		iberico.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\pans\\IB\u00C9RICO.jpg"));
+		iberico.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\pans\\IB\u00C9RICO.jpg"));
 		iberico.setForeground(Color.WHITE);
 		iberico.setBackground(Color.WHITE);
 		iberico.setBounds(569, 52, 150, 150);
 		contentPane.add(iberico);
 
 		JButton british = new JButton("New button");
-		british.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\pans\\BRITISH BACON.jpg"));
+		british.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\pans\\BRITISH BACON.jpg"));
 		british.setForeground(Color.WHITE);
 		british.setBackground(Color.WHITE);
 		british.setBounds(106, 244, 150, 150);
 		contentPane.add(british);
 
 		JButton serrano = new JButton("New button");
-		serrano.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\pans\\serranobrie.jpg"));
+		serrano.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\pans\\POLLO ASADO BRIE.jpg"));
 		serrano.setForeground(Color.WHITE);
 		serrano.setBackground(Color.WHITE);
 		serrano.setBounds(336, 244, 150, 150);
 		contentPane.add(serrano);
 
 		JButton supreme = new JButton("New button");
-		supreme.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\pans\\POLLO SUPREME.jpg"));
+		supreme.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\pans\\POLLO SUPREME.jpg"));
 		supreme.setForeground(Color.WHITE);
 		supreme.setBackground(Color.WHITE);
 		supreme.setBounds(569, 244, 150, 150);
 		contentPane.add(supreme);
 
 		JButton crujiente = new JButton("New button");
-		crujiente.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\pans\\CRUJIENTE DE POLLO Y BACON.jpg"));
+		crujiente.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\pans\\CRUJIENTE DE POLLO Y BACON.jpg"));
 		crujiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -102,14 +102,14 @@ public class MenuPans extends JFrame {
 		contentPane.add(crujiente);
 
 		JButton pulled = new JButton("New button");
-		pulled.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\pans\\PULLED PORK BBQ.jpg"));
+		pulled.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\pans\\PULLED PORK BBQ.jpg"));
 		pulled.setForeground(Color.WHITE);
 		pulled.setBackground(Color.WHITE);
 		pulled.setBounds(336, 418, 150, 150);
 		contentPane.add(pulled);
 
 		JButton asado = new JButton((String) null);
-		asado.setIcon(new ImageIcon("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\pans\\POLLO ASADO BRIE.jpg"));
+		asado.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\pans\\POLLO ASADO BRIE.jpg"));
 		asado.setForeground(Color.WHITE);
 		asado.setBackground(Color.WHITE);
 		asado.setBounds(569, 418, 150, 150);
