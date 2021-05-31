@@ -33,7 +33,7 @@ public class MenuPans extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuPans() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\logofinal.png"));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -56,6 +56,10 @@ public class MenuPans extends JFrame {
 		contentPane.add(pechuga);
 
 		JButton breton = new JButton("New button");
+		breton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		breton.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\pans\\BRET\u00D3N.jpg"));
 		breton.setForeground(Color.WHITE);
 		breton.setBackground(Color.WHITE);
@@ -77,7 +81,7 @@ public class MenuPans extends JFrame {
 		contentPane.add(british);
 
 		JButton serrano = new JButton("New button");
-		serrano.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\pans\\POLLO ASADO BRIE.jpg"));
+		serrano.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\pans\\serranobrie.jpg"));
 		serrano.setForeground(Color.WHITE);
 		serrano.setBackground(Color.WHITE);
 		serrano.setBounds(336, 244, 150, 150);
@@ -117,7 +121,7 @@ public class MenuPans extends JFrame {
 
 		JLabel lblNewLabel = new JLabel("Pechuga de Pollo");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel.setBounds(130, 201, 120, 33);
+		lblNewLabel.setBounds(130, 201, 107, 33);
 		contentPane.add(lblNewLabel);
 
 		JLabel newu = new JLabel("Bret\u00F3n");
@@ -159,6 +163,96 @@ public class MenuPans extends JFrame {
 		hola.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		hola.setBounds(593, 566, 126, 25);
 		contentPane.add(hola);
+		
+		JLabel lblNewLabel_1 = new JLabel("4");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1.setBounds(243, 213, 13, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel label = new JLabel("\u20AC");
+		label.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label.setBounds(254, 213, 46, 14);
+		contentPane.add(label);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("5");
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_1.setBounds(427, 212, 13, 14);
+		contentPane.add(lblNewLabel_1_1);
+		
+		JLabel lblNewLabel_1_2 = new JLabel("4");
+		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_2.setBounds(676, 213, 13, 14);
+		contentPane.add(lblNewLabel_1_2);
+		
+		JLabel lblNewLabel_1_3 = new JLabel("4");
+		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_3.setBounds(230, 399, 13, 14);
+		contentPane.add(lblNewLabel_1_3);
+		
+		JLabel lblNewLabel_1_4 = new JLabel("5");
+		lblNewLabel_1_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_4.setBounds(438, 399, 13, 14);
+		contentPane.add(lblNewLabel_1_4);
+		
+		JLabel lblNewLabel_1_5 = new JLabel("5");
+		lblNewLabel_1_5.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_5.setBounds(695, 399, 13, 14);
+		contentPane.add(lblNewLabel_1_5);
+		
+		JLabel lblNewLabel_1_6 = new JLabel("4");
+		lblNewLabel_1_6.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_6.setBounds(266, 573, 13, 14);
+		contentPane.add(lblNewLabel_1_6);
+		
+		JLabel lblNewLabel_1_7 = new JLabel("6");
+		lblNewLabel_1_7.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_7.setBounds(461, 573, 13, 14);
+		contentPane.add(lblNewLabel_1_7);
+		
+		JLabel lblNewLabel_1_8 = new JLabel("6");
+		lblNewLabel_1_8.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_8.setBounds(695, 573, 13, 14);
+		contentPane.add(lblNewLabel_1_8);
+		
+		JLabel label_1 = new JLabel("\u20AC");
+		label_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_1.setBounds(440, 213, 46, 14);
+		contentPane.add(label_1);
+		
+		JLabel label_2 = new JLabel("\u20AC");
+		label_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_2.setBounds(687, 213, 46, 14);
+		contentPane.add(label_2);
+		
+		JLabel label_3 = new JLabel("\u20AC");
+		label_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_3.setBounds(243, 399, 46, 14);
+		contentPane.add(label_3);
+		
+		JLabel label_4 = new JLabel("\u20AC");
+		label_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_4.setBounds(453, 399, 46, 14);
+		contentPane.add(label_4);
+		
+		JLabel label_5 = new JLabel("\u20AC");
+		label_5.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_5.setBounds(705, 399, 46, 14);
+		contentPane.add(label_5);
+		
+		JLabel label_6 = new JLabel("\u20AC");
+		label_6.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_6.setBounds(279, 573, 46, 14);
+		contentPane.add(label_6);
+		
+		JLabel label_7 = new JLabel("\u20AC");
+		label_7.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_7.setBounds(473, 573, 46, 14);
+		contentPane.add(label_7);
+		
+		JLabel label_8 = new JLabel("\u20AC");
+		label_8.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_8.setBounds(705, 573, 46, 14);
+		contentPane.add(label_8);
 	}
 
 }

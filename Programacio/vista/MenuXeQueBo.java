@@ -117,7 +117,7 @@ public class MenuXeQueBo extends JFrame {
 
 		JLabel lblNewLabel = new JLabel("Chivito");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel.setBounds(149, 200, 68, 33);
+		lblNewLabel.setBounds(149, 200, 46, 33);
 		contentPane.add(lblNewLabel);
 
 		JLabel newu = new JLabel("Lomo con Queso");
@@ -159,6 +159,96 @@ public class MenuXeQueBo extends JFrame {
 		hola.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		hola.setBounds(606, 566, 91, 25);
 		contentPane.add(hola);
+		
+		JLabel label = new JLabel("5");
+		label.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label.setBounds(214, 209, 8, 14);
+		contentPane.add(label);
+		
+		JLabel label_1 = new JLabel("\u20AC");
+		label_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_1.setBounds(221, 209, 46, 14);
+		contentPane.add(label_1);
+		
+		JLabel label_2 = new JLabel("5");
+		label_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_2.setBounds(467, 211, 8, 14);
+		contentPane.add(label_2);
+		
+		JLabel label_3 = new JLabel("5");
+		label_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_3.setBounds(673, 211, 8, 14);
+		contentPane.add(label_3);
+		
+		JLabel label_4 = new JLabel("6");
+		label_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_4.setBounds(234, 399, 8, 14);
+		contentPane.add(label_4);
+		
+		JLabel label_5 = new JLabel("4");
+		label_5.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_5.setBounds(443, 399, 8, 14);
+		contentPane.add(label_5);
+		
+		JLabel label_6 = new JLabel("5");
+		label_6.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_6.setBounds(655, 399, 8, 14);
+		contentPane.add(label_6);
+		
+		JLabel label_7 = new JLabel("4");
+		label_7.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_7.setBounds(214, 573, 8, 14);
+		contentPane.add(label_7);
+		
+		JLabel label_8 = new JLabel("3");
+		label_8.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_8.setBounds(443, 573, 8, 14);
+		contentPane.add(label_8);
+		
+		JLabel label_9 = new JLabel("5");
+		label_9.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_9.setBounds(689, 573, 8, 14);
+		contentPane.add(label_9);
+		
+		JLabel label_1_1 = new JLabel("\u20AC");
+		label_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_1_1.setBounds(475, 211, 46, 14);
+		contentPane.add(label_1_1);
+		
+		JLabel label_1_2 = new JLabel("\u20AC");
+		label_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_1_2.setBounds(683, 213, 46, 14);
+		contentPane.add(label_1_2);
+		
+		JLabel label_1_3 = new JLabel("\u20AC");
+		label_1_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_1_3.setBounds(247, 399, 46, 14);
+		contentPane.add(label_1_3);
+		
+		JLabel label_1_4 = new JLabel("\u20AC");
+		label_1_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_1_4.setBounds(454, 399, 46, 14);
+		contentPane.add(label_1_4);
+		
+		JLabel label_1_5 = new JLabel("\u20AC");
+		label_1_5.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_1_5.setBounds(662, 399, 46, 14);
+		contentPane.add(label_1_5);
+		
+		JLabel label_1_6 = new JLabel("\u20AC");
+		label_1_6.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_1_6.setBounds(221, 573, 46, 14);
+		contentPane.add(label_1_6);
+		
+		JLabel label_1_7 = new JLabel("\u20AC");
+		label_1_7.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_1_7.setBounds(454, 573, 46, 14);
+		contentPane.add(label_1_7);
+		
+		JLabel label_1_8 = new JLabel("\u20AC");
+		label_1_8.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label_1_8.setBounds(699, 573, 46, 14);
+		contentPane.add(label_1_8);
 	}
 
 }
