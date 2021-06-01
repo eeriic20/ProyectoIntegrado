@@ -56,7 +56,13 @@ public class PantallaRestaurantes extends JFrame {
 		JButton kfc = new JButton("New button");
 		kfc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				MenuKFC frame = new MenuKFC();
+				
+				int id_user = id;
+				String localidad_user = localidad;
+				String direccion_user = direccion;
+				String empresa = "KFC";
+				
+				MenuKFC frame = new MenuKFC(id_user, localidad_user, direccion_user, empresa);
 				dispose();
 				frame.setVisible(true);
 			}
@@ -70,6 +76,12 @@ public class PantallaRestaurantes extends JFrame {
 		JButton pans = new JButton("New button");
 		pans.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				int id_user = id;
+				String localidad_user = localidad;
+				String direccion_user = direccion;
+				String empresa = "Pans";
+				
 				MenuPans frame = new MenuPans();
 				dispose();
 				frame.setVisible(true);
@@ -84,6 +96,12 @@ public class PantallaRestaurantes extends JFrame {
 		JButton xequebo = new JButton("New button");
 		xequebo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				int id_user = id;
+				String localidad_user = localidad;
+				String direccion_user = direccion;
+				String empresa = "XeQueBo";
+				
 				MenuXeQueBo frame = new MenuXeQueBo();
 				dispose();
 				frame.setVisible(true);
@@ -97,7 +115,13 @@ public class PantallaRestaurantes extends JFrame {
 		JButton kebab = new JButton("New button");
 		kebab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				MenuKebab frame = new MenuKebab();
+				
+				int id_user = id;
+				String localidad_user = localidad;
+				String direccion_user = direccion;
+				String empresa = "KFC";
+				
+				MenuKebab frame = new MenuKebab(id_user, localidad_user, direccion_user, empresa);
 				dispose();
 				frame.setVisible(true);
 			}
@@ -116,8 +140,13 @@ public class PantallaRestaurantes extends JFrame {
 		JButton burgerking = new JButton("New button");
 		burgerking.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				int id_user = id;
+				String localidad_user = localidad;
+				String direccion_user = direccion;
+				String empresa = "BurgerKing";
 
-				MenuBurgerKing frame = new MenuBurgerKing();
+				MenuBurgerKing frame = new MenuBurgerKing(id_user, localidad_user, direccion_user, empresa);
 				dispose();
 				frame.setVisible(true);
 			}
@@ -135,6 +164,12 @@ public class PantallaRestaurantes extends JFrame {
 				new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc.png"));
 		mcdonalds.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				int id_user = id;
+				String localidad_user = localidad;
+				String direccion_user = direccion;
+				String empresa = "McDonalds";
+				
 				MenuMcDonalds frame = new MenuMcDonalds();
 				dispose();
 				frame.setVisible(true);
@@ -161,7 +196,13 @@ public class PantallaRestaurantes extends JFrame {
 		fosters.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
-				MenuFosters frame = new MenuFosters();
+				
+				int id_user = id;
+				String localidad_user = localidad;
+				String direccion_user = direccion;
+				String empresa = "Fosters";
+				
+				MenuFosters frame = new MenuFosters(id_user, localidad_user, direccion_user, empresa   );
 				dispose();
 				frame.setVisible(true);
 			}
