@@ -6,11 +6,24 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Conexion.Conexion;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.Toolkit;
@@ -18,6 +31,24 @@ import java.awt.Toolkit;
 public class MenuMcDonalds extends JFrame {
 
 	private JPanel contentPane;
+	private int hora;
+	private int minutos;
+	private int segundos;
+	private int dia;
+	private int mes;
+	private int anyo;
+	private String nombre;
+	private int precio;
+	private int id_localidad;
+	private String estado;
+	private String empresa;
+	private String direccion;
+	private int idCliente;
+	private Date fecha;
+	private int id_empleado;
+	private int precioTotal = 0;
+	private String menuTotal = "";
+	
 
 	/**
 	 * Launch the application.
@@ -32,7 +63,7 @@ public class MenuMcDonalds extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MenuMcDonalds() {
+	public MenuMcDonalds(int id, String localidad, String direccionD, String empresaE) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\logofinal.png"));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,7 +79,128 @@ public class MenuMcDonalds extends JFrame {
 		lblEligeTuMen.setBounds(309, 0, 388, 61);
 		contentPane.add(lblEligeTuMen);
 		
+		JLabel precio_bigmc = new JLabel("8");
+		precio_bigmc.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		precio_bigmc.setBounds(221, 209, 46, 14);
+		contentPane.add(precio_bigmc);
+		
+		JLabel precio_cuarto = new JLabel("8");
+		precio_cuarto.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		precio_cuarto.setBounds(484, 209, 14, 14);
+		contentPane.add(precio_cuarto);
+		
+		JLabel precio_mcpollo = new JLabel("8");
+		precio_mcpollo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		precio_mcpollo.setBounds(683, 211, 46, 14);
+		contentPane.add(precio_mcpollo);
+		
+		JLabel precio_stylechicken = new JLabel("9");
+		precio_stylechicken.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		precio_stylechicken.setBounds(262, 399, 46, 14);
+		contentPane.add(precio_stylechicken);
+		
+		JLabel precio_happymeal = new JLabel("5");
+		precio_happymeal.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		precio_happymeal.setBounds(469, 399, 46, 14);
+		contentPane.add(precio_happymeal);
+		
+		JLabel precio_mcextreme = new JLabel("9");
+		precio_mcextreme.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		precio_mcextreme.setBounds(720, 399, 46, 14);
+		contentPane.add(precio_mcextreme);
+		
+		JLabel precio_mcfish = new JLabel("6");
+		precio_mcfish.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		precio_mcfish.setBounds(221, 573, 46, 14);
+		contentPane.add(precio_mcfish);
+		
+		JLabel precio_doblequeso = new JLabel("6");
+		precio_doblequeso.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		precio_doblequeso.setBounds(469, 573, 46, 14);
+		contentPane.add(precio_doblequeso);
+		
+		JLabel precio_mcwrap = new JLabel("7");
+		precio_mcwrap.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		precio_mcwrap.setBounds(683, 573, 46, 14);
+		contentPane.add(precio_mcwrap);
+		
 		JButton bigMac = new JButton("New button");
+		bigMac.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Conexion c = new Conexion();
+
+				fecha = new Date(Calendar.getInstance().getTimeInMillis());
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String fechaTexto = formatter.format(fecha);
+
+				precio = Integer.parseInt(precio_bigmc.getText());
+				precioTotal = precioTotal+precio;
+				nombre = "Big Mac";
+				menuTotal = nombre+", "+menuTotal;
+				empresa = empresaE;
+				direccion = direccionD;
+				estado = "En proceso";
+				idCliente = id;
+
+				try {
+
+					Statement s = c.getConexion().createStatement();
+					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
+					ResultSet rs = s.executeQuery(sql);
+
+					if (rs.next()) {
+
+						id_localidad = Integer.parseInt(rs.getString("Codigo"));
+
+					}
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+
+				}
+
+				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
+						JOptionPane.YES_NO_OPTION);
+
+				if (opcion == JOptionPane.YES_OPTION) {
+
+				} else {
+
+					Connection miConexion = c.getConexion();
+					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+					try {
+						PreparedStatement pst = miConexion.prepareStatement(mysql);
+
+						pst.setString(1, menuTotal);
+						pst.setString(2, fechaTexto);
+						pst.setInt(3, precioTotal);
+						pst.setString(4, estado);
+						pst.setString(5, empresa);
+						pst.setString(6, direccion);
+						pst.setInt(7, id_localidad);
+						pst.setInt(8, idCliente);
+
+						if (pst.executeUpdate() == 1) {
+
+						}
+
+					} catch (SQLException e1) {
+
+						e1.printStackTrace();
+
+					}
+
+					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
+							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
+
+					System.exit(0);
+				}
+				
+			}
+		});
 		bigMac.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\menu-big-mac.png"));
 		bigMac.setForeground(Color.WHITE);
 		bigMac.setBackground(Color.WHITE);
@@ -56,6 +208,82 @@ public class MenuMcDonalds extends JFrame {
 		contentPane.add(bigMac);
 		
 		JButton cuartoLibra = new JButton("New button");
+		cuartoLibra.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Conexion c = new Conexion();
+
+				fecha = new Date(Calendar.getInstance().getTimeInMillis());
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String fechaTexto = formatter.format(fecha);
+
+				precio = Integer.parseInt(precio_cuarto.getText());
+				precioTotal = precioTotal+precio;
+				nombre = "Menu Cuarto de Libra";
+				menuTotal = nombre+", "+menuTotal;
+				empresa = empresaE;
+				direccion = direccionD;
+				estado = "En proceso";
+				idCliente = id;
+
+				try {
+
+					Statement s = c.getConexion().createStatement();
+					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
+					ResultSet rs = s.executeQuery(sql);
+
+					if (rs.next()) {
+
+						id_localidad = Integer.parseInt(rs.getString("Codigo"));
+
+					}
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+
+				}
+
+				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
+						JOptionPane.YES_NO_OPTION);
+
+				if (opcion == JOptionPane.YES_OPTION) {
+
+				} else {
+
+					Connection miConexion = c.getConexion();
+					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+					try {
+						PreparedStatement pst = miConexion.prepareStatement(mysql);
+
+						pst.setString(1, menuTotal);
+						pst.setString(2, fechaTexto);
+						pst.setInt(3, precioTotal);
+						pst.setString(4, estado);
+						pst.setString(5, empresa);
+						pst.setString(6, direccion);
+						pst.setInt(7, id_localidad);
+						pst.setInt(8, idCliente);
+
+						if (pst.executeUpdate() == 1) {
+
+						}
+
+					} catch (SQLException e1) {
+
+						e1.printStackTrace();
+
+					}
+
+					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
+							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
+
+					System.exit(0);
+				}
+				
+			}
+		});
 		cuartoLibra.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\cuartodelibra.jpg"));
 		cuartoLibra.setForeground(Color.WHITE);
 		cuartoLibra.setBackground(Color.WHITE);
@@ -63,6 +291,82 @@ public class MenuMcDonalds extends JFrame {
 		contentPane.add(cuartoLibra);
 		
 		JButton mcPollo = new JButton("New button");
+		mcPollo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Conexion c = new Conexion();
+
+				fecha = new Date(Calendar.getInstance().getTimeInMillis());
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String fechaTexto = formatter.format(fecha);
+
+				precio = Integer.parseInt(precio_mcpollo.getText());
+				precioTotal = precioTotal+precio;
+				nombre = "Menu Mc Pollo";
+				menuTotal = nombre+", "+menuTotal;
+				empresa = empresaE;
+				direccion = direccionD;
+				estado = "En proceso";
+				idCliente = id;
+
+				try {
+
+					Statement s = c.getConexion().createStatement();
+					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
+					ResultSet rs = s.executeQuery(sql);
+
+					if (rs.next()) {
+
+						id_localidad = Integer.parseInt(rs.getString("Codigo"));
+
+					}
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+
+				}
+
+				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
+						JOptionPane.YES_NO_OPTION);
+
+				if (opcion == JOptionPane.YES_OPTION) {
+
+				} else {
+
+					Connection miConexion = c.getConexion();
+					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+					try {
+						PreparedStatement pst = miConexion.prepareStatement(mysql);
+
+						pst.setString(1, menuTotal);
+						pst.setString(2, fechaTexto);
+						pst.setInt(3, precioTotal);
+						pst.setString(4, estado);
+						pst.setString(5, empresa);
+						pst.setString(6, direccion);
+						pst.setInt(7, id_localidad);
+						pst.setInt(8, idCliente);
+
+						if (pst.executeUpdate() == 1) {
+
+						}
+
+					} catch (SQLException e1) {
+
+						e1.printStackTrace();
+
+					}
+
+					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
+							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
+
+					System.exit(0);
+				}
+				
+			}
+		});
 		mcPollo.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\Mcmenu-mediano-mcpollo.jpg"));
 		mcPollo.setForeground(Color.WHITE);
 		mcPollo.setBackground(Color.WHITE);
@@ -70,6 +374,82 @@ public class MenuMcDonalds extends JFrame {
 		contentPane.add(mcPollo);
 		
 		JButton styleChiken = new JButton("New button");
+		styleChiken.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Conexion c = new Conexion();
+
+				fecha = new Date(Calendar.getInstance().getTimeInMillis());
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String fechaTexto = formatter.format(fecha);
+
+				precio = Integer.parseInt(precio_stylechicken.getText());
+				precioTotal = precioTotal+precio;
+				nombre = "Menú American Style Chicken";
+				menuTotal = nombre+", "+menuTotal;
+				empresa = empresaE;
+				direccion = direccionD;
+				estado = "En proceso";
+				idCliente = id;
+
+				try {
+
+					Statement s = c.getConexion().createStatement();
+					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
+					ResultSet rs = s.executeQuery(sql);
+
+					if (rs.next()) {
+
+						id_localidad = Integer.parseInt(rs.getString("Codigo"));
+
+					}
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+
+				}
+
+				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
+						JOptionPane.YES_NO_OPTION);
+
+				if (opcion == JOptionPane.YES_OPTION) {
+
+				} else {
+
+					Connection miConexion = c.getConexion();
+					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+					try {
+						PreparedStatement pst = miConexion.prepareStatement(mysql);
+
+						pst.setString(1, menuTotal);
+						pst.setString(2, fechaTexto);
+						pst.setInt(3, precioTotal);
+						pst.setString(4, estado);
+						pst.setString(5, empresa);
+						pst.setString(6, direccion);
+						pst.setInt(7, id_localidad);
+						pst.setInt(8, idCliente);
+
+						if (pst.executeUpdate() == 1) {
+
+						}
+
+					} catch (SQLException e1) {
+
+						e1.printStackTrace();
+
+					}
+
+					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
+							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
+
+					System.exit(0);
+				}
+				
+			}
+		});
 		styleChiken.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\american-style-chicken-324x324.png"));
 		styleChiken.setForeground(Color.WHITE);
 		styleChiken.setBackground(Color.WHITE);
@@ -77,6 +457,82 @@ public class MenuMcDonalds extends JFrame {
 		contentPane.add(styleChiken);
 		
 		JButton happyMeal = new JButton("New button");
+		happyMeal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Conexion c = new Conexion();
+
+				fecha = new Date(Calendar.getInstance().getTimeInMillis());
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String fechaTexto = formatter.format(fecha);
+
+				precio = Integer.parseInt(precio_happymeal.getText());
+				precioTotal = precioTotal+precio;
+				nombre = "Happy Meal";
+				menuTotal = nombre+", "+menuTotal;
+				empresa = empresaE;
+				direccion = direccionD;
+				estado = "En proceso";
+				idCliente = id;
+
+				try {
+
+					Statement s = c.getConexion().createStatement();
+					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
+					ResultSet rs = s.executeQuery(sql);
+
+					if (rs.next()) {
+
+						id_localidad = Integer.parseInt(rs.getString("Codigo"));
+
+					}
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+
+				}
+
+				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
+						JOptionPane.YES_NO_OPTION);
+
+				if (opcion == JOptionPane.YES_OPTION) {
+
+				} else {
+
+					Connection miConexion = c.getConexion();
+					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+					try {
+						PreparedStatement pst = miConexion.prepareStatement(mysql);
+
+						pst.setString(1, menuTotal);
+						pst.setString(2, fechaTexto);
+						pst.setInt(3, precioTotal);
+						pst.setString(4, estado);
+						pst.setString(5, empresa);
+						pst.setString(6, direccion);
+						pst.setInt(7, id_localidad);
+						pst.setInt(8, idCliente);
+
+						if (pst.executeUpdate() == 1) {
+
+						}
+
+					} catch (SQLException e1) {
+
+						e1.printStackTrace();
+
+					}
+
+					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
+							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
+
+					System.exit(0);
+				}
+				
+			}
+		});
 		happyMeal.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\harapymeal.png"));
 		happyMeal.setForeground(Color.WHITE);
 		happyMeal.setBackground(Color.WHITE);
@@ -84,6 +540,82 @@ public class MenuMcDonalds extends JFrame {
 		contentPane.add(happyMeal);
 		
 		JButton grandMcExtreme = new JButton("New button");
+		grandMcExtreme.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Conexion c = new Conexion();
+
+				fecha = new Date(Calendar.getInstance().getTimeInMillis());
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String fechaTexto = formatter.format(fecha);
+
+				precio = Integer.parseInt(precio_mcextreme.getText());
+				precioTotal = precioTotal+precio;
+				nombre = "Grand McExtreme";
+				menuTotal = nombre+", "+menuTotal;
+				empresa = empresaE;
+				direccion = direccionD;
+				estado = "En proceso";
+				idCliente = id;
+
+				try {
+
+					Statement s = c.getConexion().createStatement();
+					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
+					ResultSet rs = s.executeQuery(sql);
+
+					if (rs.next()) {
+
+						id_localidad = Integer.parseInt(rs.getString("Codigo"));
+
+					}
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+
+				}
+
+				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
+						JOptionPane.YES_NO_OPTION);
+
+				if (opcion == JOptionPane.YES_OPTION) {
+
+				} else {
+
+					Connection miConexion = c.getConexion();
+					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+					try {
+						PreparedStatement pst = miConexion.prepareStatement(mysql);
+
+						pst.setString(1, menuTotal);
+						pst.setString(2, fechaTexto);
+						pst.setInt(3, precioTotal);
+						pst.setString(4, estado);
+						pst.setString(5, empresa);
+						pst.setString(6, direccion);
+						pst.setInt(7, id_localidad);
+						pst.setInt(8, idCliente);
+
+						if (pst.executeUpdate() == 1) {
+
+						}
+
+					} catch (SQLException e1) {
+
+						e1.printStackTrace();
+
+					}
+
+					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
+							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
+
+					System.exit(0);
+				}
+				
+			}
+		});
 		grandMcExtreme.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\mc_menu_grand-mcextreme_double_bacon.png"));
 		grandMcExtreme.setForeground(Color.WHITE);
 		grandMcExtreme.setBackground(Color.WHITE);
@@ -94,6 +626,78 @@ public class MenuMcDonalds extends JFrame {
 		mcFish.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\Mcfish.png"));
 		mcFish.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				Conexion c = new Conexion();
+
+				fecha = new Date(Calendar.getInstance().getTimeInMillis());
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String fechaTexto = formatter.format(fecha);
+
+				precio = Integer.parseInt(precio_mcfish.getText());
+				precioTotal = precioTotal+precio;
+				nombre = "Menú McFish";
+				menuTotal = nombre+", "+menuTotal;
+				empresa = empresaE;
+				direccion = direccionD;
+				estado = "En proceso";
+				idCliente = id;
+
+				try {
+
+					Statement s = c.getConexion().createStatement();
+					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
+					ResultSet rs = s.executeQuery(sql);
+
+					if (rs.next()) {
+
+						id_localidad = Integer.parseInt(rs.getString("Codigo"));
+
+					}
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+
+				}
+
+				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
+						JOptionPane.YES_NO_OPTION);
+
+				if (opcion == JOptionPane.YES_OPTION) {
+
+				} else {
+
+					Connection miConexion = c.getConexion();
+					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+					try {
+						PreparedStatement pst = miConexion.prepareStatement(mysql);
+
+						pst.setString(1, menuTotal);
+						pst.setString(2, fechaTexto);
+						pst.setInt(3, precioTotal);
+						pst.setString(4, estado);
+						pst.setString(5, empresa);
+						pst.setString(6, direccion);
+						pst.setInt(7, id_localidad);
+						pst.setInt(8, idCliente);
+
+						if (pst.executeUpdate() == 1) {
+
+						}
+
+					} catch (SQLException e1) {
+
+						e1.printStackTrace();
+
+					}
+
+					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
+							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
+
+					System.exit(0);
+				}
+				
 			}
 		});
 		mcFish.setForeground(Color.WHITE);
@@ -102,6 +706,82 @@ public class MenuMcDonalds extends JFrame {
 		contentPane.add(mcFish);
 		
 		JButton hamburguesaConQueso = new JButton("New button");
+		hamburguesaConQueso.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Conexion c = new Conexion();
+
+				fecha = new Date(Calendar.getInstance().getTimeInMillis());
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String fechaTexto = formatter.format(fecha);
+
+				precio = Integer.parseInt(precio_doblequeso.getText());
+				precioTotal = precioTotal+precio;
+				nombre = "Hamburguesa con Doble de Queso";
+				menuTotal = nombre+", "+menuTotal;
+				empresa = empresaE;
+				direccion = direccionD;
+				estado = "En proceso";
+				idCliente = id;
+
+				try {
+
+					Statement s = c.getConexion().createStatement();
+					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
+					ResultSet rs = s.executeQuery(sql);
+
+					if (rs.next()) {
+
+						id_localidad = Integer.parseInt(rs.getString("Codigo"));
+
+					}
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+
+				}
+
+				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
+						JOptionPane.YES_NO_OPTION);
+
+				if (opcion == JOptionPane.YES_OPTION) {
+
+				} else {
+
+					Connection miConexion = c.getConexion();
+					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+					try {
+						PreparedStatement pst = miConexion.prepareStatement(mysql);
+
+						pst.setString(1, menuTotal);
+						pst.setString(2, fechaTexto);
+						pst.setInt(3, precioTotal);
+						pst.setString(4, estado);
+						pst.setString(5, empresa);
+						pst.setString(6, direccion);
+						pst.setInt(7, id_localidad);
+						pst.setInt(8, idCliente);
+
+						if (pst.executeUpdate() == 1) {
+
+						}
+
+					} catch (SQLException e1) {
+
+						e1.printStackTrace();
+
+					}
+
+					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
+							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
+
+					System.exit(0);
+				}
+				
+			}
+		});
 		hamburguesaConQueso.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\menu-hamburguesa-doble-cheese-burger.jpg"));
 		hamburguesaConQueso.setForeground(Color.WHITE);
 		hamburguesaConQueso.setBackground(Color.WHITE);
@@ -109,6 +789,82 @@ public class MenuMcDonalds extends JFrame {
 		contentPane.add(hamburguesaConQueso);
 		
 		JButton mcWrap = new JButton("New button");
+		mcWrap.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Conexion c = new Conexion();
+
+				fecha = new Date(Calendar.getInstance().getTimeInMillis());
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String fechaTexto = formatter.format(fecha);
+
+				precio = Integer.parseInt(precio_mcwrap.getText());
+				precioTotal = precioTotal+precio;
+				nombre = "McWrap";
+				menuTotal = nombre+", "+menuTotal;
+				empresa = empresaE;
+				direccion = direccionD;
+				estado = "En proceso";
+				idCliente = id;
+
+				try {
+
+					Statement s = c.getConexion().createStatement();
+					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
+					ResultSet rs = s.executeQuery(sql);
+
+					if (rs.next()) {
+
+						id_localidad = Integer.parseInt(rs.getString("Codigo"));
+
+					}
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+
+				}
+
+				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
+						JOptionPane.YES_NO_OPTION);
+
+				if (opcion == JOptionPane.YES_OPTION) {
+
+				} else {
+
+					Connection miConexion = c.getConexion();
+					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+					try {
+						PreparedStatement pst = miConexion.prepareStatement(mysql);
+
+						pst.setString(1, menuTotal);
+						pst.setString(2, fechaTexto);
+						pst.setInt(3, precioTotal);
+						pst.setString(4, estado);
+						pst.setString(5, empresa);
+						pst.setString(6, direccion);
+						pst.setInt(7, id_localidad);
+						pst.setInt(8, idCliente);
+
+						if (pst.executeUpdate() == 1) {
+
+						}
+
+					} catch (SQLException e1) {
+
+						e1.printStackTrace();
+
+					}
+
+					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
+							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
+
+					System.exit(0);
+				}
+				
+			}
+		});
 		mcWrap.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\mcwrap.jpg"));
 		mcWrap.setForeground(Color.WHITE);
 		mcWrap.setBackground(Color.WHITE);
@@ -160,55 +916,11 @@ public class MenuMcDonalds extends JFrame {
 		lblMenMcwrap.setBounds(591, 566, 128, 25);
 		contentPane.add(lblMenMcwrap);
 		
-		JLabel label = new JLabel("8");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label.setBounds(221, 209, 46, 14);
-		contentPane.add(label);
-		
 		JLabel label_1 = new JLabel("\u20AC");
 		label_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		label_1.setBounds(232, 211, 46, 14);
 		contentPane.add(label_1);
-		
-		JLabel label_2 = new JLabel("8");
-		label_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_2.setBounds(484, 209, 14, 14);
-		contentPane.add(label_2);
-		
-		JLabel label_3 = new JLabel("8");
-		label_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_3.setBounds(683, 211, 46, 14);
-		contentPane.add(label_3);
-		
-		JLabel label_4 = new JLabel("9");
-		label_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_4.setBounds(262, 399, 46, 14);
-		contentPane.add(label_4);
-		
-		JLabel label_5 = new JLabel("5");
-		label_5.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_5.setBounds(469, 399, 46, 14);
-		contentPane.add(label_5);
-		
-		JLabel label_6 = new JLabel("9");
-		label_6.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_6.setBounds(720, 399, 46, 14);
-		contentPane.add(label_6);
-		
-		JLabel label_7 = new JLabel("6");
-		label_7.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_7.setBounds(221, 573, 46, 14);
-		contentPane.add(label_7);
-		
-		JLabel label_8 = new JLabel("6");
-		label_8.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_8.setBounds(469, 573, 46, 14);
-		contentPane.add(label_8);
-		
-		JLabel label_9 = new JLabel("7");
-		label_9.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_9.setBounds(683, 573, 46, 14);
-		contentPane.add(label_9);
+	
 		
 		JLabel label_1_1 = new JLabel("\u20AC");
 		label_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
