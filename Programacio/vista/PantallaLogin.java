@@ -26,6 +26,7 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 
@@ -109,7 +110,7 @@ public class PantallaLogin extends JFrame {
 
 					if (rs.next()) {
 
-						String id = rs.getString("ID");
+						int id = Integer.parseInt(rs.getString("ID"));
 
 						sql = "select idEmpleado from empleado where idEmpleado = '" + id + "'";
 						rs = s.executeQuery(sql);
@@ -137,6 +138,7 @@ public class PantallaLogin extends JFrame {
 									String direccion = rs.getString("Direccion");
 
 									PantallaRestaurantes pU = new PantallaRestaurantes(id, localidad, direccion);
+									dispose();
 									pU.setVisible(true);
 
 								}
