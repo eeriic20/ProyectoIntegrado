@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.UIManager;
+import java.awt.Toolkit;
 
 public class PantallaRestaurantes extends JFrame {
 
@@ -22,7 +23,8 @@ public class PantallaRestaurantes extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PantallaRestaurantes(String id, String localidad, String direccion) {
+	public PantallaRestaurantes(int id, String localidad, String direccion) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
 		contentPane = new JPanel();
@@ -35,12 +37,13 @@ public class PantallaRestaurantes extends JFrame {
 		ginos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				String id_user = id;
+				int id_user = id;
 				String localidad_user = localidad;
 				String direccion_user = direccion;
 				String empresa = "Ginos";
 
 				MenuGinos frame = new MenuGinos(id_user, localidad_user, direccion_user, empresa);
+				dispose();
 				frame.setVisible(true);
 			}
 		});
@@ -54,6 +57,7 @@ public class PantallaRestaurantes extends JFrame {
 		kfc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MenuKFC frame = new MenuKFC();
+				dispose();
 				frame.setVisible(true);
 			}
 		});
@@ -67,6 +71,7 @@ public class PantallaRestaurantes extends JFrame {
 		pans.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MenuPans frame = new MenuPans();
+				dispose();
 				frame.setVisible(true);
 			}
 		});
@@ -80,6 +85,7 @@ public class PantallaRestaurantes extends JFrame {
 		xequebo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MenuXeQueBo frame = new MenuXeQueBo();
+				dispose();
 				frame.setVisible(true);
 			}
 		});
@@ -92,6 +98,7 @@ public class PantallaRestaurantes extends JFrame {
 		kebab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MenuKebab frame = new MenuKebab();
+				dispose();
 				frame.setVisible(true);
 			}
 		});
@@ -111,6 +118,7 @@ public class PantallaRestaurantes extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				MenuBurgerKing frame = new MenuBurgerKing();
+				dispose();
 				frame.setVisible(true);
 			}
 		});
@@ -128,6 +136,7 @@ public class PantallaRestaurantes extends JFrame {
 		mcdonalds.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MenuMcDonalds frame = new MenuMcDonalds();
+				dispose();
 				frame.setVisible(true);
 			}
 		});
@@ -138,6 +147,7 @@ public class PantallaRestaurantes extends JFrame {
 		telepizza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MenuTelepizza frame = new MenuTelepizza();
+				dispose();
 				frame.setVisible(true);
 			}
 		});
@@ -152,6 +162,7 @@ public class PantallaRestaurantes extends JFrame {
 
 			public void actionPerformed(ActionEvent arg0) {
 				MenuFosters frame = new MenuFosters();
+				dispose();
 				frame.setVisible(true);
 			}
 		});
