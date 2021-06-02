@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import Conexion.Conexion;
+import javafx.scene.control.ComboBox;
 
 import javax.swing.JList;
 import javax.swing.JComboBox;
@@ -16,6 +17,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -81,13 +84,14 @@ public class vistaEmpleado extends JFrame {
 		lblDisponibilidadR.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblDisponibilidadR.setBounds(143, 141, 129, 38);
 		contentPane.add(lblDisponibilidadR);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(87, 255, 734, 310);
 		contentPane.add(scrollPane);
 		
 		DefaultTableModel modelo = new DefaultTableModel();
 		table = new JTable(modelo);
+		
 		modelo.addColumn("IdPedido");
 		modelo.addColumn("Menu");
 		modelo.addColumn("FechaPedido");
@@ -98,7 +102,7 @@ public class vistaEmpleado extends JFrame {
 		modelo.addColumn("CodigoLocalidad");
 		modelo.addColumn("IdCliente");
 		modelo.addColumn("IdEmpleado");
-		
+
 		scrollPane.setViewportView(table);
 
 		JLabel lblLocalidadR = new JLabel("**");
@@ -141,9 +145,40 @@ public class vistaEmpleado extends JFrame {
 				lblVerde.setVisible(true);
 
 				Conexion c = new Conexion();
+				Connection miConexion = c.getConexion();
+				
+				Statement st;
+				try {
+					st = miConexion.createStatement();
+					ResultSet rsUsuarios = st.executeQuery("Select * from pedidos where IdEmpleado = null");
+					
+					Object [] fila = new Object[9];
+					
+					while(rsUsuarios.next()) {
+						
+						fila[0] = rsUsuarios.getInt("IdPedido");
+						fila[1] = rsUsuarios.getString("Menu");
+						fila[2] = rsUsuarios.getString("FechaPedido");
+						fila[3] = rsUsuarios.getInt("PrecioPedido");
+						fila[4] = rsUsuarios.getString("EstadoPedido");
+						fila[5] = rsUsuarios.getString("Empresa");
+						fila[6] = rsUsuarios.getString("direccion");
+						fila[7] = rsUsuarios.getInt("CodigoLocalidad");
+						fila[8] = rsUsuarios.getInt("IdCliente");
+						fila[9] = rsUsuarios.getInt("IdEmpleado");
+						modelo.addRow(fila);
+						
+						
+					}
+					
+					rsUsuarios.close();
+				} catch (SQLException e1) {
+					
+					e1.printStackTrace();
+				}
+				
 
 				try {
-
 					Statement s = c.getConexion().createStatement();
 					String sql = "select Nombre, Apellidos, Localidad from persona where NombreUsuario = '"
 							+ nombreUsuario + "'";
@@ -168,20 +203,7 @@ public class vistaEmpleado extends JFrame {
 					e.printStackTrace();
 
 				}
-
-				try {
-					Statement s = c.getConexion().createStatement();
-					String sql = "select * from pedido where IdEmpleado = null";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-					}
-				} catch (SQLException e) {
-
-					e.printStackTrace();
-
-				}
+				
 			}
 		});
 		btnNewButton.setBounds(458, 188, 113, 23);
