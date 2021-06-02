@@ -7,14 +7,17 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
+
+import Conexion.Conexion;
 import modelo.Cliente;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Font;
-import java.awt.Window;
-
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -29,7 +32,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 import javax.swing.JList;
 import javax.swing.JProgressBar;
-import conexion.*;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextArea;
 
 public class Registrarse2 extends JFrame {
 
@@ -39,13 +44,13 @@ public class Registrarse2 extends JFrame {
 	private JTextField textField_FechaNac;
 	private JTextField textField_CP;
 	private JTextField textField_Direccion;
-	private JTextField textField;
 	private String nombre;
 	private String apellidos;
 	private String cP;
 	private String genero;
 	private String direccion;
 	private String localidad;
+	private PantallaRegistrar p = new PantallaRegistrar();
 	private String fechaNac;
 	private String contrasenya;
 	private String correo;
@@ -61,7 +66,6 @@ public class Registrarse2 extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		this.setResizable(false);
 
 		JLabel lblNewLabel_Logo = new JLabel("");
 		lblNewLabel_Logo.setIcon(new ImageIcon(
@@ -101,7 +105,7 @@ public class Registrarse2 extends JFrame {
 
 		JLabel lblLocalidad = new JLabel("Localidad:");
 		lblLocalidad.setFont(new Font("Segoe Print", Font.PLAIN, 15));
-		lblLocalidad.setBounds(283, 352, 81, 23);
+		lblLocalidad.setBounds(283, 338, 81, 23);
 		contentPane.add(lblLocalidad);
 
 		textField_Nombr = new JTextField();
@@ -129,11 +133,6 @@ public class Registrarse2 extends JFrame {
 		contentPane.add(textField_Direccion);
 		textField_Direccion.setColumns(10);
 
-		textField = new JTextField();
-		textField.setBounds(435, 355, 111, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-
 		JButton btnRegistrarse = new JButton("Registrarse");
 		btnRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -142,11 +141,15 @@ public class Registrarse2 extends JFrame {
 				apellidos = textField_Apelli.getText();
 				cP = textField_CP.getText();
 				direccion = textField_Direccion.getText();
-				localidad = textField.getText();
+
 				fechaNac = textField_FechaNac.getText();
 				contrasenya = contrasenyaC;
 				correo = correoC;
 				nombreUsuario = nombreUsuarioC;
+
+				System.out.println(contrasenya);
+				System.out.println(correo);
+				System.out.println(nombreUsuario);
 
 				if (cP.equals("")) {
 
@@ -222,10 +225,7 @@ public class Registrarse2 extends JFrame {
 										if (pst.executeUpdate()==1) {
 
 											PantallaLogin pL = new PantallaLogin();
-											contentPane.setVisible(false);
 											pL.setVisible(true);
-											
-											
 										}
 
 									}
@@ -249,6 +249,41 @@ public class Registrarse2 extends JFrame {
 		});
 		btnRegistrarse.setBounds(403, 427, 89, 23);
 		contentPane.add(btnRegistrarse);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				
+			String mensaje = "Seleccione una localidad";
+			
+			if(comboBox.getSelectedIndex() == 0) {
+				
+				lblLocalidad.setText(mensaje);
+				lblLocalidad.setEnabled(false);
+			}
+			else {
+				
+				mensaje = comboBox.getSelectedItem().toString();
+				
+				lblLocalidad.setText(mensaje);
+				
+				if(lblLocalidad.isEnabled()== false)
+					lblLocalidad.setEnabled(true);	
+			}
+			
+			
+			
+			}
+		});
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Alc\u00FAdia", "Carcaixent", "Alzira", "Benimodo", "Benifai\u00F3", "Alginet", "Carlet", "Tous", "Algemes\u00ED", "Guadassuar", "Massalav\u00E9s", "Benimuslem", "Alberic", "Villanova de Castell\u00F3", "Gavarda", "Antella", "Sumac\u00E1rcel", "Cot\u00E9s", "C\u00E0rcer", "Beneixida", "Sellent", "Alc\u00E0ntera del Xuquer", "Senyera", "Manuel", "Sant Joan de \u00C8nova", "Rafelguaraf", "\u00C9nova", "Pobla Llarga"}));
+		comboBox.setBounds(435, 338, 82, 20);
+		contentPane.add(comboBox);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(376, 374, 114, 22);
+		contentPane.add(textArea);
+		
 
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(
