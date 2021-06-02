@@ -1,8 +1,6 @@
 package vista;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -15,7 +13,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,7 +20,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import conexion.Conexion;
 
 public class MenuGinos extends JFrame {
@@ -154,77 +150,13 @@ public class MenuGinos extends JFrame {
 		prosciutto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
-
 				precio = Integer.parseInt(precio_prosciutto.getText());
 				precioTotal = precioTotal + precio;
 				nombre = "Pizza prosciutto";
 				menuTotal = nombre + ", " + menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
 
-				try {
-
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
-							"Su pedido esta en camino",
-							JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-				}
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 
 			}
 		});
@@ -239,77 +171,13 @@ public class MenuGinos extends JFrame {
 		barbecue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
-
 				precio = Integer.parseInt(precio_pollo.getText());
 				precioTotal = precioTotal + precio;
 				nombre = "Pollo BBQ";
 				menuTotal = nombre + ", " + menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
 
-				try {
-
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
-							"Su pedido esta en camino",
-							JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-				}
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 
 			}
 
@@ -325,77 +193,13 @@ public class MenuGinos extends JFrame {
 		margherita.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
-
 				precio = Integer.parseInt(precio_Margherita.getText());
 				precioTotal = precioTotal + precio;
 				nombre = "Margherita";
 				menuTotal = nombre + ", " + menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
 
-				try {
-
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
-							"Su pedido esta en camino",
-							JOptionPane.WARNING_MESSAGE);
-					
-					System.exit(0);
-				}
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 
 			}
 		});
@@ -410,76 +214,13 @@ public class MenuGinos extends JFrame {
 		piemontese.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
-
 				precio = Integer.parseInt(precio_piemontese.getText());
 				precioTotal = precioTotal + precio;
 				nombre = "Piemontese";
 				menuTotal = nombre + ", " + menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
 
-				try {
-
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
-							"Su pedido esta en camino",
-							JOptionPane.WARNING_MESSAGE);
-					System.exit(0);
-				}
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 
 			}
 		});
@@ -495,77 +236,13 @@ public class MenuGinos extends JFrame {
 
 			public void actionPerformed(ActionEvent e) {
 
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
-
 				precio = Integer.parseInt(precio_peperoni.getText());
 				precioTotal = precioTotal + precio;
 				nombre = "Peperoni";
 				menuTotal = nombre + ", " + menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
 
-				try {
-
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
-							"Su pedido esta en camino",
-							JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-				}
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 
 			}
 		});
@@ -580,78 +257,13 @@ public class MenuGinos extends JFrame {
 		tagliatelle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
-
 				precio = Integer.parseInt(precio_tagliatelle.getText());
 				precioTotal = precioTotal + precio;
 				nombre = "Tagliatelle";
 				menuTotal = nombre + ", " + menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
 
-				try {
-
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
-							"Su pedido esta en camino",
-							JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-				}
-
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 			}
 		});
 		tagliatelle.setIcon(new ImageIcon(
@@ -667,76 +279,13 @@ public class MenuGinos extends JFrame {
 		spaghetti.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
-
 				precio = Integer.parseInt(precio_spaghetti.getText());
 				precioTotal = precioTotal + precio;
 				nombre = "Spaghetti";
 				menuTotal = nombre + ", " + menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
 
-				try {
-
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
-							"Su pedido esta en camino",
-							JOptionPane.WARNING_MESSAGE);
-					System.exit(0);
-				}
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 
 			}
 		});
@@ -749,77 +298,13 @@ public class MenuGinos extends JFrame {
 		penne.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
-
 				precio = Integer.parseInt(precio_penne.getText());
 				precioTotal = precioTotal + precio;
 				nombre = "Penne";
 				menuTotal = nombre + ", " + menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
 
-				try {
-
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
-							"Su pedido esta en camino",
-							JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-				}
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 
 			}
 		});
@@ -834,77 +319,13 @@ public class MenuGinos extends JFrame {
 		cacio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
-
 				precio = Integer.parseInt(precio_cacio.getText());
 				precioTotal = precioTotal + precio;
 				nombre = "Cacio e Pepe";
 				menuTotal = nombre + ", " + menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
 
-				try {
-
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
-							"Su pedido esta en camino",
-							JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-				}
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 
 			}
 		});
@@ -959,5 +380,111 @@ public class MenuGinos extends JFrame {
 		label_euro_8.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		label_euro_8.setBounds(225, 397, 14, 14);
 		contentPane.add(label_euro_8);
+
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				PantallaRestaurantes pR = new PantallaRestaurantes(id, localidad, direccionD);
+				dispose();
+				pR.setVisible(true);
+
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon(
+				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\flecha.png"));
+		btnNewButton.setBounds(0, 0, 60, 60);
+		contentPane.add(btnNewButton);
+
+		JButton btnNewButton_1 = new JButton("Terminar pedido");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				Conexion c = new Conexion();
+
+				empresa = empresaE;
+				direccion = direccionD;
+				estado = "En proceso";
+				idCliente = id;
+
+				fecha = new Date(Calendar.getInstance().getTimeInMillis());
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String fechaTexto = formatter.format(fecha);
+
+				try {
+
+					Statement s = c.getConexion().createStatement();
+					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
+					ResultSet rs = s.executeQuery(sql);
+
+					if (rs.next()) {
+
+						id_localidad = Integer.parseInt(rs.getString("Codigo"));
+
+					}
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+
+				}
+
+				Connection miConexion = c.getConexion();
+				String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+				try {
+					PreparedStatement pst = miConexion.prepareStatement(mysql);
+
+					pst.setString(1, menuTotal);
+					pst.setString(2, fechaTexto);
+					pst.setInt(3, precioTotal);
+					pst.setString(4, estado);
+					pst.setString(5, empresa);
+					pst.setString(6, direccion);
+					pst.setInt(7, id_localidad);
+					pst.setInt(8, idCliente);
+
+					if (pst.executeUpdate() == 1) {
+
+					}
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+
+				}
+
+				int opcion = JOptionPane.showConfirmDialog(null, "¿Quiere terminar se pedido?", "Aviso",
+						JOptionPane.YES_NO_OPTION);
+
+				if (opcion == JOptionPane.YES_OPTION) {
+
+					JOptionPane.showMessageDialog(contentPane,
+							"Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
+							"Su pedido esta en camino", JOptionPane.WARNING_MESSAGE);
+
+					System.exit(0);
+
+				}
+
+			}
+
+		});
+		btnNewButton_1.setBounds(744, 480, 125, 110);
+		contentPane.add(btnNewButton_1);
+
+		JButton btnNewButton_1_1 = new JButton("Ver pedido");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				JOptionPane.showMessageDialog(contentPane,
+						"Su pedido: '" + menuTotal + "' con un coste total de " + precioTotal + "€", "Su pedido",
+						JOptionPane.WARNING_MESSAGE);
+
+			}
+		});
+		btnNewButton_1_1.setBounds(744, 359, 125, 110);
+		contentPane.add(btnNewButton_1_1);
+
 	}
 }

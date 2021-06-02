@@ -1,8 +1,6 @@
 package vista;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -15,7 +13,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,19 +20,12 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import Conexion.Conexion;
+import conexion.Conexion;
 
 public class MenuTelepizza extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel precio_tandemgourmet;
-	private int hora;
-	private int minutos;
-	private int segundos;
-	private int dia;
-	private int mes;
-	private int anyo;
 	private String nombre;
 	private int precio;
 	private int id_localidad;
@@ -44,25 +34,15 @@ public class MenuTelepizza extends JFrame {
 	private String direccion;
 	private int idCliente;
 	private Date fecha;
-	private int id_empleado;
 	private int precioTotal = 0;
 	private String menuTotal = "";
-
-	/**
-	 * Launch the application.
-	 */
-	/*
-	 * public static void main(String[] args) { EventQueue.invokeLater(new
-	 * Runnable() { public void run() { try { MenusTelepizza frame = new
-	 * MenusTelepizza(); frame.setVisible(true); } catch (Exception e) {
-	 * e.printStackTrace(); } } }); }
-	 */
 
 	/**
 	 * Create the frame.
 	 */
 	public MenuTelepizza(int id, String localidad, String direccionD, String empresaE) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\eclipse-workspace\\DeliveryBufa\\src\\vista\\Imagenes\\logofinal.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(
+				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -71,52 +51,52 @@ public class MenuTelepizza extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		this.setResizable(false);
-		
+
 		JLabel precio_bbq = new JLabel("7");
 		precio_bbq.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		precio_bbq.setBounds(220, 213, 16, 14);
 		contentPane.add(precio_bbq);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("\u20AC");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1.setBounds(228, 213, 46, 14);
 		contentPane.add(lblNewLabel_1);
-		
+
 		JLabel precio_carbonara = new JLabel("7");
 		precio_carbonara.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		precio_carbonara.setBounds(444, 211, 16, 14);
 		contentPane.add(precio_carbonara);
-		
+
 		JLabel precio_hawaiana = new JLabel("7");
 		precio_hawaiana.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		precio_hawaiana.setBounds(681, 211, 16, 14);
 		contentPane.add(precio_hawaiana);
-		
+
 		JLabel precio_cebolla = new JLabel("7");
 		precio_cebolla.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		precio_cebolla.setBounds(205, 399, 16, 14);
 		contentPane.add(precio_cebolla);
-		
+
 		JLabel precio_peperoni = new JLabel("7");
 		precio_peperoni.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		precio_peperoni.setBounds(444, 399, 16, 14);
 		contentPane.add(precio_peperoni);
-		
+
 		JLabel precio_baconcrispy = new JLabel("7");
 		precio_baconcrispy.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		precio_baconcrispy.setBounds(692, 399, 16, 14);
 		contentPane.add(precio_baconcrispy);
-		
+
 		JLabel precio_vulcanonachos = new JLabel("7");
 		precio_vulcanonachos.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		precio_vulcanonachos.setBounds(240, 573, 16, 14);
 		contentPane.add(precio_vulcanonachos);
-		
+
 		precio_tandemgourmet = new JLabel("7");
 		precio_tandemgourmet.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		precio_tandemgourmet.setBounds(476, 573, 16, 14);
 		contentPane.add(precio_tandemgourmet);
-		
+
 		JLabel precio_supreme = new JLabel("7");
 		precio_supreme.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		precio_supreme.setBounds(689, 573, 16, 14);
@@ -130,81 +110,19 @@ public class MenuTelepizza extends JFrame {
 		JButton barbacoa = new JButton("New button");
 		barbacoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
 
 				precio = Integer.parseInt(precio_bbq.getText());
-				precioTotal = precioTotal+precio;
+				precioTotal = precioTotal + precio;
 				nombre = "Barbacoa";
-				menuTotal = nombre+", "+menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
+				menuTotal = nombre + ", " + menuTotal;
 
-				try {
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
-							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-				}
-				
 			}
 		});
-		barbacoa.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\barbacoa.jpg"));
+		barbacoa.setIcon(new ImageIcon(
+				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\barbacoa.jpg"));
 		barbacoa.setForeground(Color.WHITE);
 		barbacoa.setBackground(Color.WHITE);
 		barbacoa.setBounds(106, 52, 150, 150);
@@ -213,81 +131,19 @@ public class MenuTelepizza extends JFrame {
 		JButton carbonara = new JButton("New button");
 		carbonara.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
 
 				precio = Integer.parseInt(precio_carbonara.getText());
-				precioTotal = precioTotal+precio;
+				precioTotal = precioTotal + precio;
 				nombre = "Carbonara";
-				menuTotal = nombre+", "+menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
+				menuTotal = nombre + ", " + menuTotal;
 
-				try {
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
-							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-				}
-				
 			}
 		});
-		carbonara.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\carbonara.jpg"));
+		carbonara.setIcon(new ImageIcon(
+				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\carbonara.jpg"));
 		carbonara.setForeground(Color.WHITE);
 		carbonara.setBackground(Color.WHITE);
 		carbonara.setBounds(336, 52, 150, 150);
@@ -296,81 +152,19 @@ public class MenuTelepizza extends JFrame {
 		JButton hawaiana = new JButton("New button");
 		hawaiana.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
 
 				precio = Integer.parseInt(precio_hawaiana.getText());
-				precioTotal = precioTotal+precio;
+				precioTotal = precioTotal + precio;
 				nombre = "Hawaiana";
-				menuTotal = nombre+", "+menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
+				menuTotal = nombre + ", " + menuTotal;
 
-				try {
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
-							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-				}
-				
 			}
 		});
-		hawaiana.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\hawaina.jpg"));
+		hawaiana.setIcon(new ImageIcon(
+				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\hawaina.jpg"));
 		hawaiana.setForeground(Color.WHITE);
 		hawaiana.setBackground(Color.WHITE);
 		hawaiana.setBounds(569, 52, 150, 150);
@@ -379,81 +173,19 @@ public class MenuTelepizza extends JFrame {
 		JButton cebolla = new JButton("New button");
 		cebolla.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
 
 				precio = Integer.parseInt(precio_cebolla.getText());
-				precioTotal = precioTotal+precio;
+				precioTotal = precioTotal + precio;
 				nombre = "Cebolla";
-				menuTotal = nombre+", "+menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
+				menuTotal = nombre + ", " + menuTotal;
 
-				try {
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
-							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-				}
-				
 			}
 		});
-		cebolla.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\cebolla.jpg"));
+		cebolla.setIcon(new ImageIcon(
+				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\cebolla.jpg"));
 		cebolla.setForeground(Color.WHITE);
 		cebolla.setBackground(Color.WHITE);
 		cebolla.setBounds(106, 244, 150, 150);
@@ -462,81 +194,19 @@ public class MenuTelepizza extends JFrame {
 		JButton peperoni = new JButton("New button");
 		peperoni.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
 
 				precio = Integer.parseInt(precio_peperoni.getText());
-				precioTotal = precioTotal+precio;
+				precioTotal = precioTotal + precio;
 				nombre = "Peperoni";
-				menuTotal = nombre+", "+menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
+				menuTotal = nombre + ", " + menuTotal;
 
-				try {
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
-							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-				}
-				
 			}
 		});
-		peperoni.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\peperoni.jpg"));
+		peperoni.setIcon(new ImageIcon(
+				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\peperoni.jpg"));
 		peperoni.setForeground(Color.WHITE);
 		peperoni.setBackground(Color.WHITE);
 		peperoni.setBounds(336, 244, 150, 150);
@@ -545,163 +215,38 @@ public class MenuTelepizza extends JFrame {
 		JButton baconCrispy = new JButton("New button");
 		baconCrispy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
 
 				precio = Integer.parseInt(precio_baconcrispy.getText());
-				precioTotal = precioTotal+precio;
+				precioTotal = precioTotal + precio;
 				nombre = "Bacon Crispy";
-				menuTotal = nombre+", "+menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
+				menuTotal = nombre + ", " + menuTotal;
 
-				try {
-
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
-							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-				}
-				
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 			}
-			
+
 		});
-		baconCrispy.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\baconcrispy.jpg"));
+		baconCrispy.setIcon(new ImageIcon(
+				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\baconcrispy.jpg"));
 		baconCrispy.setForeground(Color.WHITE);
 		baconCrispy.setBackground(Color.WHITE);
 		baconCrispy.setBounds(569, 244, 150, 150);
 		contentPane.add(baconCrispy);
 
 		JButton vulcanoNachos = new JButton("New button");
-		vulcanoNachos.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\vulcanonachos.jpg"));
+		vulcanoNachos.setIcon(new ImageIcon(
+				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\vulcanonachos.jpg"));
 		vulcanoNachos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
 
 				precio = Integer.parseInt(precio_vulcanonachos.getText());
-				precioTotal = precioTotal+precio;
+				precioTotal = precioTotal + precio;
 				nombre = "Vulcanos Nachos";
-				menuTotal = nombre+", "+menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
+				menuTotal = nombre + ", " + menuTotal;
 
-				try {
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
-							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-				}
-				
 			}
 		});
 		vulcanoNachos.setForeground(Color.WHITE);
@@ -712,81 +257,19 @@ public class MenuTelepizza extends JFrame {
 		JButton tandemGourmet = new JButton("New button");
 		tandemGourmet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
 
 				precio = Integer.parseInt(precio_tandemgourmet.getText());
-				precioTotal = precioTotal+precio;
+				precioTotal = precioTotal + precio;
 				nombre = "Tandem Gourmet";
-				menuTotal = nombre+", "+menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
+				menuTotal = nombre + ", " + menuTotal;
 
-				try {
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
-							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-				}
-				
 			}
 		});
-		tandemGourmet.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\tandemgourmet.jpg"));
+		tandemGourmet.setIcon(new ImageIcon(
+				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\tandemgourmet.jpg"));
 		tandemGourmet.setForeground(Color.WHITE);
 		tandemGourmet.setBackground(Color.WHITE);
 		tandemGourmet.setBounds(336, 418, 150, 150);
@@ -795,81 +278,18 @@ public class MenuTelepizza extends JFrame {
 		JButton supreme = new JButton("New button");
 		supreme.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Conexion c = new Conexion();
-
-				fecha = new Date(Calendar.getInstance().getTimeInMillis());
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String fechaTexto = formatter.format(fecha);
 
 				precio = Integer.parseInt(precio_supreme.getText());
-				precioTotal = precioTotal+precio;
+				precioTotal = precioTotal + precio;
 				nombre = "Supreme";
-				menuTotal = nombre+", "+menuTotal;
-				empresa = empresaE;
-				direccion = direccionD;
-				estado = "En proceso";
-				idCliente = id;
+				menuTotal = nombre + ", " + menuTotal;
 
-				try {
-
-					Statement s = c.getConexion().createStatement();
-					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
-					ResultSet rs = s.executeQuery(sql);
-
-					if (rs.next()) {
-
-						id_localidad = Integer.parseInt(rs.getString("Codigo"));
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quieres hacer otro pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-				} else {
-
-					Connection miConexion = c.getConexion();
-					String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-					try {
-						PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-						pst.setString(1, menuTotal);
-						pst.setString(2, fechaTexto);
-						pst.setInt(3, precioTotal);
-						pst.setString(4, estado);
-						pst.setString(5, empresa);
-						pst.setString(6, direccion);
-						pst.setInt(7, id_localidad);
-						pst.setInt(8, idCliente);
-
-						if (pst.executeUpdate() == 1) {
-
-						}
-
-					} catch (SQLException e1) {
-
-						e1.printStackTrace();
-
-					}
-
-					JOptionPane.showMessageDialog(contentPane, "¡Su pedido esta en camino!",
-							"Gracias por confiar en nosotros", JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-				}
-				
+				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
+						JOptionPane.WARNING_MESSAGE);
 			}
 		});
-		supreme.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\supreme.jpg"));
+		supreme.setIcon(new ImageIcon(
+				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\supreme.jpg"));
 		supreme.setForeground(Color.WHITE);
 		supreme.setBackground(Color.WHITE);
 		supreme.setBounds(569, 418, 150, 150);
@@ -919,47 +339,152 @@ public class MenuTelepizza extends JFrame {
 		lblMenMcwrap.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblMenMcwrap.setBounds(624, 566, 73, 25);
 		contentPane.add(lblMenMcwrap);
-		
-		
+
 		JLabel lblNewLabel_1_1 = new JLabel("\u20AC");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1_1.setBounds(454, 213, 46, 14);
 		contentPane.add(lblNewLabel_1_1);
-		
+
 		JLabel lblNewLabel_1_2 = new JLabel("\u20AC");
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1_2.setBounds(692, 211, 46, 14);
 		contentPane.add(lblNewLabel_1_2);
-		
+
 		JLabel lblNewLabel_1_3 = new JLabel("\u20AC");
 		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1_3.setBounds(220, 399, 46, 14);
 		contentPane.add(lblNewLabel_1_3);
-		
+
 		JLabel lblNewLabel_1_4 = new JLabel("\u20AC");
 		lblNewLabel_1_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1_4.setBounds(454, 399, 46, 14);
 		contentPane.add(lblNewLabel_1_4);
-		
+
 		JLabel lblNewLabel_1_5 = new JLabel("\u20AC");
 		lblNewLabel_1_5.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1_5.setBounds(702, 399, 46, 14);
 		contentPane.add(lblNewLabel_1_5);
-		
+
 		JLabel lblNewLabel_1_6 = new JLabel("\u20AC");
 		lblNewLabel_1_6.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1_6.setBounds(252, 573, 46, 14);
 		contentPane.add(lblNewLabel_1_6);
-		
+
 		JLabel lblNewLabel_1_7 = new JLabel("\u20AC");
 		lblNewLabel_1_7.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1_7.setBounds(484, 573, 46, 14);
 		contentPane.add(lblNewLabel_1_7);
-		
+
 		JLabel lblNewLabel_1_8 = new JLabel("\u20AC");
 		lblNewLabel_1_8.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1_8.setBounds(702, 573, 46, 14);
 		contentPane.add(lblNewLabel_1_8);
+
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				PantallaRestaurantes pR = new PantallaRestaurantes(id, localidad, direccionD);
+				dispose();
+				pR.setVisible(true);
+
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon(
+				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\flecha.png"));
+		btnNewButton.setBounds(0, 0, 60, 60);
+		contentPane.add(btnNewButton);
+
+		JButton btnNewButton_1 = new JButton("Terminar pedido");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				Conexion c = new Conexion();
+
+				empresa = empresaE;
+				direccion = direccionD;
+				estado = "En proceso";
+				idCliente = id;
+
+				fecha = new Date(Calendar.getInstance().getTimeInMillis());
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String fechaTexto = formatter.format(fecha);
+
+				try {
+
+					Statement s = c.getConexion().createStatement();
+					String sql = "select Codigo from localidad where Nombre = '" + localidad + "'";
+					ResultSet rs = s.executeQuery(sql);
+
+					if (rs.next()) {
+
+						id_localidad = Integer.parseInt(rs.getString("Codigo"));
+
+					}
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+
+				}
+
+				Connection miConexion = c.getConexion();
+				String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+				try {
+					PreparedStatement pst = miConexion.prepareStatement(mysql);
+
+					pst.setString(1, menuTotal);
+					pst.setString(2, fechaTexto);
+					pst.setInt(3, precioTotal);
+					pst.setString(4, estado);
+					pst.setString(5, empresa);
+					pst.setString(6, direccion);
+					pst.setInt(7, id_localidad);
+					pst.setInt(8, idCliente);
+
+					if (pst.executeUpdate() == 1) {
+
+					}
+
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+
+				}
+
+				int opcion = JOptionPane.showConfirmDialog(null, "¿Quiere terminar se pedido?", "Aviso",
+						JOptionPane.YES_NO_OPTION);
+
+				if (opcion == JOptionPane.YES_OPTION) {
+
+					JOptionPane.showMessageDialog(contentPane,
+							"Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
+							"Su pedido esta en camino", JOptionPane.WARNING_MESSAGE);
+
+					System.exit(0);
+
+				}
+
+			}
+
+		});
+		btnNewButton_1.setBounds(744, 480, 125, 110);
+		contentPane.add(btnNewButton_1);
+
+		JButton btnNewButton_1_1 = new JButton("Ver pedido");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				JOptionPane.showMessageDialog(contentPane,
+						"Su pedido: '" + menuTotal + "' con un coste total de " + precioTotal + "€", "Su pedido",
+						JOptionPane.WARNING_MESSAGE);
+
+			}
+		});
+		btnNewButton_1_1.setBounds(744, 359, 125, 110);
+		contentPane.add(btnNewButton_1_1);
+
 	}
 
 }
