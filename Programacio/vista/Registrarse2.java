@@ -2,18 +2,11 @@ package vista;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import org.jdatepicker.impl.JDatePanelImpl;
-import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
-
-import Conexion.Conexion;
+import conexion.Conexion;
 import modelo.Cliente;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
@@ -35,6 +28,7 @@ import javax.swing.JProgressBar;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextArea;
+import java.awt.Toolkit;
 
 public class Registrarse2 extends JFrame {
 
@@ -47,7 +41,6 @@ public class Registrarse2 extends JFrame {
 	private String nombre;
 	private String apellidos;
 	private String cP;
-	private String genero;
 	private String direccion;
 	private String localidad;
 	private PantallaRegistrar p = new PantallaRegistrar();
@@ -55,11 +48,13 @@ public class Registrarse2 extends JFrame {
 	private String contrasenya;
 	private String correo;
 	private String nombreUsuario;
+	private JTextArea textArea;
 
 	/**
 	 * Create the frame.
 	 */
 	public Registrarse2(String contrasenyaC, String correoC, String nombreUsuarioC) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
 		contentPane = new JPanel();
@@ -141,11 +136,11 @@ public class Registrarse2 extends JFrame {
 				apellidos = textField_Apelli.getText();
 				cP = textField_CP.getText();
 				direccion = textField_Direccion.getText();
-
 				fechaNac = textField_FechaNac.getText();
 				contrasenya = contrasenyaC;
 				correo = correoC;
 				nombreUsuario = nombreUsuarioC;
+				localidad = textArea.getText();
 
 				System.out.println(contrasenya);
 				System.out.println(correo);
@@ -225,6 +220,7 @@ public class Registrarse2 extends JFrame {
 										if (pst.executeUpdate()==1) {
 
 											PantallaLogin pL = new PantallaLogin();
+											dispose();
 											pL.setVisible(true);
 										}
 
@@ -247,7 +243,7 @@ public class Registrarse2 extends JFrame {
 			}
 
 		});
-		btnRegistrarse.setBounds(403, 427, 89, 23);
+		btnRegistrarse.setBounds(376, 427, 114, 23);
 		contentPane.add(btnRegistrarse);
 		
 		JComboBox comboBox = new JComboBox();
@@ -259,17 +255,17 @@ public class Registrarse2 extends JFrame {
 			
 			if(comboBox.getSelectedIndex() == 0) {
 				
-				lblLocalidad.setText(mensaje);
-				lblLocalidad.setEnabled(false);
+				textArea.setText(mensaje);
+				textArea.setEnabled(false);
 			}
 			else {
 				
 				mensaje = comboBox.getSelectedItem().toString();
 				
-				lblLocalidad.setText(mensaje);
+				textArea.setText(mensaje);
 				
-				if(lblLocalidad.isEnabled()== false)
-					lblLocalidad.setEnabled(true);	
+				if(textArea.isEnabled()== false)
+					textArea.setEnabled(true);	
 			}
 			
 			
@@ -277,12 +273,8 @@ public class Registrarse2 extends JFrame {
 			}
 		});
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Alc\u00FAdia", "Carcaixent", "Alzira", "Benimodo", "Benifai\u00F3", "Alginet", "Carlet", "Tous", "Algemes\u00ED", "Guadassuar", "Massalav\u00E9s", "Benimuslem", "Alberic", "Villanova de Castell\u00F3", "Gavarda", "Antella", "Sumac\u00E1rcel", "Cot\u00E9s", "C\u00E0rcer", "Beneixida", "Sellent", "Alc\u00E0ntera del Xuquer", "Senyera", "Manuel", "Sant Joan de \u00C8nova", "Rafelguaraf", "\u00C9nova", "Pobla Llarga"}));
-		comboBox.setBounds(435, 338, 82, 20);
+		comboBox.setBounds(435, 338, 111, 20);
 		contentPane.add(comboBox);
-		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(376, 374, 114, 22);
-		contentPane.add(textArea);
 		
 
 		JLabel lblNewLabel = new JLabel("");
@@ -296,6 +288,10 @@ public class Registrarse2 extends JFrame {
 				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\FondoLogearse.jpg"));
 		lblNewLabel_Fondo.setBounds(-54, 0, 1136, 754);
 		contentPane.add(lblNewLabel_Fondo);
+		
+		textArea = new JTextArea();
+		textArea.setBounds(10, 558, 4, 4);
+		contentPane.add(textArea);
 
 	}
 }

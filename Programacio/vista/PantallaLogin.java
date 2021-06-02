@@ -93,6 +93,13 @@ public class PantallaLogin extends JFrame {
 		contentPane.add(usuario);
 		usuario.setColumns(10);
 
+		/**
+		 * 
+		 * Este boton es de logearse, detecta automaticamente si la persona es cliente o
+		 * empleado
+		 * 
+		 */
+
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -103,6 +110,10 @@ public class PantallaLogin extends JFrame {
 				Conexion c = new Conexion();
 
 				try {
+
+					// Aqui es donde se hace una consulta donde usando los datos introducidos en el
+					// textfield comprueba si exite en la base de datos
+
 					Statement s = c.getConexion().createStatement();
 					String sql = "select NombreUsuario, Contraseña, ID from persona where NombreUsuario = '" + user
 							+ "' AND Contraseña = '" + contrasenya + "'";
@@ -110,7 +121,11 @@ public class PantallaLogin extends JFrame {
 
 					if (rs.next()) {
 
+						// Aqui se guarda el id de la persona para utilizarla luego
+
 						int id = Integer.parseInt(rs.getString("ID"));
+
+						// En esta consulta es donde se comprueba si la persona es cliente o empleado
 
 						sql = "select idEmpleado from empleado where idEmpleado = '" + id + "'";
 						rs = s.executeQuery(sql);
@@ -118,16 +133,19 @@ public class PantallaLogin extends JFrame {
 						if (rs.next()) {
 
 							vistaEmpleado vE = new vistaEmpleado(user);
-
+							dispose();
 							vE.setVisible(true);
 
 						} else {
+
+							// En el caso d eno ser empleado se guardan los datos que seran usados luego
+							// para hacer los pedidos
 
 							sql = "select Localidad from persona where ID = '" + id + "'";
 							rs = s.executeQuery(sql);
 
 							if (rs.next()) {
-								
+
 								String localidad = rs.getString("Localidad");
 
 								sql = "select Direccion from persona where ID = '" + id + "'";
@@ -157,12 +175,19 @@ public class PantallaLogin extends JFrame {
 		});
 		btnLogin.setBounds(317, 405, 89, 23);
 		contentPane.add(btnLogin);
+		
+		/**
+		 * 
+		 * Este es el boton que te lleva a la pantalla de registro
+		 * 
+		 */
 
 		btnRegister = new JButton("Registrase");
 		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				PantallaRegistrar frameRegis = new PantallaRegistrar();
+				dispose();
 				frameRegis.setVisible(true);
 
 			}
@@ -176,6 +201,12 @@ public class PantallaLogin extends JFrame {
 		contentPane.add(password);
 		password.setColumns(10);
 		password.setEchoChar('*');
+		
+		/**
+		 * 
+		 * Este boton permite ver la contraseña
+		 * 
+		 */
 
 		btnNewButton = new JButton("");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -193,6 +224,12 @@ public class PantallaLogin extends JFrame {
 				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\verpass1.png"));
 		btnNewButton.setBounds(542, 303, 34, 34);
 		contentPane.add(btnNewButton);
+		
+		/**
+		 * 
+		 * Este boton permite lo contrario al anterior, sirve para ocultarla
+		 * 
+		 */
 
 		btnNewButton_1 = new JButton("");
 		btnNewButton_1.addActionListener(new ActionListener() {

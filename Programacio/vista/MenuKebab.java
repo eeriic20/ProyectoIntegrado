@@ -88,7 +88,7 @@ public class MenuKebab extends JFrame {
 
 		JLabel precio_kbPitaPoll = new JLabel("6");
 		precio_kbPitaPoll.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		precio_kbPitaPoll.setBounds(725, 399, 15, 14);
+		precio_kbPitaPoll.setBounds(708, 399, 15, 14);
 		contentPane.add(precio_kbPitaPoll);
 
 		JLabel precio_PizzAaBBq = new JLabel("7");
@@ -315,7 +315,7 @@ public class MenuKebab extends JFrame {
 
 		JLabel lblMenGrandMcextreme = new JLabel("Kebab de Pollo Pan de Pita");
 		lblMenGrandMcextreme.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblMenGrandMcextreme.setBounds(556, 393, 173, 22);
+		lblMenGrandMcextreme.setBounds(542, 395, 173, 22);
 		contentPane.add(lblMenGrandMcextreme);
 
 		JLabel lblMenMcfish = new JLabel("Pizza Kebab");
@@ -350,7 +350,7 @@ public class MenuKebab extends JFrame {
 
 		JLabel label_1_1_2 = new JLabel("\u20AC");
 		label_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_1_1_2.setBounds(734, 399, 21, 14);
+		label_1_1_2.setBounds(719, 400, 21, 14);
 		contentPane.add(label_1_1_2);
 
 		JLabel label_1_1_3 = new JLabel("\u20AC");
@@ -467,7 +467,7 @@ public class MenuKebab extends JFrame {
 			}
 
 		});
-		btnNewButton_1.setBounds(744, 480, 125, 110);
+		btnNewButton_1.setBounds(732, 480, 137, 110);
 		contentPane.add(btnNewButton_1);
 
 		JButton btnNewButton_1_1 = new JButton("Ver pedido");
@@ -480,8 +480,13 @@ public class MenuKebab extends JFrame {
 
 			}
 		});
-		btnNewButton_1_1.setBounds(744, 359, 125, 110);
+		btnNewButton_1_1.setBounds(731, 359, 138, 110);
 		contentPane.add(btnNewButton_1_1);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\Virtual-Backgrounds_Confetti-On-Gold.jpg"));
+		lblNewLabel_1.setBounds(-156, -32, 1147, 666);
+		contentPane.add(lblNewLabel_1);
 
 	}
 

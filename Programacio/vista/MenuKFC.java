@@ -53,7 +53,7 @@ public class MenuKFC extends JFrame {
 
 		JLabel lblEligeTuMen = new JLabel("ELIGE TU MEN\u00DA");
 		lblEligeTuMen.setFont(new Font("Tahoma", Font.BOLD, 24));
-		lblEligeTuMen.setBounds(309, 0, 388, 61);
+		lblEligeTuMen.setBounds(309, 0, 218, 61);
 		contentPane.add(lblEligeTuMen);
 
 		JLabel precio_BBQ = new JLabel("9");
@@ -469,7 +469,7 @@ public class MenuKFC extends JFrame {
 			}
 
 		});
-		btnNewButton_1.setBounds(744, 480, 125, 110);
+		btnNewButton_1.setBounds(729, 480, 140, 110);
 		contentPane.add(btnNewButton_1);
 
 		JButton btnNewButton_1_1 = new JButton("Ver pedido");
@@ -482,8 +482,23 @@ public class MenuKFC extends JFrame {
 
 			}
 		});
-		btnNewButton_1_1.setBounds(744, 359, 125, 110);
+		btnNewButton_1_1.setBounds(729, 359, 140, 110);
 		contentPane.add(btnNewButton_1_1);
+		
+		JLabel lblNewLabel_2_10 = new JLabel("");
+		lblNewLabel_2_10.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fondo4.jpg"));
+		lblNewLabel_2_10.setBounds(297, -4, 227, 61);
+		contentPane.add(lblNewLabel_2_10);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\f0a0c1341648575e6c02a4b67e4b721d.jpg"));
+		lblNewLabel_1.setBounds(-26, -52, 962, 687);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_12 = new JLabel("");
+		lblNewLabel_12.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\Virtual-Backgrounds_Confetti-On-Gold.jpg"));
+		lblNewLabel_12.setBounds(-156, -32, 1147, 666);
+		contentPane.add(lblNewLabel_12);
 
 	}
 }

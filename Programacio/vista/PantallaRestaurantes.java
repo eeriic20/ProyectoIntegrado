@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.UIManager;
+import java.awt.Toolkit;
 
 public class PantallaRestaurantes extends JFrame {
 
@@ -22,7 +23,8 @@ public class PantallaRestaurantes extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PantallaRestaurantes(String id, String localidad, String direccion) {
+	public PantallaRestaurantes(int id, String localidad, String direccion) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
 		contentPane = new JPanel();
@@ -35,12 +37,13 @@ public class PantallaRestaurantes extends JFrame {
 		ginos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				String id_user = id;
+				int id_user = id;
 				String localidad_user = localidad;
 				String direccion_user = direccion;
 				String empresa = "Ginos";
 
 				MenuGinos frame = new MenuGinos(id_user, localidad_user, direccion_user, empresa);
+				dispose();
 				frame.setVisible(true);
 			}
 		});
@@ -53,7 +56,14 @@ public class PantallaRestaurantes extends JFrame {
 		JButton kfc = new JButton("New button");
 		kfc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				MenuKFC frame = new MenuKFC();
+				
+				int id_user = id;
+				String localidad_user = localidad;
+				String direccion_user = direccion;
+				String empresa = "KFC";
+				
+				MenuKFC frame = new MenuKFC(id_user, localidad_user, direccion_user, empresa);
+				dispose();
 				frame.setVisible(true);
 			}
 		});
@@ -67,13 +77,13 @@ public class PantallaRestaurantes extends JFrame {
 		pans.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				String id_user = id;
+				int id_user = id;
 				String localidad_user = localidad;
 				String direccion_user = direccion;
-				String empresa = "pans";
-				
+				String empresa = "Pans";
 				
 				MenuPans frame = new MenuPans(id_user, localidad_user, direccion_user, empresa);
+				dispose();
 				frame.setVisible(true);
 			}
 		});
@@ -87,12 +97,13 @@ public class PantallaRestaurantes extends JFrame {
 		xequebo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				String id_user = id;
+				int id_user = id;
 				String localidad_user = localidad;
 				String direccion_user = direccion;
-				String empresa = "xequebo";
+				String empresa = "XeQueBo";
 				
 				MenuXeQueBo frame = new MenuXeQueBo(id_user, localidad_user, direccion_user, empresa);
+				dispose();
 				frame.setVisible(true);
 			}
 		});
@@ -104,7 +115,14 @@ public class PantallaRestaurantes extends JFrame {
 		JButton kebab = new JButton("New button");
 		kebab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				MenuKebab frame = new MenuKebab();
+				
+				int id_user = id;
+				String localidad_user = localidad;
+				String direccion_user = direccion;
+				String empresa = "KFC";
+				
+				MenuKebab frame = new MenuKebab(id_user, localidad_user, direccion_user, empresa);
+				dispose();
 				frame.setVisible(true);
 			}
 		});
@@ -122,8 +140,14 @@ public class PantallaRestaurantes extends JFrame {
 		JButton burgerking = new JButton("New button");
 		burgerking.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				int id_user = id;
+				String localidad_user = localidad;
+				String direccion_user = direccion;
+				String empresa = "BurgerKing";
 
-				MenuBurgerKing frame = new MenuBurgerKing();
+				MenuBurgerKing frame = new MenuBurgerKing(id_user, localidad_user, direccion_user, empresa);
+				dispose();
 				frame.setVisible(true);
 			}
 		});
@@ -141,12 +165,13 @@ public class PantallaRestaurantes extends JFrame {
 		mcdonalds.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				String id_user = id;
+				int id_user = id;
 				String localidad_user = localidad;
 				String direccion_user = direccion;
 				String empresa = "McDonalds";
 				
 				MenuMcDonalds frame = new MenuMcDonalds(id_user, localidad_user, direccion_user, empresa);
+				dispose();
 				frame.setVisible(true);
 			}
 		});
@@ -156,7 +181,14 @@ public class PantallaRestaurantes extends JFrame {
 		JButton telepizza = new JButton("New button");
 		telepizza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				MenuTelepizza frame = new MenuTelepizza();
+				
+				int id_user = id;
+				String localidad_user = localidad;
+				String direccion_user = direccion;
+				String empresa = "Telepizza";
+				
+				MenuTelepizza frame = new MenuTelepizza(id_user, localidad_user, direccion_user, empresa);
+				dispose();
 				frame.setVisible(true);
 			}
 		});
@@ -170,7 +202,14 @@ public class PantallaRestaurantes extends JFrame {
 		fosters.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
-				MenuFosters frame = new MenuFosters();
+				
+				int id_user = id;
+				String localidad_user = localidad;
+				String direccion_user = direccion;
+				String empresa = "Fosters";
+				
+				MenuFosters frame = new MenuFosters(id_user, localidad_user, direccion_user, empresa   );
+				dispose();
 				frame.setVisible(true);
 			}
 		});
@@ -179,5 +218,10 @@ public class PantallaRestaurantes extends JFrame {
 				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters.jpg"));
 		fosters.setBounds(136, 245, 150, 150);
 		contentPane.add(fosters);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\unnamed8.jpg"));
+		lblNewLabel_1.setBounds(-131, -206, 1065, 928);
+		contentPane.add(lblNewLabel_1);
 	}
 }

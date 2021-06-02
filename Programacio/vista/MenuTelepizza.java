@@ -103,8 +103,9 @@ public class MenuTelepizza extends JFrame {
 		contentPane.add(precio_supreme);
 
 		JLabel lblEligeTuMen = new JLabel("ELIGE TU MEN\u00DA");
+		lblEligeTuMen.setBackground(Color.WHITE);
 		lblEligeTuMen.setFont(new Font("Tahoma", Font.BOLD, 24));
-		lblEligeTuMen.setBounds(309, 0, 388, 61);
+		lblEligeTuMen.setBounds(304, -14, 215, 61);
 		contentPane.add(lblEligeTuMen);
 
 		JButton barbacoa = new JButton("New button");
@@ -469,7 +470,7 @@ public class MenuTelepizza extends JFrame {
 			}
 
 		});
-		btnNewButton_1.setBounds(744, 480, 125, 110);
+		btnNewButton_1.setBounds(733, 480, 136, 110);
 		contentPane.add(btnNewButton_1);
 
 		JButton btnNewButton_1_1 = new JButton("Ver pedido");
@@ -482,8 +483,13 @@ public class MenuTelepizza extends JFrame {
 
 			}
 		});
-		btnNewButton_1_1.setBounds(744, 359, 125, 110);
+		btnNewButton_1_1.setBounds(731, 359, 138, 110);
 		contentPane.add(btnNewButton_1_1);
+		
+		JLabel lblNewLabel_12 = new JLabel("");
+		lblNewLabel_12.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\Virtual-Backgrounds_Confetti-On-Gold.jpg"));
+		lblNewLabel_12.setBounds(-156, -32, 1147, 666);
+		contentPane.add(lblNewLabel_12);
 
 	}
 

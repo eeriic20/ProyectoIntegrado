@@ -469,7 +469,7 @@ public class MenuPans extends JFrame {
 			}
 
 		});
-		btnNewButton_1.setBounds(744, 480, 125, 110);
+		btnNewButton_1.setBounds(730, 480, 139, 110);
 		contentPane.add(btnNewButton_1);
 
 		JButton btnNewButton_1_1 = new JButton("Ver pedido");
@@ -482,8 +482,13 @@ public class MenuPans extends JFrame {
 
 			}
 		});
-		btnNewButton_1_1.setBounds(744, 359, 125, 110);
+		btnNewButton_1_1.setBounds(729, 359, 140, 110);
 		contentPane.add(btnNewButton_1_1);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\Virtual-Backgrounds_Confetti-On-Gold.jpg"));
+		lblNewLabel_1.setBounds(-156, -32, 1147, 666);
+		contentPane.add(lblNewLabel_1);
 
 	}
 

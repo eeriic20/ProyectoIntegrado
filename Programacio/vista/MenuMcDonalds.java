@@ -83,7 +83,7 @@ public class MenuMcDonalds extends JFrame {
 
 		JLabel precio_mcextreme = new JLabel("9");
 		precio_mcextreme.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		precio_mcextreme.setBounds(720, 399, 46, 14);
+		precio_mcextreme.setBounds(700, 397, 20, 14);
 		contentPane.add(precio_mcextreme);
 
 		JLabel precio_mcfish = new JLabel("6");
@@ -317,7 +317,7 @@ public class MenuMcDonalds extends JFrame {
 
 		JLabel lblMenGrandMcextreme = new JLabel("Men\u00FA Grand McExtreme");
 		lblMenGrandMcextreme.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblMenGrandMcextreme.setBounds(569, 393, 164, 22);
+		lblMenGrandMcextreme.setBounds(550, 393, 164, 22);
 		contentPane.add(lblMenGrandMcextreme);
 
 		JLabel lblMenMcfish = new JLabel("Men\u00FA McFish");
@@ -362,7 +362,7 @@ public class MenuMcDonalds extends JFrame {
 
 		JLabel label_1_5 = new JLabel("\u20AC");
 		label_1_5.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_1_5.setBounds(732, 399, 46, 14);
+		label_1_5.setBounds(712, 397, 23, 14);
 		contentPane.add(label_1_5);
 
 		JLabel label_1_6 = new JLabel("\u20AC");
@@ -469,7 +469,7 @@ public class MenuMcDonalds extends JFrame {
 			}
 
 		});
-		btnNewButton_1.setBounds(744, 480, 125, 110);
+		btnNewButton_1.setBounds(733, 480, 136, 110);
 		contentPane.add(btnNewButton_1);
 
 		JButton btnNewButton_1_1 = new JButton("Ver pedido");
@@ -482,7 +482,12 @@ public class MenuMcDonalds extends JFrame {
 
 			}
 		});
-		btnNewButton_1_1.setBounds(744, 359, 125, 110);
+		btnNewButton_1_1.setBounds(734, 359, 135, 110);
 		contentPane.add(btnNewButton_1_1);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\Virtual-Backgrounds_Confetti-On-Gold.jpg"));
+		lblNewLabel_1.setBounds(-156, -32, 1147, 666);
+		contentPane.add(lblNewLabel_1);
 	}
 }

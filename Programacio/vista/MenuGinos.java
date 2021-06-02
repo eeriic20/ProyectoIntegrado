@@ -73,7 +73,7 @@ public class MenuGinos extends JFrame {
 
 		JLabel precio_tagliatelle = new JLabel("12");
 		precio_tagliatelle.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		precio_tagliatelle.setBounds(742, 397, 26, 14);
+		precio_tagliatelle.setBounds(697, 397, 26, 14);
 		contentPane.add(precio_tagliatelle);
 
 		JLabel precio_cacio = new JLabel("8");
@@ -123,7 +123,7 @@ public class MenuGinos extends JFrame {
 
 		JLabel lblMenGrandMcextreme = new JLabel("Tagliatelle Integrali Primavera:");
 		lblMenGrandMcextreme.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblMenGrandMcextreme.setBounds(556, 393, 188, 22);
+		lblMenGrandMcextreme.setBounds(518, 393, 188, 22);
 		contentPane.add(lblMenGrandMcextreme);
 
 		JLabel lblMenMcfish = new JLabel("Spaghetti Ai Frutti Di Mare:");
@@ -363,7 +363,7 @@ public class MenuGinos extends JFrame {
 
 		JLabel label_euro_5 = new JLabel("\u20AC");
 		label_euro_5.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label_euro_5.setBounds(766, 397, 14, 14);
+		label_euro_5.setBounds(717, 397, 14, 14);
 		contentPane.add(label_euro_5);
 
 		JLabel label_euro_6 = new JLabel("\u20AC");
@@ -470,7 +470,7 @@ public class MenuGinos extends JFrame {
 			}
 
 		});
-		btnNewButton_1.setBounds(744, 480, 125, 110);
+		btnNewButton_1.setBounds(729, 480, 140, 110);
 		contentPane.add(btnNewButton_1);
 
 		JButton btnNewButton_1_1 = new JButton("Ver pedido");
@@ -483,8 +483,13 @@ public class MenuGinos extends JFrame {
 
 			}
 		});
-		btnNewButton_1_1.setBounds(744, 359, 125, 110);
+		btnNewButton_1_1.setBounds(727, 359, 142, 110);
 		contentPane.add(btnNewButton_1_1);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\Virtual-Backgrounds_Confetti-On-Gold.jpg"));
+		lblNewLabel_1.setBounds(-156, -32, 1147, 666);
+		contentPane.add(lblNewLabel_1);
 
 	}
 }
