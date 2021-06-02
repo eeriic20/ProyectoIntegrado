@@ -148,7 +148,6 @@ ul li a:hover {
   text-align: center;
   font-weight: bold;
   margin-right: 7%;
-  margin-top: -2%;
 }
 
 .descripcion {
@@ -232,4 +231,31 @@ ul li a:hover {
 .boton:hover {
   color: red;
   background-color: yellow;
+}
+
+.contenidoinicio {
+  margin-right: 50%;
+  text-align: center;
+}
+
+.contenidoimagen {
+  margin-left: 50%;
+  text-align: center;
+  margin-bottom: 10%;
+}
+.contenidoinicioderecha {
+  margin-left: 50%;
+  text-align: center;
+}
+
+.contenidoimagenderecha {
+  margin-right: 50%;
+  text-align: center;
+  margin-bottom: 10%;
+}
+
+.imagen {
+  width: 70%;
+  height: 40%;
+  margin-top: -25%;
 }
