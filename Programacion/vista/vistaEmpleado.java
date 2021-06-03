@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
-import Conexion.Conexion;
+import conexion.Conexion;
 import javafx.scene.control.ComboBox;
 
 import javax.swing.JList;
@@ -33,17 +33,15 @@ import javax.swing.SwingConstants;
 import java.awt.Toolkit;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 
 public class vistaEmpleado extends JFrame {
 
 	private JPanel contentPane;
 	private PantallaLogin pL = new PantallaLogin();
 	private JTable table;
-<<<<<<< HEAD:Programacio/vista/vistaEmpleado.java
 	private JTable table1;
 	private JTextArea textArea;
-=======
->>>>>>> 4a9ec8687001aee09348dfcc9190359c0a6e09ac:Programacion/vista/vistaEmpleado.java
 
 	/**
 	 * Create the frame.
@@ -95,7 +93,7 @@ public class vistaEmpleado extends JFrame {
 		contentPane.add(lblDisponibilidadR);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(87, 255, 734, 310);
+		scrollPane.setBounds(10, 243, 859, 347);
 		contentPane.add(scrollPane);
 		
 		DefaultTableModel modelo = new DefaultTableModel();
@@ -108,11 +106,30 @@ public class vistaEmpleado extends JFrame {
 		modelo.addColumn("EstadoPedido");
 		modelo.addColumn("Empresa");
 		modelo.addColumn("direccion");
-		modelo.addColumn("CodigoLocalidad");
+		modelo.addColumn("Localidad");
 		modelo.addColumn("IdCliente");
-		modelo.addColumn("IdEmpleado");
 
+		
 		scrollPane.setViewportView(table);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(10, 243, 859, 347);
+		contentPane.add(scrollPane_1);
+		
+		DefaultTableModel modelo1 = new DefaultTableModel();
+		table1 = new JTable(modelo1);
+		
+		modelo1.addColumn("IdPedido");
+		modelo1.addColumn("Menu");
+		modelo1.addColumn("FechaPedido");
+		modelo1.addColumn("PrecioPedido");
+		modelo1.addColumn("EstadoPedido");
+		modelo1.addColumn("Empresa");
+		modelo1.addColumn("direccion");
+		modelo1.addColumn("Localidad");
+		modelo1.addColumn("IdCliente");
+		
+		scrollPane_1.setViewportView(table1);
 
 		JLabel lblLocalidadR = new JLabel("**");
 		lblLocalidadR.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -134,7 +151,7 @@ public class vistaEmpleado extends JFrame {
 				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\rojo.jpg"));
 		lblrojo.setBackground(Color.WHITE);
 		lblrojo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblrojo.setBounds(704, 75, 102, 58);
+		lblrojo.setBounds(383, 94, 102, 58);
 		contentPane.add(lblrojo);
 
 		JLabel lblVerde = new JLabel("Disponible");
@@ -142,7 +159,7 @@ public class vistaEmpleado extends JFrame {
 				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\verde.jpg"));
 		lblVerde.setHorizontalAlignment(SwingConstants.CENTER);
 		lblVerde.setBackground(Color.WHITE);
-		lblVerde.setBounds(704, 75, 102, 58);
+		lblVerde.setBounds(383, 94, 102, 58);
 		contentPane.add(lblVerde);
 		lblVerde.setVisible(false);
 
@@ -152,14 +169,19 @@ public class vistaEmpleado extends JFrame {
 
 				lblrojo.setVisible(false);
 				lblVerde.setVisible(true);
+				
+				scrollPane_1.setVisible(false);
+				scrollPane.setVisible(true);
 
 				Conexion c = new Conexion();
 				Connection miConexion = c.getConexion();
 				
+				table.setEnabled(false);
+				
 				Statement st;
 				try {
 					st = miConexion.createStatement();
-					ResultSet rsUsuarios = st.executeQuery("Select * from pedido");
+					ResultSet rsUsuarios = st.executeQuery("Select * from pedido where IdEmpleado IS NULL");
 					
 					Object [] fila = new Object[9];
 					TableColumnModel columnModel = table.getColumnModel();
@@ -170,6 +192,7 @@ public class vistaEmpleado extends JFrame {
 					columnModel.getColumn(6).setPreferredWidth(100);
 					columnModel.getColumn(7).setPreferredWidth(50);
 					columnModel.getColumn(8).setPreferredWidth(50);
+					
 					while(rsUsuarios.next()) {
 						
 						fila[0] = rsUsuarios.getInt("IdPedido");
@@ -181,7 +204,26 @@ public class vistaEmpleado extends JFrame {
 						fila[6] = rsUsuarios.getString("direccion");
 						fila[7] = rsUsuarios.getInt("CodigoLocalidad");
 						fila[8] = rsUsuarios.getInt("IdCliente");
-						modelo.addRow(fila);
+						
+						
+						int codigo = (int)fila[7];
+						
+						Statement s = c.getConexion().createStatement();
+						String sql = "select Nombre from localidad where Codigo = '"+codigo+"'";
+						ResultSet rs = s.executeQuery(sql);
+						
+						if (rs.next()) {
+							
+							String localidad = rs.getString("Nombre");
+							
+							Object ob = localidad;
+							
+							fila[7] = ob;
+							
+							modelo.addRow(fila);
+							
+						}
+						
 						
 						
 					}
@@ -221,6 +263,11 @@ public class vistaEmpleado extends JFrame {
 				
 			}
 		});
+		
+		JLabel lblNewLabel_5 = new JLabel("Que pedido deseas realizar");
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblNewLabel_5.setBounds(634, 46, 212, 44);
+		contentPane.add(lblNewLabel_5);
 		btnNewButton.setBounds(458, 188, 113, 23);
 		contentPane.add(btnNewButton);
 
@@ -236,12 +283,27 @@ public class vistaEmpleado extends JFrame {
 				lblLocalidadR.setText("**");
 
 				lblDisponibilidadR.setText("No disponible");
+				
+				table1.setEnabled(false);
+				
+				TableColumnModel columnModel = table1.getColumnModel();
+				columnModel.getColumn(0).setPreferredWidth(50);
+				columnModel.getColumn(1).setPreferredWidth(150);
+				columnModel.getColumn(2).setPreferredWidth(150);
+				columnModel.getColumn(3).setPreferredWidth(50);
+				columnModel.getColumn(6).setPreferredWidth(100);
+				columnModel.getColumn(7).setPreferredWidth(50);
+				columnModel.getColumn(8).setPreferredWidth(50);
+				
+				scrollPane_1.setVisible(true);
+				scrollPane.setVisible(false);
 
+				modelo.setRowCount(0);
+				
 			}
 		});
 		btnNewButton_1.setBounds(327, 188, 113, 23);
 		contentPane.add(btnNewButton_1);
-<<<<<<< HEAD:Programacio/vista/vistaEmpleado.java
 		
 		
 		JComboBox comboBox = new JComboBox();
@@ -281,8 +343,6 @@ public class vistaEmpleado extends JFrame {
 		lblNewLabel_4.setIcon(new ImageIcon(vistaEmpleado.class.getResource("/vista/Imagenes/fondo4.jpg")));
 		lblNewLabel_4.setBounds(633, 51, 211, 38);
 		contentPane.add(lblNewLabel_4);
-=======
->>>>>>> 4a9ec8687001aee09348dfcc9190359c0a6e09ac:Programacion/vista/vistaEmpleado.java
 
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(new ImageIcon(
@@ -301,6 +361,10 @@ public class vistaEmpleado extends JFrame {
 				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\FondoLogearse.jpg"));
 		lblNewLabel_1.setBounds(-14, -17, 941, 643);
 		contentPane.add(lblNewLabel_1);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(875, 597, 4, 4);
+		contentPane.add(textArea);
 
 	}
 }
