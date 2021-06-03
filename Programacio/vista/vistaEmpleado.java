@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 import Conexion.Conexion;
 import javafx.scene.control.ComboBox;
@@ -150,10 +151,17 @@ public class vistaEmpleado extends JFrame {
 				Statement st;
 				try {
 					st = miConexion.createStatement();
-					ResultSet rsUsuarios = st.executeQuery("Select * from pedidos where IdEmpleado = null");
+					ResultSet rsUsuarios = st.executeQuery("Select * from pedido");
 					
 					Object [] fila = new Object[9];
-					
+					TableColumnModel columnModel = table.getColumnModel();
+					columnModel.getColumn(0).setPreferredWidth(50);
+					columnModel.getColumn(1).setPreferredWidth(150);
+					columnModel.getColumn(2).setPreferredWidth(150);
+					columnModel.getColumn(3).setPreferredWidth(50);
+					columnModel.getColumn(6).setPreferredWidth(100);
+					columnModel.getColumn(7).setPreferredWidth(50);
+					columnModel.getColumn(8).setPreferredWidth(50);
 					while(rsUsuarios.next()) {
 						
 						fila[0] = rsUsuarios.getInt("IdPedido");
@@ -165,7 +173,6 @@ public class vistaEmpleado extends JFrame {
 						fila[6] = rsUsuarios.getString("direccion");
 						fila[7] = rsUsuarios.getInt("CodigoLocalidad");
 						fila[8] = rsUsuarios.getInt("IdCliente");
-						fila[9] = rsUsuarios.getInt("IdEmpleado");
 						modelo.addRow(fila);
 						
 						
