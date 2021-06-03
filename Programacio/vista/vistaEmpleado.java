@@ -13,16 +13,19 @@ import conexion.Conexion;
 import javafx.scene.control.ComboBox;
 
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.Color;
@@ -38,6 +41,7 @@ public class vistaEmpleado extends JFrame {
 	private PantallaLogin pL = new PantallaLogin();
 	private JTable table;
 	private JTable table1;
+	private JTextArea textArea;
 
 	/**
 	 * Create the frame.
@@ -301,13 +305,35 @@ public class vistaEmpleado extends JFrame {
 		btnNewButton_1.setBounds(327, 188, 113, 23);
 		contentPane.add(btnNewButton_1);
 		
+		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(685, 94, 102, 20);
 		contentPane.add(comboBox);
 		
+		comboBox.removeAllItems();
+		ArrayList<String> lista = new ArrayList<String>();
+		
+		try {
+			
+			Connection con = DriverManager.getConnection("jdbc:mysql://52.45.93.173/deliverybufa");
+			Statement sent = con.createStatement();
+			ResultSet rs = sent.executeQuery("Select IdPedido from pedido");
+			
+			while(rs.next()) {
+				comboBox.addItem(rs.getString("Menu"));
+			}
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
+		
 		JButton btnNewButton_2 = new JButton("Realizar pedido");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
+				
 			}
 		});
 		btnNewButton_2.setBounds(675, 125, 129, 23);
