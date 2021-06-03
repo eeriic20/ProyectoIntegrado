@@ -315,13 +315,17 @@ public class vistaEmpleado extends JFrame {
 		
 		try {
 			
+			ArrayList<String> lista1 = new ArrayList<String>();
 			Connection con = DriverManager.getConnection("jdbc:mysql://52.45.93.173/deliverybufa");
 			Statement sent = con.createStatement();
 			ResultSet rs = sent.executeQuery("Select IdPedido from pedido");
 			
 			while(rs.next()) {
-				comboBox.addItem(rs.getString("Menu"));
+				lista1.add(rs.getString("Menu"));
+				
 			}
+			
+			comboBox.addItem(lista1.get(0));
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e);
