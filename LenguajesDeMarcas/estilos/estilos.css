@@ -235,26 +235,29 @@ ul li a:hover {
 
 .contenidoinicio {
   margin-right: 50%;
-  text-align: center;
 }
 
 .contenidoimagen {
   margin-left: 50%;
   text-align: center;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 .contenidoinicioderecha {
   margin-left: 50%;
-  text-align: center;
 }
 
 .contenidoimagenderecha {
   margin-right: 50%;
   text-align: center;
-  margin-bottom: 10%;
 }
 
-.imagen {
+.imagenquees {
+  width: 70%;
+  height: 40%;
+  margin-top: -25%;
+}
+
+.imagensomos {
   width: 70%;
   height: 40%;
   margin-top: -25%;
