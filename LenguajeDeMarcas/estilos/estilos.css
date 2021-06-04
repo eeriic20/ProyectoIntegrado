@@ -1,0 +1,261 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?bxurgd');
+  src:  url('fonts/icomoon.eot?bxurgd#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?bxurgd') format('truetype'),
+    url('fonts/icomoon.woff?bxurgd') format('woff'),
+    url('fonts/icomoon.svg?bxurgd#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home3:before {
+  content: "\e902";
+}
+
+.icon-download3:before {
+    content: "\e9c7";
+}
+
+.icon-phone:before {
+  content: "\e942";
+}
+
+.icon-user-tie:before {
+  content: "\e976";
+}
+
+body {
+  font-family: barlow condensed, sans-serif;
+  background-image: url("fondo2.png");
+  width: 80%;
+  margin: 0 auto;
+}
+
+.encabezado {
+  width: auto;
+  height: auto;
+}
+
+.logo {
+  width: auto;
+  height: auto;
+  background: white;
+  text-align: center;
+}
+
+.menu {
+  width: auto;
+  height: 50px;
+  padding: 10px;
+  background: #B01818;
+  color: white;
+}
+
+ul li {
+  float: left;
+  width: auto;
+  padding: auto;
+  text-align: center;
+  list-style-type: none;
+  font-family: barlow condensed, sans-serif;
+  font-size: 20px;
+  padding-left: 11%;
+}
+ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+ul li a:hover {
+  color: yellow;
+}
+
+.contenido {
+  background: white;
+  text-align: justify;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  color: #131212;
+}
+
+.piepagina {
+  background: #202525;
+  border: 1px solid none;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  color: white;
+}
+
+.derechos {
+  background: black;
+  text-align: center;
+  width: auto;
+  height: auto;
+  color: white;
+  padding: 1px;
+}
+
+.interes{
+  margin-left: 5%;
+  color: white;
+}
+
+.paginasfinales {
+  margin-left: 5%;
+  color: grey;
+}
+
+.paginasfinales:hover {
+  color: yellow;
+}
+
+.avisolegal {
+  text-align: center;
+}
+
+.paginacookies {
+  text-align: center;
+}
+
+.paginaprivacidad {
+  text-align: center;
+}
+
+.sobremi {
+  list-style-type: none;
+}
+
+.minombre {
+  text-align: center;
+  font-weight: bold;
+  margin-right: 7%;
+}
+
+.descripcion {
+  text-align: center;
+  margin-right: 7%;
+}
+
+.fotos {
+  margin-left: 33%
+}
+
+.descargartitulo {
+  font-weight: bold;
+  text-align: center;
+}
+
+.subtitulosdescargar {
+  text-align: center;
+}
+
+.linksdescargar {
+  text-decoration: none;
+  color: blue;
+}
+
+.linksdescargar:hover {
+  color: yellow;
+}
+
+.tabla {
+  border-collapse: collapse;
+  border: 1px solid #131212;
+  text-align: center;
+  margin-left: 25%;
+  width: 50%;
+}
+
+.tablatitulo {
+  border-collapse: collapse;
+  border: 1px solid #131212;
+  text-align: center;
+  margin-left: 25%;
+  width: 50%;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.formulario{
+  border-collapse: collapse;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px;
+  margin-left: 25%;
+  margin-right: 25%;
+  background-color: #B01818;
+}
+
+.barra {
+  width: 30%;
+  height: 20px;
+}
+
+.barra:hover {
+  background-color: yellow;
+  border-radius: 20px;
+  opacity: 80%;
+  color: red;
+}
+
+.barramensaje {
+  resize: none;
+}
+
+.barramensaje:hover {
+  background-color: yellow;
+  border-radius: 20px;
+  opacity: 80%;
+  color: red;
+}
+
+.boton:hover {
+  color: red;
+  background-color: yellow;
+}
+
+.contenidoinicio {
+  margin-right: 50%;
+  text-align: center;
+}
+
+.contenidoimagen {
+  margin-left: 50%;
+  text-align: center;
+  margin-bottom: 10%;
+}
+.contenidoinicioderecha {
+  margin-left: 50%;
+  text-align: center;
+}
+
+.contenidoimagenderecha {
+  margin-right: 50%;
+  text-align: center;
+  margin-bottom: 10%;
+}
+
+.imagen {
+  width: 70%;
+  height: 40%;
+  margin-top: -25%;
+}
