@@ -21,6 +21,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import conexion.Conexion;
+import controlador.Numero;
+import controlador.Pedido;
 
 public class MenuXeQueBo extends JFrame {
 
@@ -64,10 +66,29 @@ public class MenuXeQueBo extends JFrame {
 		JButton chivito = new JButton("New button");
 		chivito.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_chivito.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Chivito";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Chivito";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -75,8 +96,7 @@ public class MenuXeQueBo extends JFrame {
 
 			}
 		});
-		chivito.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\xivito.jpg"));
+		chivito.setIcon(new ImageIcon(MenuXeQueBo.class.getResource("/vista/Imagenes/xequebo/xivito.jpg")));
 		chivito.setForeground(Color.WHITE);
 		chivito.setBackground(Color.WHITE);
 		chivito.setBounds(106, 52, 150, 150);
@@ -90,10 +110,29 @@ public class MenuXeQueBo extends JFrame {
 		JButton breton = new JButton("New button");
 		breton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_lomoqueso.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Breton";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Breton";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -101,8 +140,7 @@ public class MenuXeQueBo extends JFrame {
 
 			}
 		});
-		breton.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\lomo-con-queso.jpg"));
+		breton.setIcon(new ImageIcon(MenuXeQueBo.class.getResource("/vista/Imagenes/xequebo/lomo-con-queso.jpg")));
 		breton.setForeground(Color.WHITE);
 		breton.setBackground(Color.WHITE);
 		breton.setBounds(336, 52, 150, 150);
@@ -116,10 +154,29 @@ public class MenuXeQueBo extends JFrame {
 		JButton brascada = new JButton("New button");
 		brascada.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_brascada.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Brascada";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Brascada";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -127,8 +184,8 @@ public class MenuXeQueBo extends JFrame {
 
 			}
 		});
-		brascada.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\Brascada-o-Bocadillo-de-ternera-Receta-tipica-de-Valencia.jpg"));
+		brascada.setIcon(new ImageIcon(MenuXeQueBo.class
+				.getResource("/vista/Imagenes/xequebo/Brascada-o-Bocadillo-de-ternera-Receta-tipica-de-Valencia.jpg")));
 		brascada.setForeground(Color.WHITE);
 		brascada.setBackground(Color.WHITE);
 		brascada.setBounds(569, 52, 150, 150);
@@ -142,10 +199,29 @@ public class MenuXeQueBo extends JFrame {
 		JButton caballo = new JButton("New button");
 		caballo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_carnecaballo.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Carne de Caballo";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Carne de Caballo";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -154,7 +230,7 @@ public class MenuXeQueBo extends JFrame {
 			}
 		});
 		caballo.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\CARNE-DE-CABALLO-e1572524562624.png"));
+				MenuXeQueBo.class.getResource("/vista/Imagenes/xequebo/CARNE-DE-CABALLO-e1572524562624.png")));
 		caballo.setForeground(Color.WHITE);
 		caballo.setBackground(Color.WHITE);
 		caballo.setBounds(106, 244, 150, 150);
@@ -168,10 +244,29 @@ public class MenuXeQueBo extends JFrame {
 		JButton calamares = new JButton("New button");
 		calamares.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_calamares.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Calamares";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Calamares";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -179,8 +274,8 @@ public class MenuXeQueBo extends JFrame {
 
 			}
 		});
-		calamares.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\bocadillo-calamares.jpg"));
+		calamares.setIcon(
+				new ImageIcon(MenuXeQueBo.class.getResource("/vista/Imagenes/xequebo/bocadillo-calamares.jpg")));
 		calamares.setForeground(Color.WHITE);
 		calamares.setBackground(Color.WHITE);
 		calamares.setBounds(336, 244, 150, 150);
@@ -194,10 +289,29 @@ public class MenuXeQueBo extends JFrame {
 		JButton sepia = new JButton("New button");
 		sepia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_sepia.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Sepia";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Sepia";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -206,7 +320,7 @@ public class MenuXeQueBo extends JFrame {
 			}
 		});
 		sepia.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\SEPIA-e1572524731254-1024x422.png"));
+				MenuXeQueBo.class.getResource("/vista/Imagenes/xequebo/SEPIA-e1572524731254-1024x422.png")));
 		sepia.setForeground(Color.WHITE);
 		sepia.setBackground(Color.WHITE);
 		sepia.setBounds(569, 244, 150, 150);
@@ -218,14 +332,33 @@ public class MenuXeQueBo extends JFrame {
 		contentPane.add(precio_tortilla);
 
 		JButton crujiente = new JButton("New button");
-		crujiente.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\bocadillo-tortilla-variada.jpg"));
+		crujiente.setIcon(
+				new ImageIcon(MenuXeQueBo.class.getResource("/vista/Imagenes/xequebo/bocadillo-tortilla-variada.jpg")));
 		crujiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_tortilla.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Tortilla de Patatas";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Tortilla de Patatas";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -246,10 +379,29 @@ public class MenuXeQueBo extends JFrame {
 		JButton jamon = new JButton("New button");
 		jamon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_jamon.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Bocadillo de Jamon";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Bocadillo de Jamon";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -258,8 +410,7 @@ public class MenuXeQueBo extends JFrame {
 			}
 
 		});
-		jamon.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\jamwich.jpg"));
+		jamon.setIcon(new ImageIcon(MenuXeQueBo.class.getResource("/vista/Imagenes/xequebo/jamwich.jpg")));
 		jamon.setForeground(Color.WHITE);
 		jamon.setBackground(Color.WHITE);
 		jamon.setBounds(336, 418, 150, 150);
@@ -273,10 +424,29 @@ public class MenuXeQueBo extends JFrame {
 		JButton boquerones = new JButton((String) null);
 		boquerones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_boquerones.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Boquerones";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Boquerones";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -284,8 +454,7 @@ public class MenuXeQueBo extends JFrame {
 
 			}
 		});
-		boquerones.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\xequebo\\boquerones-1.jpg"));
+		boquerones.setIcon(new ImageIcon(MenuXeQueBo.class.getResource("/vista/Imagenes/xequebo/boquerones-1.jpg")));
 		boquerones.setForeground(Color.WHITE);
 		boquerones.setBackground(Color.WHITE);
 		boquerones.setBounds(569, 418, 150, 150);
@@ -391,8 +560,7 @@ public class MenuXeQueBo extends JFrame {
 
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\flecha.png"));
+		btnNewButton.setIcon(new ImageIcon(MenuXeQueBo.class.getResource("/vista/Imagenes/flecha.png")));
 		btnNewButton.setBounds(-1, -1, 60, 60);
 		contentPane.add(btnNewButton);
 
@@ -429,43 +597,10 @@ public class MenuXeQueBo extends JFrame {
 
 				}
 
-				Connection miConexion = c.getConexion();
-				String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+				Pedido p = new Pedido();
 
-				try {
-					PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-					pst.setString(1, menuTotal);
-					pst.setString(2, fechaTexto);
-					pst.setInt(3, precioTotal);
-					pst.setString(4, estado);
-					pst.setString(5, empresa);
-					pst.setString(6, direccion);
-					pst.setInt(7, id_localidad);
-					pst.setInt(8, idCliente);
-
-					if (pst.executeUpdate() == 1) {
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quiere terminar se pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-					JOptionPane.showMessageDialog(contentPane,
-							"Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
-							"Su pedido esta en camino", JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-
-				}
+				p.terminarPedido(menuTotal, fechaTexto, precioTotal, estado, empresa, direccion, id_localidad,
+						idCliente, contentPane);
 
 			}
 
@@ -485,9 +620,10 @@ public class MenuXeQueBo extends JFrame {
 		});
 		btnNewButton_1_1.setBounds(731, 359, 138, 110);
 		contentPane.add(btnNewButton_1_1);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\Virtual-Backgrounds_Confetti-On-Gold.jpg"));
+		lblNewLabel_1.setIcon(new ImageIcon(
+				MenuXeQueBo.class.getResource("/vista/Imagenes/Virtual-Backgrounds_Confetti-On-Gold.jpg")));
 		lblNewLabel_1.setBounds(-156, -32, 1147, 666);
 		contentPane.add(lblNewLabel_1);
 

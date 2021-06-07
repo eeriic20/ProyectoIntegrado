@@ -21,6 +21,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import conexion.Conexion;
+import controlador.Numero;
+import controlador.Pedido;
 
 public class MenuKFC extends JFrame {
 
@@ -104,10 +106,29 @@ public class MenuKFC extends JFrame {
 		JButton doble = new JButton("New button");
 		doble.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_BBQ.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Doble BBQ Bacon Cheese Burger";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Doble BBQ Bacon Cheese Burger";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -115,8 +136,7 @@ public class MenuKFC extends JFrame {
 
 			}
 		});
-		doble.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\doble bbq cheesburger.jpg"));
+		doble.setIcon(new ImageIcon(MenuKFC.class.getResource("/vista/Imagenes/kfc/doble bbq cheesburger.jpg")));
 		doble.setForeground(Color.WHITE);
 		doble.setBackground(Color.WHITE);
 		doble.setBounds(106, 52, 150, 150);
@@ -125,10 +145,29 @@ public class MenuKFC extends JFrame {
 		JButton cheese = new JButton("New button");
 		cheese.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_Original.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Original Doble Cheese Burger";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Original Doble Cheese Burger";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -136,8 +175,7 @@ public class MenuKFC extends JFrame {
 
 			}
 		});
-		cheese.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\doblecheesburger.jpg"));
+		cheese.setIcon(new ImageIcon(MenuKFC.class.getResource("/vista/Imagenes/kfc/doblecheesburger.jpg")));
 		cheese.setForeground(Color.WHITE);
 		cheese.setBackground(Color.WHITE);
 		cheese.setBounds(336, 52, 150, 150);
@@ -146,10 +184,29 @@ public class MenuKFC extends JFrame {
 		JButton baconcheese = new JButton("New button");
 		baconcheese.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_bacon.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "BBQ Bacon Cheese Burger";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" BBQ Bacon Cheese Burger";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -157,8 +214,7 @@ public class MenuKFC extends JFrame {
 
 			}
 		});
-		baconcheese.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\bbqbaconcheesburger.jpg"));
+		baconcheese.setIcon(new ImageIcon(MenuKFC.class.getResource("/vista/Imagenes/kfc/bbqbaconcheesburger.jpg")));
 		baconcheese.setForeground(Color.WHITE);
 		baconcheese.setBackground(Color.WHITE);
 		baconcheese.setBounds(569, 52, 150, 150);
@@ -167,10 +223,29 @@ public class MenuKFC extends JFrame {
 		JButton sobrada = new JButton("New button");
 		sobrada.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_sobrada.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Sobrada";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Sobrada";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -178,8 +253,7 @@ public class MenuKFC extends JFrame {
 
 			}
 		});
-		sobrada.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\sobrada.jpg"));
+		sobrada.setIcon(new ImageIcon(MenuKFC.class.getResource("/vista/Imagenes/kfc/sobrada.jpg")));
 		sobrada.setForeground(Color.WHITE);
 		sobrada.setBackground(Color.WHITE);
 		sobrada.setBounds(106, 244, 150, 150);
@@ -188,10 +262,29 @@ public class MenuKFC extends JFrame {
 		JButton mazorca = new JButton("New button");
 		mazorca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_mazorca.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Mazorca";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Mazorca";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -199,8 +292,7 @@ public class MenuKFC extends JFrame {
 
 			}
 		});
-		mazorca.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\41379.jpg"));
+		mazorca.setIcon(new ImageIcon(MenuKFC.class.getResource("/vista/Imagenes/kfc/41379.jpg")));
 		mazorca.setForeground(Color.WHITE);
 		mazorca.setBackground(Color.WHITE);
 		mazorca.setBounds(336, 244, 150, 150);
@@ -209,10 +301,29 @@ public class MenuKFC extends JFrame {
 		JButton twister = new JButton("New button");
 		twister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_twister.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Twisterr";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Twisterr";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -220,22 +331,39 @@ public class MenuKFC extends JFrame {
 
 			}
 		});
-		twister.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\twister.jpg"));
+		twister.setIcon(new ImageIcon(MenuKFC.class.getResource("/vista/Imagenes/kfc/twister.jpg")));
 		twister.setForeground(Color.WHITE);
 		twister.setBackground(Color.WHITE);
 		twister.setBounds(569, 244, 150, 150);
 		contentPane.add(twister);
 
 		JButton orginal = new JButton("New button");
-		orginal.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\originalburger.jpg"));
+		orginal.setIcon(new ImageIcon(MenuKFC.class.getResource("/vista/Imagenes/kfc/originalburger.jpg")));
 		orginal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_Oburger.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Original Burger";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Original Burger";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -251,10 +379,29 @@ public class MenuKFC extends JFrame {
 		JButton bucket = new JButton("New button");
 		bucket.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_Mix.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Bucket Mix";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Bucket Mix";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -262,8 +409,7 @@ public class MenuKFC extends JFrame {
 
 			}
 		});
-		bucket.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\bucketmix.jpg"));
+		bucket.setIcon(new ImageIcon(MenuKFC.class.getResource("/vista/Imagenes/kfc/mix.jpg")));
 		bucket.setForeground(Color.WHITE);
 		bucket.setBackground(Color.WHITE);
 		bucket.setBounds(336, 418, 150, 150);
@@ -272,10 +418,29 @@ public class MenuKFC extends JFrame {
 		JButton picantes = new JButton((String) null);
 		picantes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_alitas.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Alitas picantes";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Alitas picantes";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -283,8 +448,7 @@ public class MenuKFC extends JFrame {
 
 			}
 		});
-		picantes.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\picantes.jpg"));
+		picantes.setIcon(new ImageIcon(MenuKFC.class.getResource("/vista/Imagenes/kfc/picantes.jpg")));
 		picantes.setForeground(Color.WHITE);
 		picantes.setBackground(Color.WHITE);
 		picantes.setBounds(569, 418, 150, 150);
@@ -390,8 +554,7 @@ public class MenuKFC extends JFrame {
 
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\flecha.png"));
+		btnNewButton.setIcon(new ImageIcon(MenuKFC.class.getResource("/vista/Imagenes/flecha.png")));
 		btnNewButton.setBounds(0, 0, 60, 60);
 		contentPane.add(btnNewButton);
 
@@ -428,43 +591,10 @@ public class MenuKFC extends JFrame {
 
 				}
 
-				Connection miConexion = c.getConexion();
-				String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+				Pedido p = new Pedido();
 
-				try {
-					PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-					pst.setString(1, menuTotal);
-					pst.setString(2, fechaTexto);
-					pst.setInt(3, precioTotal);
-					pst.setString(4, estado);
-					pst.setString(5, empresa);
-					pst.setString(6, direccion);
-					pst.setInt(7, id_localidad);
-					pst.setInt(8, idCliente);
-
-					if (pst.executeUpdate() == 1) {
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quiere terminar se pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-					JOptionPane.showMessageDialog(contentPane,
-							"Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
-							"Su pedido esta en camino", JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-
-				}
+				p.terminarPedido(menuTotal, fechaTexto, precioTotal, estado, empresa, direccion, id_localidad,
+						idCliente, contentPane);
 
 			}
 
@@ -484,19 +614,22 @@ public class MenuKFC extends JFrame {
 		});
 		btnNewButton_1_1.setBounds(729, 359, 140, 110);
 		contentPane.add(btnNewButton_1_1);
-		
+
 		JLabel lblNewLabel_2_10 = new JLabel("");
-		lblNewLabel_2_10.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fondo4.jpg"));
+		lblNewLabel_2_10.setIcon(new ImageIcon(
+				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fondo4.jpg"));
 		lblNewLabel_2_10.setBounds(297, -4, 227, 61);
 		contentPane.add(lblNewLabel_2_10);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kfc\\f0a0c1341648575e6c02a4b67e4b721d.jpg"));
-		lblNewLabel_1.setBounds(-26, -52, 962, 687);
+		lblNewLabel_1.setIcon(
+				new ImageIcon(MenuKFC.class.getResource("/vista/Imagenes/Virtual-Backgrounds_Confetti-On-Gold.jpg")));
+		lblNewLabel_1.setBounds(-83, -53, 962, 687);
 		contentPane.add(lblNewLabel_1);
-		
+
 		JLabel lblNewLabel_12 = new JLabel("");
-		lblNewLabel_12.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\Virtual-Backgrounds_Confetti-On-Gold.jpg"));
+		lblNewLabel_12.setIcon(new ImageIcon(
+				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\Virtual-Backgrounds_Confetti-On-Gold.jpg"));
 		lblNewLabel_12.setBounds(-156, -32, 1147, 666);
 		contentPane.add(lblNewLabel_12);
 

@@ -21,6 +21,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import conexion.Conexion;
+import controlador.Numero;
+import controlador.Pedido;
 
 public class MenuGinos extends JFrame {
 
@@ -149,10 +151,29 @@ public class MenuGinos extends JFrame {
 		JButton prosciutto = new JButton("New button");
 		prosciutto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_prosciutto.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Pizza prosciutto";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Pizza prosciutto";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -160,8 +181,7 @@ public class MenuGinos extends JFrame {
 
 			}
 		});
-		prosciutto.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\ginos\\8prosciutto_1.jpg"));
+		prosciutto.setIcon(new ImageIcon(MenuGinos.class.getResource("/vista/Imagenes/ginos/8prosciutto_1.jpg")));
 		prosciutto.setForeground(Color.WHITE);
 		prosciutto.setBackground(Color.WHITE);
 		prosciutto.setBounds(106, 52, 150, 150);
@@ -170,10 +190,29 @@ public class MenuGinos extends JFrame {
 		JButton barbecue = new JButton("New button");
 		barbecue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_pollo.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Pollo BBQ";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Pollo BBQ";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -183,7 +222,7 @@ public class MenuGinos extends JFrame {
 
 		});
 		barbecue.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\ginos\\fichainterna1366x852pxpollobarbecue.jpg"));
+				MenuGinos.class.getResource("/vista/Imagenes/ginos/fichainterna1366x852pxpollobarbecue.jpg")));
 		barbecue.setForeground(Color.WHITE);
 		barbecue.setBackground(Color.WHITE);
 		barbecue.setBounds(336, 52, 150, 150);
@@ -192,10 +231,29 @@ public class MenuGinos extends JFrame {
 		JButton margherita = new JButton("New button");
 		margherita.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_Margherita.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Margherita";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Margherita";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -203,8 +261,7 @@ public class MenuGinos extends JFrame {
 
 			}
 		});
-		margherita.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\ginos\\8margherita.jpg"));
+		margherita.setIcon(new ImageIcon(MenuGinos.class.getResource("/vista/Imagenes/ginos/8margherita.jpg")));
 		margherita.setForeground(Color.WHITE);
 		margherita.setBackground(Color.WHITE);
 		margherita.setBounds(569, 52, 150, 150);
@@ -213,10 +270,29 @@ public class MenuGinos extends JFrame {
 		JButton piemontese = new JButton("New button");
 		piemontese.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_piemontese.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Piemontese";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Piemontese";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -224,8 +300,7 @@ public class MenuGinos extends JFrame {
 
 			}
 		});
-		piemontese.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\ginos\\8piemontese_0.jpg"));
+		piemontese.setIcon(new ImageIcon(MenuGinos.class.getResource("/vista/Imagenes/ginos/8piemontese_0.jpg")));
 		piemontese.setForeground(Color.WHITE);
 		piemontese.setBackground(Color.WHITE);
 		piemontese.setBounds(106, 244, 150, 150);
@@ -235,10 +310,29 @@ public class MenuGinos extends JFrame {
 		peperoni.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_peperoni.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Peperoni";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Peperoni";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -246,8 +340,7 @@ public class MenuGinos extends JFrame {
 
 			}
 		});
-		peperoni.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\ginos\\pepperoni_0.jpg"));
+		peperoni.setIcon(new ImageIcon(MenuGinos.class.getResource("/vista/Imagenes/ginos/pepperoni_0.jpg")));
 		peperoni.setForeground(Color.WHITE);
 		peperoni.setBackground(Color.WHITE);
 		peperoni.setBounds(336, 244, 150, 150);
@@ -256,32 +349,70 @@ public class MenuGinos extends JFrame {
 		JButton tagliatelle = new JButton("New button");
 		tagliatelle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_tagliatelle.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Tagliatelle";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Tagliatelle";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
 						JOptionPane.WARNING_MESSAGE);
 			}
 		});
-		tagliatelle.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\ginos\\tagliatelleprimavera.jpg"));
+		tagliatelle
+				.setIcon(new ImageIcon(MenuGinos.class.getResource("/vista/Imagenes/ginos/tagliatelleprimavera.jpg")));
 		tagliatelle.setForeground(Color.WHITE);
 		tagliatelle.setBackground(Color.WHITE);
 		tagliatelle.setBounds(569, 244, 150, 150);
 		contentPane.add(tagliatelle);
 
 		JButton spaghetti = new JButton("New button");
-		spaghetti.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\ginos\\8ginos-fruti-de-mare-1366x852.jpg"));
+		spaghetti.setIcon(
+				new ImageIcon(MenuGinos.class.getResource("/vista/Imagenes/ginos/8ginos-fruti-de-mare-1366x852.jpg")));
 		spaghetti.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_spaghetti.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Spaghetti";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Spaghetti";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -297,10 +428,29 @@ public class MenuGinos extends JFrame {
 		JButton penne = new JButton("New button");
 		penne.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_penne.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Penne";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Penne";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -308,8 +458,8 @@ public class MenuGinos extends JFrame {
 
 			}
 		});
-		penne.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\ginos\\8nuevos-penne-allarrabbiata-di-pepperoni-en-ginos.jpg"));
+		penne.setIcon(new ImageIcon(MenuGinos.class
+				.getResource("/vista/Imagenes/ginos/8nuevos-penne-allarrabbiata-di-pepperoni-en-ginos.jpg")));
 		penne.setForeground(Color.WHITE);
 		penne.setBackground(Color.WHITE);
 		penne.setBounds(336, 418, 150, 150);
@@ -318,10 +468,29 @@ public class MenuGinos extends JFrame {
 		JButton cacio = new JButton((String) null);
 		cacio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_cacio.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Cacio e Pepe";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Cacio e Pepe";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -329,8 +498,7 @@ public class MenuGinos extends JFrame {
 
 			}
 		});
-		cacio.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\ginos\\caciopepe.jpg"));
+		cacio.setIcon(new ImageIcon(MenuGinos.class.getResource("/vista/Imagenes/ginos/caciopepe.jpg")));
 		cacio.setForeground(Color.WHITE);
 		cacio.setBackground(Color.WHITE);
 		cacio.setBounds(569, 418, 150, 150);
@@ -391,8 +559,7 @@ public class MenuGinos extends JFrame {
 
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\flecha.png"));
+		btnNewButton.setIcon(new ImageIcon(MenuGinos.class.getResource("/vista/Imagenes/flecha.png")));
 		btnNewButton.setBounds(0, 0, 60, 60);
 		contentPane.add(btnNewButton);
 
@@ -429,43 +596,10 @@ public class MenuGinos extends JFrame {
 
 				}
 
-				Connection miConexion = c.getConexion();
-				String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+				Pedido p = new Pedido();
 
-				try {
-					PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-					pst.setString(1, menuTotal);
-					pst.setString(2, fechaTexto);
-					pst.setInt(3, precioTotal);
-					pst.setString(4, estado);
-					pst.setString(5, empresa);
-					pst.setString(6, direccion);
-					pst.setInt(7, id_localidad);
-					pst.setInt(8, idCliente);
-
-					if (pst.executeUpdate() == 1) {
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quiere terminar se pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-					JOptionPane.showMessageDialog(contentPane,
-							"Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
-							"Su pedido esta en camino", JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-
-				}
+				p.terminarPedido(menuTotal, fechaTexto, precioTotal, estado, empresa, direccion, id_localidad,
+						idCliente, contentPane);
 
 			}
 
@@ -485,9 +619,10 @@ public class MenuGinos extends JFrame {
 		});
 		btnNewButton_1_1.setBounds(727, 359, 142, 110);
 		contentPane.add(btnNewButton_1_1);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\Virtual-Backgrounds_Confetti-On-Gold.jpg"));
+		lblNewLabel_1.setIcon(
+				new ImageIcon(MenuGinos.class.getResource("/vista/Imagenes/Virtual-Backgrounds_Confetti-On-Gold.jpg")));
 		lblNewLabel_1.setBounds(-156, -32, 1147, 666);
 		contentPane.add(lblNewLabel_1);
 

@@ -21,6 +21,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import conexion.Conexion;
+import controlador.Numero;
+import controlador.Pedido;
 
 public class MenuKebab extends JFrame {
 
@@ -104,10 +106,29 @@ public class MenuKebab extends JFrame {
 		JButton mixto = new JButton("New button");
 		mixto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_kbTernera.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Kebab mixto";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Kebab mixto";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -115,8 +136,7 @@ public class MenuKebab extends JFrame {
 
 			}
 		});
-		mixto.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\mixto.jpg"));
+		mixto.setIcon(new ImageIcon(MenuKebab.class.getResource("/vista/Imagenes/kebab/mixto.jpg")));
 		mixto.setForeground(Color.WHITE);
 		mixto.setBackground(Color.WHITE);
 		mixto.setBounds(106, 52, 150, 150);
@@ -125,10 +145,29 @@ public class MenuKebab extends JFrame {
 		JButton ternera = new JButton("New button");
 		ternera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_kbTernera.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Kebab ternera";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Kebab ternera";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -136,8 +175,7 @@ public class MenuKebab extends JFrame {
 
 			}
 		});
-		ternera.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\ternera.jpg"));
+		ternera.setIcon(new ImageIcon(MenuKebab.class.getResource("/vista/Imagenes/kebab/ternera.jpg")));
 		ternera.setForeground(Color.WHITE);
 		ternera.setBackground(Color.WHITE);
 		ternera.setBounds(336, 52, 150, 150);
@@ -146,10 +184,29 @@ public class MenuKebab extends JFrame {
 		JButton pollo = new JButton("New button");
 		pollo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_kbPollo.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Kebab pollo";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Kebab pollo";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -157,8 +214,7 @@ public class MenuKebab extends JFrame {
 
 			}
 		});
-		pollo.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\pollo.jpg"));
+		pollo.setIcon(new ImageIcon(MenuKebab.class.getResource("/vista/Imagenes/kebab/pollo.jpg")));
 		pollo.setForeground(Color.WHITE);
 		pollo.setBackground(Color.WHITE);
 		pollo.setBounds(569, 52, 150, 150);
@@ -167,10 +223,29 @@ public class MenuKebab extends JFrame {
 		JButton mixtoPita = new JButton("New button");
 		mixtoPita.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_kbPitaMx.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Kebab mixto pan de pita";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Kebab mixto pan de pita";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -178,8 +253,7 @@ public class MenuKebab extends JFrame {
 
 			}
 		});
-		mixtoPita.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\mixtopanpita.png"));
+		mixtoPita.setIcon(new ImageIcon(MenuKebab.class.getResource("/vista/Imagenes/kebab/mixtopanpita.png")));
 		mixtoPita.setForeground(Color.WHITE);
 		mixtoPita.setBackground(Color.WHITE);
 		mixtoPita.setBounds(106, 244, 150, 150);
@@ -188,10 +262,29 @@ public class MenuKebab extends JFrame {
 		JButton terneraPita = new JButton("New button");
 		terneraPita.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_kbPitaTer.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Kebab ternera pan de pita";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Kebab ternera pan de pita";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -199,8 +292,7 @@ public class MenuKebab extends JFrame {
 
 			}
 		});
-		terneraPita.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\ternerapanpita.png"));
+		terneraPita.setIcon(new ImageIcon(MenuKebab.class.getResource("/vista/Imagenes/kebab/ternerapanpita.png")));
 		terneraPita.setForeground(Color.WHITE);
 		terneraPita.setBackground(Color.WHITE);
 		terneraPita.setBounds(336, 244, 150, 150);
@@ -209,10 +301,29 @@ public class MenuKebab extends JFrame {
 		JButton polloPita = new JButton("New button");
 		polloPita.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_kbPitaPoll.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Kebab pollo pan de pita";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Kebab pollo pan de pita";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -220,22 +331,39 @@ public class MenuKebab extends JFrame {
 
 			}
 		});
-		polloPita.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\pollopanpita.jpg"));
+		polloPita.setIcon(new ImageIcon(MenuKebab.class.getResource("/vista/Imagenes/kebab/pollopanpita.jpg")));
 		polloPita.setForeground(Color.WHITE);
 		polloPita.setBackground(Color.WHITE);
 		polloPita.setBounds(569, 244, 150, 150);
 		contentPane.add(polloPita);
 
 		JButton pizzaKebab = new JButton("New button");
-		pizzaKebab.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\kebabpizza2.jpg"));
+		pizzaKebab.setIcon(new ImageIcon(MenuKebab.class.getResource("/vista/Imagenes/kebab/kebabpizza2.jpg")));
 		pizzaKebab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_PKeb.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Pizza kebab";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Pizza kebab";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -250,10 +378,29 @@ public class MenuKebab extends JFrame {
 		JButton jamonQueso = new JButton("New button");
 		jamonQueso.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_PizzaJQ.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Pizza jamon y queso";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Pizza jamon y queso";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -261,7 +408,7 @@ public class MenuKebab extends JFrame {
 			}
 		});
 		jamonQueso.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\pizza_jamonyqueso_sinlactosa_730x470.jpg"));
+				MenuKebab.class.getResource("/vista/Imagenes/kebab/pizza_jamonyqueso_sinlactosa_730x470.jpg")));
 		jamonQueso.setForeground(Color.WHITE);
 		jamonQueso.setBackground(Color.WHITE);
 		jamonQueso.setBounds(336, 418, 150, 150);
@@ -270,10 +417,29 @@ public class MenuKebab extends JFrame {
 		JButton barbacoa = new JButton((String) null);
 		barbacoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_PizzAaBBq.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Pizza barbacoa";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Pizza barbacoa";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -281,8 +447,7 @@ public class MenuKebab extends JFrame {
 
 			}
 		});
-		barbacoa.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\kebab\\pizza-barbacoa-xxl.jpg"));
+		barbacoa.setIcon(new ImageIcon(MenuKebab.class.getResource("/vista/Imagenes/kebab/pizza-barbacoa-xxl.jpg")));
 		barbacoa.setForeground(Color.WHITE);
 		barbacoa.setBackground(Color.WHITE);
 		barbacoa.setBounds(569, 418, 150, 150);
@@ -388,8 +553,7 @@ public class MenuKebab extends JFrame {
 
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\flecha.png"));
+		btnNewButton.setIcon(new ImageIcon(MenuKebab.class.getResource("/vista/Imagenes/flecha.png")));
 		btnNewButton.setBounds(0, 0, 60, 60);
 		contentPane.add(btnNewButton);
 
@@ -426,43 +590,10 @@ public class MenuKebab extends JFrame {
 
 				}
 
-				Connection miConexion = c.getConexion();
-				String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+				Pedido p = new Pedido();
 
-				try {
-					PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-					pst.setString(1, menuTotal);
-					pst.setString(2, fechaTexto);
-					pst.setInt(3, precioTotal);
-					pst.setString(4, estado);
-					pst.setString(5, empresa);
-					pst.setString(6, direccion);
-					pst.setInt(7, id_localidad);
-					pst.setInt(8, idCliente);
-
-					if (pst.executeUpdate() == 1) {
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quiere terminar se pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-					JOptionPane.showMessageDialog(contentPane,
-							"Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
-							"Su pedido esta en camino", JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-
-				}
+				p.terminarPedido(menuTotal, fechaTexto, precioTotal, estado, empresa, direccion, id_localidad,
+						idCliente, contentPane);
 
 			}
 
@@ -482,9 +613,10 @@ public class MenuKebab extends JFrame {
 		});
 		btnNewButton_1_1.setBounds(731, 359, 138, 110);
 		contentPane.add(btnNewButton_1_1);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\Virtual-Backgrounds_Confetti-On-Gold.jpg"));
+		lblNewLabel_1.setIcon(
+				new ImageIcon(MenuKebab.class.getResource("/vista/Imagenes/Virtual-Backgrounds_Confetti-On-Gold.jpg")));
 		lblNewLabel_1.setBounds(-156, -32, 1147, 666);
 		contentPane.add(lblNewLabel_1);
 

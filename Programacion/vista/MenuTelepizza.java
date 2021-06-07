@@ -21,6 +21,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import conexion.Conexion;
+import controlador.Numero;
+import controlador.Pedido;
 
 public class MenuTelepizza extends JFrame {
 
@@ -111,10 +113,29 @@ public class MenuTelepizza extends JFrame {
 		JButton barbacoa = new JButton("New button");
 		barbacoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_bbq.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Barbacoa";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Barbacoa";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -122,8 +143,7 @@ public class MenuTelepizza extends JFrame {
 
 			}
 		});
-		barbacoa.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\barbacoa.jpg"));
+		barbacoa.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/barbacoa.jpg")));
 		barbacoa.setForeground(Color.WHITE);
 		barbacoa.setBackground(Color.WHITE);
 		barbacoa.setBounds(106, 52, 150, 150);
@@ -132,10 +152,29 @@ public class MenuTelepizza extends JFrame {
 		JButton carbonara = new JButton("New button");
 		carbonara.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_carbonara.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Carbonara";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Carbonara";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -143,8 +182,7 @@ public class MenuTelepizza extends JFrame {
 
 			}
 		});
-		carbonara.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\carbonara.jpg"));
+		carbonara.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/carbonara.jpg")));
 		carbonara.setForeground(Color.WHITE);
 		carbonara.setBackground(Color.WHITE);
 		carbonara.setBounds(336, 52, 150, 150);
@@ -153,10 +191,29 @@ public class MenuTelepizza extends JFrame {
 		JButton hawaiana = new JButton("New button");
 		hawaiana.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_hawaiana.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Hawaiana";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Hawaiana";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -164,8 +221,7 @@ public class MenuTelepizza extends JFrame {
 
 			}
 		});
-		hawaiana.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\hawaina.jpg"));
+		hawaiana.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/hawaina.jpg")));
 		hawaiana.setForeground(Color.WHITE);
 		hawaiana.setBackground(Color.WHITE);
 		hawaiana.setBounds(569, 52, 150, 150);
@@ -174,10 +230,29 @@ public class MenuTelepizza extends JFrame {
 		JButton cebolla = new JButton("New button");
 		cebolla.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_cebolla.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Cebolla";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Cebolla";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -185,8 +260,7 @@ public class MenuTelepizza extends JFrame {
 
 			}
 		});
-		cebolla.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\cebolla.jpg"));
+		cebolla.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/cebolla.jpg")));
 		cebolla.setForeground(Color.WHITE);
 		cebolla.setBackground(Color.WHITE);
 		cebolla.setBounds(106, 244, 150, 150);
@@ -195,10 +269,29 @@ public class MenuTelepizza extends JFrame {
 		JButton peperoni = new JButton("New button");
 		peperoni.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_peperoni.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Peperoni";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Peperoni";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -206,8 +299,7 @@ public class MenuTelepizza extends JFrame {
 
 			}
 		});
-		peperoni.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\peperoni.jpg"));
+		peperoni.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/peperoni.jpg")));
 		peperoni.setForeground(Color.WHITE);
 		peperoni.setBackground(Color.WHITE);
 		peperoni.setBounds(336, 244, 150, 150);
@@ -216,10 +308,29 @@ public class MenuTelepizza extends JFrame {
 		JButton baconCrispy = new JButton("New button");
 		baconCrispy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_baconcrispy.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Bacon Crispy";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Bacon Crispy";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -227,22 +338,41 @@ public class MenuTelepizza extends JFrame {
 			}
 
 		});
-		baconCrispy.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\baconcrispy.jpg"));
+		baconCrispy
+				.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/baconcrispy.jpg")));
 		baconCrispy.setForeground(Color.WHITE);
 		baconCrispy.setBackground(Color.WHITE);
 		baconCrispy.setBounds(569, 244, 150, 150);
 		contentPane.add(baconCrispy);
 
 		JButton vulcanoNachos = new JButton("New button");
-		vulcanoNachos.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\vulcanonachos.jpg"));
+		vulcanoNachos
+				.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/vulcanonachos.jpg")));
 		vulcanoNachos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_vulcanonachos.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Vulcanos Nachos";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Vulcanos Nachos";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -258,10 +388,29 @@ public class MenuTelepizza extends JFrame {
 		JButton tandemGourmet = new JButton("New button");
 		tandemGourmet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_tandemgourmet.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Tandem Gourmet";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Tandem Gourmet";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -269,8 +418,8 @@ public class MenuTelepizza extends JFrame {
 
 			}
 		});
-		tandemGourmet.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\tandemgourmet.jpg"));
+		tandemGourmet
+				.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/tandemgourmet.jpg")));
 		tandemGourmet.setForeground(Color.WHITE);
 		tandemGourmet.setBackground(Color.WHITE);
 		tandemGourmet.setBounds(336, 418, 150, 150);
@@ -279,18 +428,36 @@ public class MenuTelepizza extends JFrame {
 		JButton supreme = new JButton("New button");
 		supreme.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_supreme.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Supreme";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Supreme";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
 						JOptionPane.WARNING_MESSAGE);
 			}
 		});
-		supreme.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\telepizza\\supreme.jpg"));
+		supreme.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/supreme.jpg")));
 		supreme.setForeground(Color.WHITE);
 		supreme.setBackground(Color.WHITE);
 		supreme.setBounds(569, 418, 150, 150);
@@ -391,8 +558,7 @@ public class MenuTelepizza extends JFrame {
 
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\flecha.png"));
+		btnNewButton.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/flecha.png")));
 		btnNewButton.setBounds(0, 0, 60, 60);
 		contentPane.add(btnNewButton);
 
@@ -429,43 +595,10 @@ public class MenuTelepizza extends JFrame {
 
 				}
 
-				Connection miConexion = c.getConexion();
-				String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+				Pedido p = new Pedido();
 
-				try {
-					PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-					pst.setString(1, menuTotal);
-					pst.setString(2, fechaTexto);
-					pst.setInt(3, precioTotal);
-					pst.setString(4, estado);
-					pst.setString(5, empresa);
-					pst.setString(6, direccion);
-					pst.setInt(7, id_localidad);
-					pst.setInt(8, idCliente);
-
-					if (pst.executeUpdate() == 1) {
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quiere terminar se pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-					JOptionPane.showMessageDialog(contentPane,
-							"Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
-							"Su pedido esta en camino", JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-
-				}
+				p.terminarPedido(menuTotal, fechaTexto, precioTotal, estado, empresa, direccion, id_localidad,
+						idCliente, contentPane);
 
 			}
 
@@ -485,9 +618,10 @@ public class MenuTelepizza extends JFrame {
 		});
 		btnNewButton_1_1.setBounds(731, 359, 138, 110);
 		contentPane.add(btnNewButton_1_1);
-		
+
 		JLabel lblNewLabel_12 = new JLabel("");
-		lblNewLabel_12.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\Virtual-Backgrounds_Confetti-On-Gold.jpg"));
+		lblNewLabel_12.setIcon(new ImageIcon(
+				MenuTelepizza.class.getResource("/vista/Imagenes/Virtual-Backgrounds_Confetti-On-Gold.jpg")));
 		lblNewLabel_12.setBounds(-156, -32, 1147, 666);
 		contentPane.add(lblNewLabel_12);
 

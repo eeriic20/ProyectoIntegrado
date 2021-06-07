@@ -5,9 +5,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,6 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import conexion.Conexion;
+import controlador.*;
 
 public class MenuBurgerKing extends JFrame {
 
@@ -104,18 +103,36 @@ public class MenuBurgerKing extends JFrame {
 		JButton bigKing = new JButton("New button");
 		bigKing.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precioBigK.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "BigKing";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" BigKing";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
 						JOptionPane.WARNING_MESSAGE);
 			}
 		});
-		bigKing.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\burger\\bigking.png"));
+		bigKing.setIcon(new ImageIcon(MenuBurgerKing.class.getResource("/vista/Imagenes/burger/bigking.png")));
 		bigKing.setForeground(Color.WHITE);
 		bigKing.setBackground(Color.WHITE);
 		bigKing.setBounds(106, 52, 150, 150);
@@ -124,19 +141,37 @@ public class MenuBurgerKing extends JFrame {
 		JButton cheeseburger = new JButton("New button");
 		cheeseburger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
+
+				nMenus = Integer.parseInt(seleccion);
 
 				precio = Integer.parseInt(precioChes.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Cheeseburger";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion + " Cheeseburger";
 				menuTotal = nombre + ", " + menuTotal;
-
-				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
-						JOptionPane.WARNING_MESSAGE);
 
 			}
 		});
-		cheeseburger.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\burger\\cheeseburger.png"));
+		cheeseburger
+				.setIcon(new ImageIcon(MenuBurgerKing.class.getResource("/vista/Imagenes/burger/cheeseburger.png")));
 		cheeseburger.setForeground(Color.WHITE);
 		cheeseburger.setBackground(Color.WHITE);
 		cheeseburger.setBounds(336, 52, 150, 150);
@@ -145,10 +180,29 @@ public class MenuBurgerKing extends JFrame {
 		JButton whopper = new JButton("New button");
 		whopper.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precioWhop.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Whopper";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Whopper";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -156,8 +210,7 @@ public class MenuBurgerKing extends JFrame {
 
 			}
 		});
-		whopper.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\burger\\whopper.png"));
+		whopper.setIcon(new ImageIcon(MenuBurgerKing.class.getResource("/vista/Imagenes/burger/whopper.png")));
 		whopper.setForeground(Color.WHITE);
 		whopper.setBackground(Color.WHITE);
 		whopper.setBounds(569, 52, 150, 150);
@@ -166,10 +219,29 @@ public class MenuBurgerKing extends JFrame {
 		JButton steakhouse = new JButton("New button");
 		steakhouse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precioSteak.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Steakhouse";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Steakhouse";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -177,8 +249,7 @@ public class MenuBurgerKing extends JFrame {
 
 			}
 		});
-		steakhouse.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\burger\\steakhouse.png"));
+		steakhouse.setIcon(new ImageIcon(MenuBurgerKing.class.getResource("/vista/Imagenes/burger/steakhouse.png")));
 		steakhouse.setForeground(Color.WHITE);
 		steakhouse.setBackground(Color.WHITE);
 		steakhouse.setBounds(106, 244, 150, 150);
@@ -187,10 +258,29 @@ public class MenuBurgerKing extends JFrame {
 		JButton kingHuevo = new JButton("New button");
 		kingHuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precioHuevo.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "King huevo";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" King huevo";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -198,8 +288,7 @@ public class MenuBurgerKing extends JFrame {
 
 			}
 		});
-		kingHuevo.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\burger\\thekinghuevo.png"));
+		kingHuevo.setIcon(new ImageIcon(MenuBurgerKing.class.getResource("/vista/Imagenes/burger/thekinghuevo.png")));
 		kingHuevo.setForeground(Color.WHITE);
 		kingHuevo.setBackground(Color.WHITE);
 		kingHuevo.setBounds(336, 244, 150, 150);
@@ -208,10 +297,29 @@ public class MenuBurgerKing extends JFrame {
 		JButton kingJr = new JButton("New button");
 		kingJr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precioJR.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "King jr";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" King jr";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -219,8 +327,7 @@ public class MenuBurgerKing extends JFrame {
 
 			}
 		});
-		kingJr.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\burger\\kingjr.jpg"));
+		kingJr.setIcon(new ImageIcon(MenuBurgerKing.class.getResource("/vista/Imagenes/burger/kingjr.jpg")));
 		kingJr.setForeground(Color.WHITE);
 		kingJr.setBackground(Color.WHITE);
 		kingJr.setBounds(569, 244, 150, 150);
@@ -228,13 +335,32 @@ public class MenuBurgerKing extends JFrame {
 
 		JButton KingBacon = new JButton("New button");
 		KingBacon.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\burger\\1564392248145_M_The_King_Bacon_2C-1-1.png"));
+				MenuBurgerKing.class.getResource("/vista/Imagenes/burger/1564392248145_M_The_King_Bacon_2C-1-1.png")));
 		KingBacon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precioBacon.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "King bacon";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" King bacon";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -250,10 +376,29 @@ public class MenuBurgerKing extends JFrame {
 		JButton crispyChicken = new JButton("New button");
 		crispyChicken.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precioKrispy.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "crispy chicken";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" crispy chicken";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -262,7 +407,7 @@ public class MenuBurgerKing extends JFrame {
 			}
 		});
 		crispyChicken.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\burger\\1564391634329_M_Crispy_Chicken.png"));
+				MenuBurgerKing.class.getResource("/vista/Imagenes/burger/1564391634329_M_Crispy_Chicken.png")));
 		crispyChicken.setForeground(Color.WHITE);
 		crispyChicken.setBackground(Color.WHITE);
 		crispyChicken.setBounds(336, 418, 150, 150);
@@ -271,10 +416,29 @@ public class MenuBurgerKing extends JFrame {
 		JButton longChicken = new JButton("New button");
 		longChicken.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precioLong.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "long chicken";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" long chicken";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -283,7 +447,7 @@ public class MenuBurgerKing extends JFrame {
 			}
 		});
 		longChicken.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\burger\\1564391124618_M_Long_Chicken.png"));
+				MenuBurgerKing.class.getResource("/vista/Imagenes/burger/1564391124618_M_Long_Chicken.png")));
 		longChicken.setForeground(Color.WHITE);
 		longChicken.setBackground(Color.WHITE);
 		longChicken.setBounds(569, 418, 150, 150);
@@ -389,8 +553,7 @@ public class MenuBurgerKing extends JFrame {
 
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\flecha.png"));
+		btnNewButton.setIcon(new ImageIcon(MenuBurgerKing.class.getResource("/vista/Imagenes/flecha.png")));
 		btnNewButton.setBounds(0, 0, 60, 60);
 		contentPane.add(btnNewButton);
 
@@ -427,43 +590,10 @@ public class MenuBurgerKing extends JFrame {
 
 				}
 
-				Connection miConexion = c.getConexion();
-				String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+				Pedido p = new Pedido();
 
-				try {
-					PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-					pst.setString(1, menuTotal);
-					pst.setString(2, fechaTexto);
-					pst.setInt(3, precioTotal);
-					pst.setString(4, estado);
-					pst.setString(5, empresa);
-					pst.setString(6, direccion);
-					pst.setInt(7, id_localidad);
-					pst.setInt(8, idCliente);
-
-					if (pst.executeUpdate() == 1) {
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quiere terminar se pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-					JOptionPane.showMessageDialog(contentPane,
-							"Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
-							"Su pedido esta en camino", JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-
-				}
+				p.terminarPedido(menuTotal, fechaTexto, precioTotal, estado, empresa, direccion, id_localidad,
+						idCliente, contentPane);
 
 			}
 
@@ -483,9 +613,10 @@ public class MenuBurgerKing extends JFrame {
 		});
 		btnNewButton_1_1.setBounds(729, 359, 140, 110);
 		contentPane.add(btnNewButton_1_1);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\Virtual-Backgrounds_Confetti-On-Gold.jpg"));
+		lblNewLabel_1.setIcon(new ImageIcon(
+				MenuBurgerKing.class.getResource("/vista/Imagenes/Virtual-Backgrounds_Confetti-On-Gold.jpg")));
 		lblNewLabel_1.setBounds(-156, -32, 1147, 666);
 		contentPane.add(lblNewLabel_1);
 

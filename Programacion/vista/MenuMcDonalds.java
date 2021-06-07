@@ -4,6 +4,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import conexion.Conexion;
+import controlador.Numero;
+import controlador.Pedido;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Font;
@@ -104,10 +107,29 @@ public class MenuMcDonalds extends JFrame {
 		JButton bigMac = new JButton("New button");
 		bigMac.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_bigmc.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Big Mac";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Big Mac";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -115,8 +137,7 @@ public class MenuMcDonalds extends JFrame {
 
 			}
 		});
-		bigMac.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\menu-big-mac.png"));
+		bigMac.setIcon(new ImageIcon(MenuMcDonalds.class.getResource("/vista/Imagenes/mc/menu-big-mac.png")));
 		bigMac.setForeground(Color.WHITE);
 		bigMac.setBackground(Color.WHITE);
 		bigMac.setBounds(106, 52, 150, 150);
@@ -125,10 +146,29 @@ public class MenuMcDonalds extends JFrame {
 		JButton cuartoLibra = new JButton("New button");
 		cuartoLibra.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_cuarto.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Menu Cuarto de Libra";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Menu Cuarto de Libra";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -136,8 +176,7 @@ public class MenuMcDonalds extends JFrame {
 
 			}
 		});
-		cuartoLibra.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\cuartodelibra.jpg"));
+		cuartoLibra.setIcon(new ImageIcon(MenuMcDonalds.class.getResource("/vista/Imagenes/mc/cuartodelibra.jpg")));
 		cuartoLibra.setForeground(Color.WHITE);
 		cuartoLibra.setBackground(Color.WHITE);
 		cuartoLibra.setBounds(336, 52, 150, 150);
@@ -146,10 +185,29 @@ public class MenuMcDonalds extends JFrame {
 		JButton mcPollo = new JButton("New button");
 		mcPollo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_mcpollo.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Menu Mc Pollo";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Menu Mc Pollo";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -157,8 +215,8 @@ public class MenuMcDonalds extends JFrame {
 
 			}
 		});
-		mcPollo.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\Mcmenu-mediano-mcpollo.jpg"));
+		mcPollo.setIcon(
+				new ImageIcon(MenuMcDonalds.class.getResource("/vista/Imagenes/mc/Mcmenu-mediano-mcpollo.jpg")));
 		mcPollo.setForeground(Color.WHITE);
 		mcPollo.setBackground(Color.WHITE);
 		mcPollo.setBounds(569, 52, 150, 150);
@@ -167,11 +225,30 @@ public class MenuMcDonalds extends JFrame {
 		JButton styleChiken = new JButton("New button");
 		styleChiken.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 				;
 
 				precio = Integer.parseInt(precio_stylechicken.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Menú American Style Chicken";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Menú American Style Chicken";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -180,7 +257,7 @@ public class MenuMcDonalds extends JFrame {
 			}
 		});
 		styleChiken.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\american-style-chicken-324x324.png"));
+				MenuMcDonalds.class.getResource("/vista/Imagenes/mc/american-style-chicken-324x324.png")));
 		styleChiken.setForeground(Color.WHITE);
 		styleChiken.setBackground(Color.WHITE);
 		styleChiken.setBounds(106, 244, 150, 150);
@@ -189,10 +266,29 @@ public class MenuMcDonalds extends JFrame {
 		JButton happyMeal = new JButton("New button");
 		happyMeal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_happymeal.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Happy Meal";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Happy Meal";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -200,8 +296,7 @@ public class MenuMcDonalds extends JFrame {
 
 			}
 		});
-		happyMeal.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\harapymeal.png"));
+		happyMeal.setIcon(new ImageIcon(MenuMcDonalds.class.getResource("/vista/Imagenes/mc/harapymeal.png")));
 		happyMeal.setForeground(Color.WHITE);
 		happyMeal.setBackground(Color.WHITE);
 		happyMeal.setBounds(336, 244, 150, 150);
@@ -210,10 +305,29 @@ public class MenuMcDonalds extends JFrame {
 		JButton grandMcExtreme = new JButton("New button");
 		grandMcExtreme.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_mcextreme.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Grand McExtreme";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Grand McExtreme";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -222,21 +336,39 @@ public class MenuMcDonalds extends JFrame {
 			}
 		});
 		grandMcExtreme.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\mc_menu_grand-mcextreme_double_bacon.png"));
+				MenuMcDonalds.class.getResource("/vista/Imagenes/mc/mc_menu_grand-mcextreme_double_bacon.png")));
 		grandMcExtreme.setForeground(Color.WHITE);
 		grandMcExtreme.setBackground(Color.WHITE);
 		grandMcExtreme.setBounds(569, 244, 150, 150);
 		contentPane.add(grandMcExtreme);
 
 		JButton mcFish = new JButton("New button");
-		mcFish.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\Mcfish.png"));
+		mcFish.setIcon(new ImageIcon(MenuMcDonalds.class.getResource("/vista/Imagenes/mc/Mcfish.png")));
 		mcFish.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_mcfish.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Menú McFish";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Menú McFish";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -252,10 +384,29 @@ public class MenuMcDonalds extends JFrame {
 		JButton hamburguesaConQueso = new JButton("New button");
 		hamburguesaConQueso.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_doblequeso.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Hamburguesa con Doble de Queso";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Hamburguesa con Doble de Queso";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -264,7 +415,7 @@ public class MenuMcDonalds extends JFrame {
 			}
 		});
 		hamburguesaConQueso.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\menu-hamburguesa-doble-cheese-burger.jpg"));
+				MenuMcDonalds.class.getResource("/vista/Imagenes/mc/menu-hamburguesa-doble-cheese-burger.jpg")));
 		hamburguesaConQueso.setForeground(Color.WHITE);
 		hamburguesaConQueso.setBackground(Color.WHITE);
 		hamburguesaConQueso.setBounds(336, 418, 150, 150);
@@ -273,18 +424,36 @@ public class MenuMcDonalds extends JFrame {
 		JButton mcWrap = new JButton("New button");
 		mcWrap.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_mcwrap.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "McWrap";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" McWrap";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
 						JOptionPane.WARNING_MESSAGE);
 			}
 		});
-		mcWrap.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\mc\\mcwrap.jpg"));
+		mcWrap.setIcon(new ImageIcon(MenuMcDonalds.class.getResource("/vista/Imagenes/mc/mcwrap.jpg")));
 		mcWrap.setForeground(Color.WHITE);
 		mcWrap.setBackground(Color.WHITE);
 		mcWrap.setBounds(569, 418, 150, 150);
@@ -390,8 +559,7 @@ public class MenuMcDonalds extends JFrame {
 
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\flecha.png"));
+		btnNewButton.setIcon(new ImageIcon(MenuMcDonalds.class.getResource("/vista/Imagenes/flecha.png")));
 		btnNewButton.setBounds(0, 0, 60, 60);
 		contentPane.add(btnNewButton);
 
@@ -428,43 +596,10 @@ public class MenuMcDonalds extends JFrame {
 
 				}
 
-				Connection miConexion = c.getConexion();
-				String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+				Pedido p = new Pedido();
 
-				try {
-					PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-					pst.setString(1, menuTotal);
-					pst.setString(2, fechaTexto);
-					pst.setInt(3, precioTotal);
-					pst.setString(4, estado);
-					pst.setString(5, empresa);
-					pst.setString(6, direccion);
-					pst.setInt(7, id_localidad);
-					pst.setInt(8, idCliente);
-
-					if (pst.executeUpdate() == 1) {
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quiere terminar se pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-					JOptionPane.showMessageDialog(contentPane,
-							"Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
-							"Su pedido esta en camino", JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-
-				}
+				p.terminarPedido(menuTotal, fechaTexto, precioTotal, estado, empresa, direccion, id_localidad,
+						idCliente, contentPane);
 
 			}
 
@@ -484,9 +619,10 @@ public class MenuMcDonalds extends JFrame {
 		});
 		btnNewButton_1_1.setBounds(734, 359, 135, 110);
 		contentPane.add(btnNewButton_1_1);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\Virtual-Backgrounds_Confetti-On-Gold.jpg"));
+		lblNewLabel_1.setIcon(new ImageIcon(
+				MenuMcDonalds.class.getResource("/vista/Imagenes/Virtual-Backgrounds_Confetti-On-Gold.jpg")));
 		lblNewLabel_1.setBounds(-156, -32, 1147, 666);
 		contentPane.add(lblNewLabel_1);
 	}

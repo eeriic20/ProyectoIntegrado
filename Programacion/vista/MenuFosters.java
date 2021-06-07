@@ -21,6 +21,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import conexion.Conexion;
+import controlador.Numero;
+import controlador.Pedido;
 
 public class MenuFosters extends JFrame {
 
@@ -104,10 +106,29 @@ public class MenuFosters extends JFrame {
 		JButton combo = new JButton("New button");
 		combo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_hollywood.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Hollywood Combo";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Hollywood Combo";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -115,8 +136,7 @@ public class MenuFosters extends JFrame {
 
 			}
 		});
-		combo.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\hollywood-combo.png"));
+		combo.setIcon(new ImageIcon(MenuFosters.class.getResource("/vista/Imagenes/fosters/hollywood-combo.png")));
 		combo.setForeground(Color.WHITE);
 		combo.setBackground(Color.WHITE);
 		combo.setBounds(106, 52, 150, 150);
@@ -125,10 +145,29 @@ public class MenuFosters extends JFrame {
 		JButton newyorker = new JButton("New button");
 		newyorker.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_newyorker.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "The NewYorker";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" The NewYorker";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -136,8 +175,8 @@ public class MenuFosters extends JFrame {
 
 			}
 		});
-		newyorker.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\new_yorker_1000x495_0.png"));
+		newyorker.setIcon(
+				new ImageIcon(MenuFosters.class.getResource("/vista/Imagenes/fosters/new_yorker_1000x495_0.png")));
 		newyorker.setForeground(Color.WHITE);
 		newyorker.setBackground(Color.WHITE);
 		newyorker.setBounds(336, 52, 150, 150);
@@ -146,10 +185,29 @@ public class MenuFosters extends JFrame {
 		JButton national = new JButton("New button");
 		national.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_nationalstar.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "National Star";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" National Star";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -157,8 +215,8 @@ public class MenuFosters extends JFrame {
 
 			}
 		});
-		national.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\national-ribs-de-cerdo.png"));
+		national.setIcon(
+				new ImageIcon(MenuFosters.class.getResource("/vista/Imagenes/fosters/national-ribs-de-cerdo.png")));
 		national.setForeground(Color.WHITE);
 		national.setBackground(Color.WHITE);
 		national.setBounds(569, 52, 150, 150);
@@ -167,18 +225,37 @@ public class MenuFosters extends JFrame {
 		JButton tribella = new JButton("New button");
 		tribella.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_tribeca.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Tribeca";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Tribeca";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
 						JOptionPane.WARNING_MESSAGE);
 			}
 		});
-		tribella.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\fosters_burgers_2_tribeca.png"));
+		tribella.setIcon(
+				new ImageIcon(MenuFosters.class.getResource("/vista/Imagenes/fosters/fosters_burgers_2_tribeca.png")));
 		tribella.setForeground(Color.WHITE);
 		tribella.setBackground(Color.WHITE);
 		tribella.setBounds(106, 244, 150, 150);
@@ -187,10 +264,29 @@ public class MenuFosters extends JFrame {
 		JButton guacamole = new JButton("New button");
 		guacamole.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_guacamole.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Guacamole";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Guacamole";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -198,8 +294,8 @@ public class MenuFosters extends JFrame {
 
 			}
 		});
-		guacamole.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\guacamole-hecho-en-tu-mesa.png"));
+		guacamole.setIcon(
+				new ImageIcon(MenuFosters.class.getResource("/vista/Imagenes/fosters/guacamole-hecho-en-tu-mesa.png")));
 		guacamole.setForeground(Color.WHITE);
 		guacamole.setBackground(Color.WHITE);
 		guacamole.setBounds(336, 244, 150, 150);
@@ -208,6 +304,25 @@ public class MenuFosters extends JFrame {
 		JButton bone = new JButton("New button");
 		bone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_beffbone.getText());
 				precioTotal = precioTotal + precio;
@@ -219,8 +334,7 @@ public class MenuFosters extends JFrame {
 
 			}
 		});
-		bone.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\beef-bone.png"));
+		bone.setIcon(new ImageIcon(MenuFosters.class.getResource("/vista/Imagenes/fosters/beef-bone.png")));
 		bone.setForeground(Color.WHITE);
 		bone.setBackground(Color.WHITE);
 		bone.setBounds(569, 244, 150, 150);
@@ -228,13 +342,32 @@ public class MenuFosters extends JFrame {
 
 		JButton costillas = new JButton("New button");
 		costillas.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\costillas-ibericas-black-label.png"));
+				MenuFosters.class.getResource("/vista/Imagenes/fosters/costillas-ibericas-black-label.png")));
 		costillas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_costillas.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Costillas";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Costillas";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -250,10 +383,29 @@ public class MenuFosters extends JFrame {
 		JButton raclette = new JButton("New button");
 		raclette.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_raclette.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Raclette Burger";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Raclette Burger";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -261,8 +413,8 @@ public class MenuFosters extends JFrame {
 
 			}
 		});
-		raclette.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\xracllette-fh.pngqitoknyfqozeb.pagespeed.ic_.8pekl6yknf.png"));
+		raclette.setIcon(new ImageIcon(MenuFosters.class
+				.getResource("/vista/Imagenes/fosters/xracllette-fh.pngqitoknyfqozeb.pagespeed.ic_.8pekl6yknf.png")));
 		raclette.setForeground(Color.WHITE);
 		raclette.setBackground(Color.WHITE);
 		raclette.setBounds(336, 418, 150, 150);
@@ -271,10 +423,29 @@ public class MenuFosters extends JFrame {
 		JButton cheese = new JButton((String) null);
 		cheese.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int nMenus = 0;
+				String seleccion = JOptionPane.showInputDialog(null, "Selecciona una cantidad");
+
+				while (!Numero.esNumero(seleccion)) {
+
+					if (seleccion != null) {
+
+						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+
+						if (Numero.esNumero(seleccion)) {
+
+							nMenus = Integer.parseInt(seleccion);
+
+						}
+
+					} else {
+
+					}
+				}
 
 				precio = Integer.parseInt(precio_cheese.getText());
-				precioTotal = precioTotal + precio;
-				nombre = "Cheese Burger";
+				precioTotal = precioTotal + (precio * nMenus);
+				nombre = seleccion+" Cheese Burger";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -282,8 +453,8 @@ public class MenuFosters extends JFrame {
 
 			}
 		});
-		cheese.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fosters\\cheese-burger_optimizado.png"));
+		cheese.setIcon(
+				new ImageIcon(MenuFosters.class.getResource("/vista/Imagenes/fosters/cheese-burger_optimizado.png")));
 		cheese.setForeground(Color.WHITE);
 		cheese.setBackground(Color.WHITE);
 		cheese.setBounds(569, 418, 150, 150);
@@ -389,8 +560,7 @@ public class MenuFosters extends JFrame {
 
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\flecha.png"));
+		btnNewButton.setIcon(new ImageIcon(MenuFosters.class.getResource("/vista/Imagenes/flecha.png")));
 		btnNewButton.setBounds(0, 0, 60, 60);
 		contentPane.add(btnNewButton);
 
@@ -427,43 +597,10 @@ public class MenuFosters extends JFrame {
 
 				}
 
-				Connection miConexion = c.getConexion();
-				String mysql = "INSERT INTO pedido(Menu, FechaPedido, PrecioPedido, EstadoPedido, Empresa, direccion, CodigoLocalidad, idCliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+				Pedido p = new Pedido();
 
-				try {
-					PreparedStatement pst = miConexion.prepareStatement(mysql);
-
-					pst.setString(1, menuTotal);
-					pst.setString(2, fechaTexto);
-					pst.setInt(3, precioTotal);
-					pst.setString(4, estado);
-					pst.setString(5, empresa);
-					pst.setString(6, direccion);
-					pst.setInt(7, id_localidad);
-					pst.setInt(8, idCliente);
-
-					if (pst.executeUpdate() == 1) {
-
-					}
-
-				} catch (SQLException e1) {
-
-					e1.printStackTrace();
-
-				}
-
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Quiere terminar se pedido?", "Aviso",
-						JOptionPane.YES_NO_OPTION);
-
-				if (opcion == JOptionPane.YES_OPTION) {
-
-					JOptionPane.showMessageDialog(contentPane,
-							"Su pedido costara " + precioTotal + "€" + ", gracias por confiar en nosotros",
-							"Su pedido esta en camino", JOptionPane.WARNING_MESSAGE);
-
-					System.exit(0);
-
-				}
+				p.terminarPedido(menuTotal, fechaTexto, precioTotal, estado, empresa, direccion, id_localidad,
+						idCliente, contentPane);
 
 			}
 
@@ -483,9 +620,10 @@ public class MenuFosters extends JFrame {
 		});
 		btnNewButton_1_1.setBounds(729, 359, 140, 110);
 		contentPane.add(btnNewButton_1_1);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\Virtual-Backgrounds_Confetti-On-Gold.jpg"));
+		lblNewLabel_1.setIcon(new ImageIcon(
+				MenuFosters.class.getResource("/vista/Imagenes/Virtual-Backgrounds_Confetti-On-Gold.jpg")));
 		lblNewLabel_1.setBounds(-156, -32, 1147, 666);
 		contentPane.add(lblNewLabel_1);
 
