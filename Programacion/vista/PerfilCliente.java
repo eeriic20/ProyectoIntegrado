@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.html.ImageView;
 
+import Conexion.Conexion;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,6 +24,7 @@ import java.sql.Statement;
 
 import javax.swing.JFileChooser;
 import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import java.awt.Image;
 
@@ -40,6 +43,7 @@ import java.awt.Image;
 import javax.swing.JSplitPane;
 import javax.swing.JFileChooser;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import java.awt.Color;
@@ -47,24 +51,11 @@ import java.awt.Color;
 public class PerfilCliente extends JFrame {
 
 	private JPanel contentPane;
-	private int id_cliente = 15;
-
-	/**
-	 * Launch the application.
-	 */
-
-	
-	  public static void main(String[] args) { EventQueue.invokeLater(new
-	  Runnable() { public void run() { try { PerfilCliente frame = new
-	  PerfilCliente(); frame.setVisible(true); } catch (Exception e) {
-	  e.printStackTrace(); } } }); }
-	 
-
 
 	/**
 	 * Create the frame.
 	 */
-	public PerfilCliente() {
+	public PerfilCliente(int id_cliente, String nom, String cognoms, String usuari, String correu, String direccio, String data, String contrasenya, ImageIcon image) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
 		contentPane = new JPanel();
@@ -102,27 +93,27 @@ public class PerfilCliente extends JFrame {
 		lblNewLabel_1_6.setBounds(474, 181, 176, 20);
 		contentPane.add(lblNewLabel_1_6);
 
-		JLabel nombre = new JLabel("Eric");
+		JLabel nombre = new JLabel(nom);
 		nombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		nombre.setBounds(260, 62, 57, 20);
 		contentPane.add(nombre);
 
-		JLabel apellidos = new JLabel("Quintero Moreno");
+		JLabel apellidos = new JLabel(cognoms);
 		apellidos.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		apellidos.setBounds(474, 62, 120, 20);
 		contentPane.add(apellidos);
 
-		JLabel usuario = new JLabel("eeriic20");
+		JLabel usuario = new JLabel(usuari);
 		usuario.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		usuario.setBounds(693, 62, 57, 20);
 		contentPane.add(usuario);
 
-		JLabel correo = new JLabel("ericquintero2002@gmail.com");
+		JLabel correo = new JLabel(correu);
 		correo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		correo.setBounds(260, 139, 203, 20);
 		contentPane.add(correo);
 
-		JLabel direccion = new JLabel("Carrer del Dr. Peset, 46, 46250 L'Alc\u00FAdia");
+		JLabel direccion = new JLabel(direccio);
 		direccion.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		direccion.setBounds(474, 139, 320, 20);
 		contentPane.add(direccion);
@@ -131,11 +122,6 @@ public class PerfilCliente extends JFrame {
 		contraseña.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		contraseña.setBounds(474, 212, 120, 20);
 		contentPane.add(contraseña);
-
-		JLabel lblNewLabel_1_7_3_2 = new JLabel("Cambiar contrase\u00F1a");
-		lblNewLabel_1_7_3_2.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		lblNewLabel_1_7_3_2.setBounds(641, 183, 109, 20);
-		contentPane.add(lblNewLabel_1_7_3_2);
 
 		JLabel lblNewLabel = new JLabel("HISTORIAL:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -151,14 +137,15 @@ public class PerfilCliente extends JFrame {
 		lblNewLabel_1_6_1.setBounds(260, 181, 185, 20);
 		contentPane.add(lblNewLabel_1_6_1);
 
-		JLabel fecha = new JLabel("18/04/2002");
+		JLabel fecha = new JLabel(data);
 		fecha.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		fecha.setBounds(260, 212, 97, 20);
 		contentPane.add(fecha);
 
 		JLabel labelFoto = new JLabel("");
-		labelFoto.setIcon(new ImageIcon(PerfilCliente.class.getResource("/vista/Imagenes/default1.png")));
 		labelFoto.setBounds(28, 22, 176, 160);
+		labelFoto.setIcon(new ImageIcon(image.getImage().getScaledInstance(labelFoto.getWidth(), labelFoto.getHeight(), Image.SCALE_SMOOTH)));
+		
 		contentPane.add(labelFoto);
 
 		JButton cambiarImagen = new JButton("Cambiar imagen");
@@ -179,11 +166,6 @@ public class PerfilCliente extends JFrame {
 					try {
 						i = new ImageIcon(f.toURI().toURL());
 						
-						
-//						Preparedtatement ps = c.prepareStatement("UPDATE persona SET imagen = ? WHERE ID = '"+id_cliente+"'");
-						
-						
-						
 					} catch (MalformedURLException ex) {
 						JOptionPane.showMessageDialog(null, "Error en el formato o al encontrar la imagen.");
 					}
@@ -194,15 +176,16 @@ public class PerfilCliente extends JFrame {
 						
 						Conexion c = new Conexion();
 						Connection miConexion = c.getConexion();
-						String sql = "UPDATE persona SET imagen = ? WHERE ID = '"+id_cliente+"'";
-						
+						String sql = "UPDATE persona SET imagen = ? WHERE ID ="+id_cliente;
 						FileInputStream is = new FileInputStream(f.getAbsolutePath());
 						PreparedStatement st = miConexion.prepareStatement(sql);
 						
-						st.setBlob(10, is);
-						st.execute();
+						st.setBlob(1, is);
+						
+						st.executeUpdate();
 						is.close();
 						st.close();
+						
 						
 					} catch (SQLException e1) {
 
@@ -223,5 +206,34 @@ public class PerfilCliente extends JFrame {
 
 		cambiarImagen.setBounds(48, 192, 137, 23);
 		contentPane.add(cambiarImagen);
+		JButton cambiarContraseña = new JButton("Cambiar Contrase\u00F1a");
+		cambiarContraseña.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			
+				String seleccion = JOptionPane.showInputDialog(null, "Nueva Contraseña:");
+				
+				try {
+					
+					Conexion c = new Conexion();
+					Connection miConexion = c.getConexion();
+					String sql = "UPDATE persona SET Contraseña = ? WHERE ID ="+id_cliente;
+					PreparedStatement st = miConexion.prepareStatement(sql);
+					
+					st.setString(1, seleccion);
+					
+					st.executeUpdate();
+					st.close();
+					
+					
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+
+				}
+			
+			}
+		});
+		cambiarContraseña.setBounds(642, 182, 167, 23);
+		contentPane.add(cambiarContraseña);
 	}
 }
