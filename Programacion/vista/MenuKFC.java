@@ -1,5 +1,13 @@
 package vista;
 
+/**
+ * <h1>Menu KFC-Proyecto Integrado.</h1>
+ * 
+ * @author David, Alex y Eric.
+ * 
+ * @since 08/06/2021
+ *
+ */
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -33,12 +41,20 @@ public class MenuKFC extends JFrame {
 	private String direccion;
 	private int idCliente;
 	private Date fecha;
-	private int precioTotal = 0;
+	private int precioTotal;
 	private String menuTotal = "";
 
 	/**
-	 * Create the frame.
+	 * 
+	 * El constructor del menuKFC
+	 * 
+	 * @param nombreuser es el nombre del usuario
+	 * @param id         es el id del usuario
+	 * @param localidad  la localidad donde vive el usuario
+	 * @param direccionD la direccion del usuario
+	 * @param empresaE   la empresa la cual vende los menus
 	 */
+
 	public MenuKFC(String nombreuser, int id, String localidad, String direccionD, String empresaE) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuKFC.class.getResource("/vista/Imagenes/logofinal.png")));
 		setTitle("DELIVERY BUFA");
@@ -100,6 +116,9 @@ public class MenuKFC extends JFrame {
 		precio_alitas.setBounds(694, 573, 46, 14);
 		contentPane.add(precio_alitas);
 
+		/**
+		 * Los siguientes botones realizan los pedidos
+		 */
 		JButton doble = new JButton("New button");
 		doble.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -108,19 +127,13 @@ public class MenuKFC extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_BBQ.getText());
@@ -147,21 +160,14 @@ public class MenuKFC extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
-
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
-
-						if (Numero.esNumero(seleccion)) {
-
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
 				}
 
+				if (Numero.esNumero(seleccion)) {
+
+					nMenus = Integer.parseInt(seleccion);
+
+				}
 				precio = Integer.parseInt(precio_Original.getText());
 				precioTotal = precioTotal + (precio * nMenus);
 				nombre = seleccion + " Original Doble Cheese Burger";
@@ -186,19 +192,13 @@ public class MenuKFC extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_bacon.getText());
@@ -225,19 +225,13 @@ public class MenuKFC extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_sobrada.getText());
@@ -264,19 +258,13 @@ public class MenuKFC extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_mazorca.getText());
@@ -303,19 +291,13 @@ public class MenuKFC extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_twister.getText());
@@ -343,19 +325,13 @@ public class MenuKFC extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_Oburger.getText());
@@ -381,19 +357,13 @@ public class MenuKFC extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_Mix.getText());
@@ -420,21 +390,14 @@ public class MenuKFC extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
-
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
-
-						if (Numero.esNumero(seleccion)) {
-
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
 				}
 
+				if (Numero.esNumero(seleccion)) {
+
+					nMenus = Integer.parseInt(seleccion);
+
+				}
 				precio = Integer.parseInt(precio_alitas.getText());
 				precioTotal = precioTotal + (precio * nMenus);
 				nombre = seleccion + " Alitas picantes";
@@ -541,6 +504,10 @@ public class MenuKFC extends JFrame {
 		label_1_8.setBounds(704, 573, 46, 14);
 		contentPane.add(label_1_8);
 
+		/**
+		 * Este boton te devuelve a la pantalla de restaurantes
+		 */
+
 		JButton btnNewButton = new JButton("");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -554,6 +521,10 @@ public class MenuKFC extends JFrame {
 		btnNewButton.setIcon(new ImageIcon(MenuKFC.class.getResource("/vista/Imagenes/flecha.png")));
 		btnNewButton.setBounds(0, 0, 60, 60);
 		contentPane.add(btnNewButton);
+
+		/**
+		 * Este boton te termina el pedido y lo sube a la DB
+		 */
 
 		JButton btnNewButton_1 = new JButton("Terminar pedido");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -598,6 +569,10 @@ public class MenuKFC extends JFrame {
 		});
 		btnNewButton_1.setBounds(729, 480, 140, 110);
 		contentPane.add(btnNewButton_1);
+
+		/**
+		 * Este boton te permite ver el pedido
+		 */
 
 		JButton btnNewButton_1_1 = new JButton("Ver pedido");
 		btnNewButton_1_1.addActionListener(new ActionListener() {

@@ -1,5 +1,13 @@
 package vista;
 
+/**
+ * <h1>Menu Telepizza-Proyecto Integrado.</h1>
+ * 
+ * @author David, Alex y Eric.
+ * 
+ * @since 08/06/2021
+ *
+ */
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -34,14 +42,23 @@ public class MenuTelepizza extends JFrame {
 	private String direccion;
 	private int idCliente;
 	private Date fecha;
-	private int precioTotal = 0;
+	private int precioTotal;
 	private String menuTotal = "";
 
 	/**
-	 * Create the frame.
+	 * 
+	 * El constructor del menuTelepizza
+	 * 
+	 * @param nombreuser es el nombre del usuario
+	 * @param id         es el id del usuario
+	 * @param localidad  la localidad donde vive el usuario
+	 * @param direccionD la direccion del usuario
+	 * @param empresaE   la empresa la cual vende los menus
 	 */
+
 	public MenuTelepizza(String nombreuser, int id, String localidad, String direccionD, String empresaE) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuTelepizza.class.getResource("/vista/Imagenes/logofinal.png")));
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(MenuTelepizza.class.getResource("/vista/Imagenes/logofinal.png")));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -107,6 +124,10 @@ public class MenuTelepizza extends JFrame {
 		lblEligeTuMen.setBounds(304, -14, 215, 61);
 		contentPane.add(lblEligeTuMen);
 
+		/**
+		 * Los siguentes botones son los de seleccion de menus
+		 */
+
 		JButton barbacoa = new JButton("New button");
 		barbacoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -115,19 +136,13 @@ public class MenuTelepizza extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_bbq.getText());
@@ -154,19 +169,13 @@ public class MenuTelepizza extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_carbonara.getText());
@@ -193,19 +202,13 @@ public class MenuTelepizza extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_hawaiana.getText());
@@ -232,19 +235,13 @@ public class MenuTelepizza extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_cebolla.getText());
@@ -271,19 +268,13 @@ public class MenuTelepizza extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_peperoni.getText());
@@ -310,19 +301,13 @@ public class MenuTelepizza extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_baconcrispy.getText());
@@ -336,7 +321,7 @@ public class MenuTelepizza extends JFrame {
 
 		});
 		baconCrispy
-		.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/baconcrispy.jpg")));
+				.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/baconcrispy.jpg")));
 		baconCrispy.setForeground(Color.WHITE);
 		baconCrispy.setBackground(Color.WHITE);
 		baconCrispy.setBounds(569, 244, 150, 150);
@@ -344,7 +329,7 @@ public class MenuTelepizza extends JFrame {
 
 		JButton vulcanoNachos = new JButton("New button");
 		vulcanoNachos
-		.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/vulcanonachos.jpg")));
+				.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/vulcanonachos.jpg")));
 		vulcanoNachos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int nMenus = 0;
@@ -352,19 +337,13 @@ public class MenuTelepizza extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_vulcanonachos.getText());
@@ -390,19 +369,13 @@ public class MenuTelepizza extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_tandemgourmet.getText());
@@ -416,7 +389,7 @@ public class MenuTelepizza extends JFrame {
 			}
 		});
 		tandemGourmet
-		.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/tandemgourmet.jpg")));
+				.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/tandemgourmet.jpg")));
 		tandemGourmet.setForeground(Color.WHITE);
 		tandemGourmet.setBackground(Color.WHITE);
 		tandemGourmet.setBounds(336, 418, 150, 150);
@@ -430,19 +403,13 @@ public class MenuTelepizza extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_supreme.getText());
@@ -545,6 +512,10 @@ public class MenuTelepizza extends JFrame {
 		lblNewLabel_1_8.setBounds(702, 573, 46, 14);
 		contentPane.add(lblNewLabel_1_8);
 
+		/**
+		 * Este boton te retorna a la pantalla de seleccion de restaurantes
+		 */
+
 		JButton btnNewButton = new JButton("");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -558,6 +529,10 @@ public class MenuTelepizza extends JFrame {
 		btnNewButton.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/flecha.png")));
 		btnNewButton.setBounds(0, 0, 60, 60);
 		contentPane.add(btnNewButton);
+
+		/**
+		 * Este boton te hace que se finalice el pedido subiendolo a la DB
+		 */
 
 		JButton btnNewButton_1 = new JButton("Terminar pedido");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -602,6 +577,10 @@ public class MenuTelepizza extends JFrame {
 		});
 		btnNewButton_1.setBounds(733, 480, 136, 110);
 		contentPane.add(btnNewButton_1);
+
+		/**
+		 * Este boton te permite ver lo que llevas de pedido
+		 */
 
 		JButton btnNewButton_1_1 = new JButton("Ver pedido");
 		btnNewButton_1_1.addActionListener(new ActionListener() {

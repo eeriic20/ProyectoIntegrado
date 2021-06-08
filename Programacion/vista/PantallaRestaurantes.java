@@ -1,5 +1,13 @@
 package vista;
 
+/**
+ * Pantalla de Restaurantes-Proyecto Integrado.
+ * 
+ * @author David, Alex y Eric.
+ * 
+ * @since 30/05/2021
+ *
+ */
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -33,8 +41,15 @@ public class PantallaRestaurantes extends JFrame {
 	private String localidad_user;
 
 	/**
-	 * Create the frame.
+	 * 
+	 * El constructor de la clase pantalla restaurante
+	 * 
+	 * @param nombreUser el nombre del usuario
+	 * @param id         el id del usuario
+	 * @param localidad  la localidad del usuario
+	 * @param direccion  la direccion del usuario
 	 */
+
 	public PantallaRestaurantes(String nombreUser, int id, String localidad, String direccion) {
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(PantallaRestaurantes.class.getResource("/vista/Imagenes/logofinal.png")));
@@ -46,6 +61,10 @@ public class PantallaRestaurantes extends JFrame {
 		contentPane.setLayout(null);
 		this.setResizable(false);
 		localidad_user = localidad;
+
+		/**
+		 * Este boton te lleva a los menus de ginos
+		 */
 		JButton ginos = new JButton("New button");
 		ginos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -65,6 +84,9 @@ public class PantallaRestaurantes extends JFrame {
 		ginos.setBounds(360, 245, 150, 150);
 		contentPane.add(ginos);
 
+		/**
+		 * Este boton te lleva a los menus de kfc
+		 */
 		JButton kfc = new JButton("New button");
 		kfc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -83,6 +105,9 @@ public class PantallaRestaurantes extends JFrame {
 		kfc.setBounds(592, 245, 150, 150);
 		contentPane.add(kfc);
 
+		/**
+		 * Este boton te lleva a los menus de pans
+		 */
 		JButton pans = new JButton("New button");
 		pans.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -102,6 +127,9 @@ public class PantallaRestaurantes extends JFrame {
 		pans.setBounds(136, 419, 150, 150);
 		contentPane.add(pans);
 
+		/**
+		 * Este boton te lleva a los menus de Xe que bo
+		 */
 		JButton xequebo = new JButton("New button");
 		xequebo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -120,6 +148,9 @@ public class PantallaRestaurantes extends JFrame {
 		xequebo.setBounds(360, 419, 150, 150);
 		contentPane.add(xequebo);
 
+		/**
+		 * Este boton te lleva a los menus del kebab
+		 */
 		JButton kebab = new JButton("New button");
 		kebab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -144,6 +175,9 @@ public class PantallaRestaurantes extends JFrame {
 		lblNewLabel.setBounds(270, 11, 388, 61);
 		contentPane.add(lblNewLabel);
 
+		/**
+		 * Este boton te lleva a los menus de Burguer king
+		 */
 		JButton burgerking = new JButton("New button");
 		burgerking.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -163,6 +197,9 @@ public class PantallaRestaurantes extends JFrame {
 		burgerking.setBounds(360, 68, 150, 150);
 		contentPane.add(burgerking);
 
+		/**
+		 * Este boton te lleva a los menus de McDonalds
+		 */
 		JButton mcdonalds = new JButton("New button");
 		mcdonalds.setForeground(new Color(255, 255, 255));
 		mcdonalds.setBackground(Color.WHITE);
@@ -183,6 +220,9 @@ public class PantallaRestaurantes extends JFrame {
 		mcdonalds.setBounds(136, 68, 150, 150);
 		contentPane.add(mcdonalds);
 
+		/**
+		 * Este boton te lleva a los menus de Telepizza
+		 */
 		JButton telepizza = new JButton("New button");
 		telepizza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -202,6 +242,9 @@ public class PantallaRestaurantes extends JFrame {
 		telepizza.setBounds(592, 68, 150, 150);
 		contentPane.add(telepizza);
 
+		/**
+		 * Este boton te lleva a los menus de Fosters Hollywood
+		 */
 		JButton fosters = new JButton("New button");
 		fosters.addActionListener(new ActionListener() {
 
@@ -228,6 +271,9 @@ public class PantallaRestaurantes extends JFrame {
 		lblNewLabel_1.setBounds(-131, -206, 1065, 928);
 		contentPane.add(lblNewLabel_1);
 
+		/**
+		 * Este boton te lleva al perfil del usuario
+		 */
 		JButton perfil = new JButton("Mi Perfil");
 		perfil.setBounds(10, 25, 106, 34);
 		contentPane.add(perfil);
@@ -243,6 +289,9 @@ public class PantallaRestaurantes extends JFrame {
 					Statement s = c.getConexion().createStatement();
 					String sql = "select ID from persona where NombreUsuario = '" + nombreUser + "'";
 					ResultSet rs = s.executeQuery(sql);
+
+					// Se hace una consulta scando todos los datos del cliente para poder verlos
+					// luego en el perfil del cliente
 
 					if (rs.next()) {
 
@@ -280,13 +329,14 @@ public class PantallaRestaurantes extends JFrame {
 
 					direccio = carrer + ", " + postal + ", " + localidad;
 
+					// Aqui se saca la foto de perfil que tiene el cliente para poder pasarla por
+					// paramtero luego, si estuviera vacia no pasaria nada
+
 					while (rs.next()) {
 
 						Blob blob = rs.getBlob(1);
 
 						if (blob == null) {
-
-							//image = new ImageIcon("/vista/Imagenes/default1.png");
 
 							PerfilCliente frame = new PerfilCliente(id_cliente, nom, cognoms, usuari, correu, direccio,
 									data, contrasenya, image);

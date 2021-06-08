@@ -1,14 +1,19 @@
 package vista;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+/**
+ * Pantalla de vista empleado-Proyecto Integrado.
+ * 
+ * @author David, Alex y Eric.
+ * 
+ * @since 07/06/2021
+ *
+ */
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import conexion.Conexion;
-import javafx.scene.control.ComboBox;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
@@ -16,14 +21,11 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.io.FileInputStream;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.Color;
@@ -32,7 +34,6 @@ import java.awt.Toolkit;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
-import controlador.*;
 
 public class vistaEmpleado extends JFrame {
 
@@ -44,11 +45,15 @@ public class vistaEmpleado extends JFrame {
 	private JComboBox comboBox;
 
 	/**
-	 * Create the frame.
+	 * El constructor de la vista empleado
+	 * 
+	 * @param nombreUsuario es el nombre del usuario
 	 */
+
 	public vistaEmpleado(String nombreUsuario) {
 		setTitle("DELIVERY BUFA");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(vistaEmpleado.class.getResource("/vista/Imagenes/logofinal.png")));
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(vistaEmpleado.class.getResource("/vista/Imagenes/logofinal.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
 		contentPane = new JPanel();
@@ -90,6 +95,13 @@ public class vistaEmpleado extends JFrame {
 		lblDisponibilidadR.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblDisponibilidadR.setBounds(143, 141, 129, 38);
 		contentPane.add(lblDisponibilidadR);
+
+		/**
+		 * 
+		 * Se crean los scroll pane, se crean dos para poder dejar uno de inicio vacio y
+		 * en el momento de llamar al otroaparezca y se pueda actualizar correctamente
+		 * 
+		 */
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 243, 859, 347);
@@ -159,6 +171,14 @@ public class vistaEmpleado extends JFrame {
 		contentPane.add(lblVerde);
 		lblVerde.setVisible(false);
 
+		/**
+		 * 
+		 * En el boton disponible hace que el empleado indique a la aplicacion que ya
+		 * esta listo para repartir, al pulsar este boton el empleado puede realizar los
+		 * pedidos.
+		 * 
+		 */
+
 		JButton btn_Disponible = new JButton("Disponible");
 		btn_Disponible.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -175,11 +195,17 @@ public class vistaEmpleado extends JFrame {
 				table.setEnabled(false);
 
 				Statement st;
+
+				// En la tabla que tiene el empleado solo saldran aquellos pedidos que no tengan
+				// ningun empleado asignado
+
 				try {
 					st = miConexion.createStatement();
 					ResultSet rsUsuarios = st.executeQuery("Select * from pedido where IdEmpleado IS NULL");
 
 					Object[] fila = new Object[9];
+
+					// Aqui se cambia el tamaño de la tabla
 					TableColumnModel columnModel = table.getColumnModel();
 					columnModel.getColumn(0).setPreferredWidth(50);
 					columnModel.getColumn(1).setPreferredWidth(150);
@@ -190,6 +216,8 @@ public class vistaEmpleado extends JFrame {
 					columnModel.getColumn(8).setPreferredWidth(50);
 					while (rsUsuarios.next()) {
 
+						// Aqui es donde se llena el array de objetos para poder añadirlo a la tabla
+
 						fila[0] = rsUsuarios.getInt("IdPedido");
 						fila[1] = rsUsuarios.getString("Menu");
 						fila[2] = rsUsuarios.getString("FechaPedido");
@@ -199,7 +227,11 @@ public class vistaEmpleado extends JFrame {
 						fila[6] = rsUsuarios.getString("direccion");
 						fila[7] = rsUsuarios.getInt("CodigoLocalidad");
 						fila[8] = rsUsuarios.getInt("IdCliente");
-						String idPedido = ""+rsUsuarios.getInt("IdPedido");
+
+						// Esto es para que el combo box tenga los ids de los pedidos disponibles y asi
+						// poder seleccionar
+
+						String idPedido = "" + rsUsuarios.getInt("IdPedido");
 						comboBox.addItem(idPedido);
 						int codigo = (int) fila[7];
 
@@ -226,6 +258,8 @@ public class vistaEmpleado extends JFrame {
 
 					e1.printStackTrace();
 				}
+
+				// Aqui llena los apartados que salen de datos del empleado
 
 				try {
 					Statement s = c.getConexion().createStatement();
@@ -263,6 +297,13 @@ public class vistaEmpleado extends JFrame {
 		btn_Disponible.setBounds(458, 188, 113, 23);
 		contentPane.add(btn_Disponible);
 
+		/**
+		 * 
+		 * Con el boton no disponible indicas a la aplicacion que ya dejas de estar
+		 * disponible para repartir
+		 * 
+		 */
+
 		JButton btn_noDisponible = new JButton("No disponible");
 		btn_noDisponible.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -289,7 +330,7 @@ public class vistaEmpleado extends JFrame {
 
 				scrollPane_1.setVisible(true);
 				scrollPane.setVisible(false);
-				
+
 				comboBox.removeAllItems();
 
 				modelo.setRowCount(0);
@@ -303,49 +344,58 @@ public class vistaEmpleado extends JFrame {
 		comboBox.setBounds(685, 94, 102, 20);
 		contentPane.add(comboBox);
 
+		/**
+		 * 
+		 * Este boton es el que realiza el pedido que elija el empleado
+		 * 
+		 */
+
 		JButton btn_realizarpedido = new JButton("Realizar pedido");
 		btn_realizarpedido.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				String id = comboBox.getSelectedItem().toString();
 				int idPedido = Integer.parseInt(id);
-				
-				if(idPedido==0) {
-					
+
+				if (idPedido == 0) {
+
 					JOptionPane.showMessageDialog(null, "Debes seleccionar un id", "Error",
 							JOptionPane.INFORMATION_MESSAGE);
-					
+
 				}
-				
+
 				try {
-					
+
+					// La cosa de este preoceso es que se vuelven a llenar de nuevo los datos de la
+					// tabla, por lo tanto es como volver a crearla.
+
 					Conexion c = new Conexion();
 					Connection miConexion = c.getConexion();
 					Statement s = c.getConexion().createStatement();
-					String sql = "select ID from persona where NombreUsuario = '"+nombreUsuario+"'";
+					String sql = "select ID from persona where NombreUsuario = '" + nombreUsuario + "'";
 					ResultSet rs = s.executeQuery(sql);
-					
-					if(rs.next()) {
-						
+
+					if (rs.next()) {
+
 						String id_Empleado = rs.getString("ID");
-						
+
 						int idEmpleado = Integer.parseInt(id_Empleado);
-						
+
 						Conexion cn = new Conexion();
 						miConexion = cn.getConexion();
-						
-						String msql = "UPDATE pedido SET idEmpleado = ? WHERE IdPedido = '"+idPedido+"'";
-						
+
+						String msql = "UPDATE pedido SET idEmpleado = ? WHERE IdPedido = '" + idPedido + "'";
+
 						PreparedStatement st = miConexion.prepareStatement(msql);
-						
+
 						st.setInt(1, idEmpleado);
 						st.execute();
-						
+
 						Conexion c1 = new Conexion();
 						Connection miConexion1 = c1.getConexion();
 
 						table.setEnabled(false);
-						
+
 						limpiarTabla(table);
 
 						Statement st1;
@@ -373,15 +423,18 @@ public class vistaEmpleado extends JFrame {
 								fila1[6] = rsUsuarios1.getString("direccion");
 								fila1[7] = rsUsuarios1.getInt("CodigoLocalidad");
 								fila1[8] = rsUsuarios1.getInt("IdCliente");
+
+								// Se hace lo del combobox por que cuando el empleado vuelva elegir algun otro
+								// no aparezcan los anteriores
 								comboBox.removeAllItems();
-								String idPedido2 = ""+rsUsuarios1.getInt("IdPedido");
+								String idPedido2 = "" + rsUsuarios1.getInt("IdPedido");
 								comboBox.addItem(idPedido2);
 								int codigo = (int) fila1[7];
-								
+
 								Statement s2 = c1.getConexion().createStatement();
 								String sql2 = "select Nombre from localidad where Codigo = '" + codigo + "'";
 								ResultSet rs2 = s2.executeQuery(sql2);
-								
+
 								if (rs2.next()) {
 
 									String localidad = rs2.getString("Nombre");
@@ -403,29 +456,33 @@ public class vistaEmpleado extends JFrame {
 
 							e1.printStackTrace();
 						}
-						
+
 						scrollPane.setVisible(false);
-						
+
 						scrollPane.setVisible(true);
 					}
-					
+
 				} catch (SQLException e1) {
 
 					e1.printStackTrace();
 
 				}
-				
+
 			}
 		});
-		
+
+		/**
+		 * Este boton cierra la sesion y te devuelve a la pantalla de login
+		 */
+
 		JButton btnCerrarSesion = new JButton("Cerrar sesion");
 		btnCerrarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				PantallaLogin pL = new PantallaLogin();
 				dispose();
 				pL.setVisible(true);
-				
+
 			}
 		});
 		btnCerrarSesion.setBounds(80, 188, 135, 23);
@@ -458,16 +515,23 @@ public class vistaEmpleado extends JFrame {
 		contentPane.add(textArea);
 
 	}
-	
-	public void limpiarTabla(JTable tabla){
-        try {
-            DefaultTableModel modelo=(DefaultTableModel) tabla.getModel();
-            int filas=tabla.getRowCount();
-            for (int i = 0;filas>i; i++) {
-                modelo.removeRow(0);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al limpiar la tabla.");
-        }
-    }
+
+	/**
+	 * 
+	 * Este metodo borra la tabla para poder hacer la actualizacion de la misma
+	 * 
+	 * @param tabla es la tabla la que tiene que editar
+	 */
+
+	public void limpiarTabla(JTable tabla) {
+		try {
+			DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+			int filas = tabla.getRowCount();
+			for (int i = 0; filas > i; i++) {
+				modelo.removeRow(0);
+			}
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Error al limpiar la tabla.");
+		}
+	}
 }

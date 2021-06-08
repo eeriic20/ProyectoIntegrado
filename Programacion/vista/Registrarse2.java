@@ -1,10 +1,17 @@
 package vista;
 
+/**
+ * Pantalla de registro 2-Proyecto Integrado.
+ * 
+ * @author David, Alex y Eric.
+ * 
+ * @since 25/05/2021
+ *
+ */
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import conexion.Conexion;
-import javafx.scene.image.Image;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
@@ -43,10 +50,16 @@ public class Registrarse2 extends JFrame {
 	private JTextArea textArea;
 
 	/**
-	 * Create the frame.
+	 * El constructor de registarse 2
+	 * 
+	 * @param contrasenyaC   la contraseña del usuario que se registra
+	 * @param correoC        el correo del usuario que se registra
+	 * @param nombreUsuarioC el nombre de usuario del usuario
 	 */
+
 	public Registrarse2(String contrasenyaC, String correoC, String nombreUsuarioC) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Registrarse2.class.getResource("/vista/Imagenes/logofinal.png")));
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(Registrarse2.class.getResource("/vista/Imagenes/logofinal.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
 		contentPane = new JPanel();
@@ -119,6 +132,12 @@ public class Registrarse2 extends JFrame {
 		contentPane.add(textField_Direccion);
 		textField_Direccion.setColumns(10);
 
+		/**
+		 * 
+		 * Este es el boton que finaliza el registro y sube los datos a la base de datos
+		 * 
+		 */
+
 		JButton btnRegistrarse = new JButton("Registrarse");
 		btnRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -132,6 +151,8 @@ public class Registrarse2 extends JFrame {
 				correo = correoC;
 				nombreUsuario = nombreUsuarioC;
 				localidad = textArea.getText();
+
+				// Comprobara que se pongan todos los cuadros
 
 				if (nombre.equals("")) {
 
@@ -167,12 +188,14 @@ public class Registrarse2 extends JFrame {
 
 								} else {
 
-									if (localidad.equals("Selecciona una localidad")) {
+									if (localidad.equals("Seleccione una localidad") || localidad.equals("")) {
 
 										JOptionPane.showMessageDialog(null, "Selecciona una localidad correcta",
 												"INFORMATION_MESSAGE", JOptionPane.INFORMATION_MESSAGE);
 
 									} else {
+
+										// Inserta todos los datos en la tabla persona
 
 										Conexion cn = new Conexion();
 										Connection miConexion = cn.getConexion();
@@ -190,6 +213,9 @@ public class Registrarse2 extends JFrame {
 											pst.setString(7, localidad);
 											pst.setString(8, cP);
 											pst.setString(9, fechaNac);
+
+											// Aqui registra la persona que se acaba de registrar en la tabla cliente
+											// para que se guarden como clientes
 
 											if (pst.executeUpdate() == 1) {
 

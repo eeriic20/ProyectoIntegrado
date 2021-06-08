@@ -33,14 +33,23 @@ public class MenuMcDonalds extends JFrame {
 	private String direccion;
 	private int idCliente;
 	private Date fecha;
-	private int precioTotal = 0;
+	private int precioTotal;
 	private String menuTotal = "";
 
 	/**
-	 * Create the frame.
+	 * 
+	 * El constructor del menuMcDonalds
+	 * 
+	 * @param nombreuser es el nombre del usuario
+	 * @param id         es el id del usuario
+	 * @param localidad  la localidad donde vive el usuario
+	 * @param direccionD la direccion del usuario
+	 * @param empresaE   la empresa la cual vende los menus
 	 */
+
 	public MenuMcDonalds(String nombreuser, int id, String localidad, String direccionD, String empresaE) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuMcDonalds.class.getResource("/vista/Imagenes/logofinal.png")));
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(MenuMcDonalds.class.getResource("/vista/Imagenes/logofinal.png")));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -100,6 +109,10 @@ public class MenuMcDonalds extends JFrame {
 		precio_mcwrap.setBounds(683, 573, 46, 14);
 		contentPane.add(precio_mcwrap);
 
+		/**
+		 * Los siguientes botones realizan las acciones de los pedidos.
+		 */
+
 		JButton bigMac = new JButton("New button");
 		bigMac.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -108,19 +121,13 @@ public class MenuMcDonalds extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_bigmc.getText());
@@ -147,21 +154,14 @@ public class MenuMcDonalds extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
-
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
-
-						if (Numero.esNumero(seleccion)) {
-
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
 				}
 
+				if (Numero.esNumero(seleccion)) {
+
+					nMenus = Integer.parseInt(seleccion);
+
+				}
 				precio = Integer.parseInt(precio_cuarto.getText());
 				precioTotal = precioTotal + (precio * nMenus);
 				nombre = seleccion + " Menu Cuarto de Libra";
@@ -186,19 +186,13 @@ public class MenuMcDonalds extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_mcpollo.getText());
@@ -226,21 +220,14 @@ public class MenuMcDonalds extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
-
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
-
-						if (Numero.esNumero(seleccion)) {
-
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
 				}
-				;
+
+				if (Numero.esNumero(seleccion)) {
+
+					nMenus = Integer.parseInt(seleccion);
+
+				}
 
 				precio = Integer.parseInt(precio_stylechicken.getText());
 				precioTotal = precioTotal + (precio * nMenus);
@@ -267,19 +254,13 @@ public class MenuMcDonalds extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_happymeal.getText());
@@ -306,21 +287,14 @@ public class MenuMcDonalds extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
-
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
-
-						if (Numero.esNumero(seleccion)) {
-
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
 				}
 
+				if (Numero.esNumero(seleccion)) {
+
+					nMenus = Integer.parseInt(seleccion);
+
+				}
 				precio = Integer.parseInt(precio_mcextreme.getText());
 				precioTotal = precioTotal + (precio * nMenus);
 				nombre = seleccion + " Grand McExtreme";
@@ -347,19 +321,13 @@ public class MenuMcDonalds extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_mcfish.getText());
@@ -385,19 +353,13 @@ public class MenuMcDonalds extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_doblequeso.getText());
@@ -425,19 +387,13 @@ public class MenuMcDonalds extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_mcwrap.getText());
@@ -545,6 +501,10 @@ public class MenuMcDonalds extends JFrame {
 		label_1_8.setBounds(694, 573, 46, 14);
 		contentPane.add(label_1_8);
 
+		/**
+		 * Este boton te regresa a la base de datos
+		 */
+
 		JButton btnNewButton = new JButton("");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -558,6 +518,10 @@ public class MenuMcDonalds extends JFrame {
 		btnNewButton.setIcon(new ImageIcon(MenuMcDonalds.class.getResource("/vista/Imagenes/flecha.png")));
 		btnNewButton.setBounds(0, 0, 60, 60);
 		contentPane.add(btnNewButton);
+
+		/**
+		 * Este boton termina el pedido y lo sube a la base de datos
+		 */
 
 		JButton btnNewButton_1 = new JButton("Terminar pedido");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -602,6 +566,10 @@ public class MenuMcDonalds extends JFrame {
 		});
 		btnNewButton_1.setBounds(733, 480, 136, 110);
 		contentPane.add(btnNewButton_1);
+
+		/**
+		 * Este boton te permite ver el lo que llevas
+		 */
 
 		JButton btnNewButton_1_1 = new JButton("Ver pedido");
 		btnNewButton_1_1.addActionListener(new ActionListener() {

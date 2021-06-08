@@ -1,5 +1,13 @@
 package vista;
 
+/**
+ * <h1>Menu Kebab-Proyecto Integrado.</h1>
+ * 
+ * @author David, Alex y Eric.
+ * 
+ * @since 08/06/2021
+ *
+ */
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -33,14 +41,23 @@ public class MenuKebab extends JFrame {
 	private String direccion;
 	private int idCliente;
 	private Date fecha;
-	private int precioTotal = 0;
+	private int precioTotal;
 	private String menuTotal = "";
 
 	/**
-	 * Create the frame.
+	 * 
+	 * El constructor del menuKebab
+	 * 
+	 * @param nombreuser es el nombre del usuario
+	 * @param id         es el id del usuario
+	 * @param localidad  la localidad donde vive el usuario
+	 * @param direccionD la direccion del usuario
+	 * @param empresaE   la empresa la cual vende los menus
 	 */
+
 	public MenuKebab(String nombreuser, int id, String localidad, String direccionD, String empresaE) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuKebab.class.getResource("/vista/Imagenes/logofinal.png")));
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(MenuKebab.class.getResource("/vista/Imagenes/logofinal.png")));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -100,6 +117,10 @@ public class MenuKebab extends JFrame {
 		precio_kbTernera.setBounds(473, 210, 15, 14);
 		contentPane.add(precio_kbTernera);
 
+		/**
+		 * Los siguentes botones son los que realizan los pedidos
+		 */
+
 		JButton mixto = new JButton("New button");
 		mixto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -108,19 +129,13 @@ public class MenuKebab extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_kbTernera.getText());
@@ -147,19 +162,13 @@ public class MenuKebab extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_kbTernera.getText());
@@ -186,19 +195,13 @@ public class MenuKebab extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_kbPollo.getText());
@@ -225,19 +228,13 @@ public class MenuKebab extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_kbPitaMx.getText());
@@ -264,19 +261,13 @@ public class MenuKebab extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_kbPitaTer.getText());
@@ -303,19 +294,13 @@ public class MenuKebab extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_kbPitaPoll.getText());
@@ -343,21 +328,14 @@ public class MenuKebab extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
-
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
-
-						if (Numero.esNumero(seleccion)) {
-
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
 				}
 
+				if (Numero.esNumero(seleccion)) {
+
+					nMenus = Integer.parseInt(seleccion);
+
+				}
 				precio = Integer.parseInt(precio_PKeb.getText());
 				precioTotal = precioTotal + (precio * nMenus);
 				nombre = seleccion + " Pizza kebab";
@@ -380,19 +358,13 @@ public class MenuKebab extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precio_PizzaJQ.getText());
@@ -419,21 +391,14 @@ public class MenuKebab extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
-
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
-
-						if (Numero.esNumero(seleccion)) {
-
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
 				}
 
+				if (Numero.esNumero(seleccion)) {
+
+					nMenus = Integer.parseInt(seleccion);
+
+				}
 				precio = Integer.parseInt(precio_PizzAaBBq.getText());
 				precioTotal = precioTotal + (precio * nMenus);
 				nombre = seleccion + " Pizza barbacoa";
@@ -540,6 +505,10 @@ public class MenuKebab extends JFrame {
 		label_1_1_7.setBounds(712, 573, 21, 14);
 		contentPane.add(label_1_1_7);
 
+		/**
+		 * Este boton te devuelve a la pagina de seleccion de restaurantes
+		 */
+
 		JButton btnNewButton = new JButton("");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -553,6 +522,10 @@ public class MenuKebab extends JFrame {
 		btnNewButton.setIcon(new ImageIcon(MenuKebab.class.getResource("/vista/Imagenes/flecha.png")));
 		btnNewButton.setBounds(0, 0, 60, 60);
 		contentPane.add(btnNewButton);
+
+		/**
+		 * Este boton te finaliza el pedido y lo sube a la DB
+		 */
 
 		JButton btnNewButton_1 = new JButton("Terminar pedido");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -597,6 +570,10 @@ public class MenuKebab extends JFrame {
 		});
 		btnNewButton_1.setBounds(732, 480, 137, 110);
 		contentPane.add(btnNewButton_1);
+
+		/**
+		 * Este boton te permite ver el pedido que llevas
+		 */
 
 		JButton btnNewButton_1_1 = new JButton("Ver pedido");
 		btnNewButton_1_1.addActionListener(new ActionListener() {

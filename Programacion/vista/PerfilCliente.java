@@ -1,5 +1,13 @@
 package vista;
 
+/**
+ * Pantalla de perfil de cliente-Proyecto Integrado.
+ * 
+ * @author David, Alex y Eric.
+ * 
+ * @since 03/06/2021
+ *
+ */
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import conexion.Conexion;
@@ -41,12 +49,20 @@ public class PerfilCliente extends JFrame {
 	private String direccionC;
 
 	/**
-	 * Se crea el frame
+	 * El constructor de la clase perfil cliente
 	 * 
-	 * En el contructor entran todos los datos del cliente para usuarlos en las
-	 * consultas proximas
-	 * 
+	 * @param id_cliente  el id del cliente
+	 * @param nom         el nombre del cliente
+	 * @param cognoms     los apellidos del cliente
+	 * @param usuari      el nombre de usuario del cliente
+	 * @param correu      el correo electronico del cliente
+	 * @param direccio    la direccion donde vive el cliente
+	 * @param data        la fecha de nacimiento
+	 * @param contrasenya la contraseña del usuario
+	 * @param image       la imagen de perfil que tiene el usuario puede ser null al
+	 *                    ser nuevo
 	 */
+
 	public PerfilCliente(int id_cliente, String nom, String cognoms, String usuari, String correu, String direccio,
 			String data, String contrasenya, ImageIcon image) {
 
@@ -82,6 +98,9 @@ public class PerfilCliente extends JFrame {
 						fila[4] = rsUsuarios.getString("direccion");
 						fila[5] = rsUsuarios.getInt("CodigoLocalidad");
 
+						// Aqui se guarda el codigo de la localidad para luego hacer una consulta y
+						// buscar su nombre para ponerlo en la tabla
+
 						int codigo = (int) fila[5];
 
 						Statement s = c.getConexion().createStatement();
@@ -97,6 +116,8 @@ public class PerfilCliente extends JFrame {
 							fila[6] = ob;
 
 							modelo.addRow(fila);
+
+							// En esta consulta se saca la direccion para poder pasarla por parametro luego
 
 							sql = "select Direccion from persona where ID = '" + id_cliente + "'";
 							rs = s.executeQuery(sql);
@@ -223,6 +244,11 @@ public class PerfilCliente extends JFrame {
 		labelFoto.setHorizontalAlignment(SwingConstants.CENTER);
 		labelFoto.setFont(new Font("Tahoma", Font.BOLD, 99));
 		labelFoto.setBounds(28, 22, 176, 160);
+
+		/**
+		 * Este if comprueba si la imagen pasada por parametro es null, si lo es pondra
+		 * una x en el hueco de la foto como seña de que no hay foto
+		 */
 		if (image == null) {
 
 			labelFoto.setText("X");
@@ -237,32 +263,54 @@ public class PerfilCliente extends JFrame {
 		}
 		contentPane.add(labelFoto);
 
+		/**
+		 * En este boton se cambia la imagen del usuario, para que cada vez que entre a
+		 * su perfil le salga esa foto
+		 */
+
 		JButton cambiarImagen = new JButton("Cambiar imagen");
 		cambiarImagen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
+				labelFoto.setText("");
+
+				// Aqui es donde la foto se permite ser elegida y subida a la base de datos
 
 				JFileChooser fc = new JFileChooser();
 
 				FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & JPEG & PNG", "jpg", "jpeg", "png");
 				fc.setFileFilter(filter);
 
+				// Se comprueba si lo seleccionado es una foto en el caso que no lo sea dara
+				// error
+
 				int seleccion = fc.showOpenDialog(null);
 				fc.setDialogTitle("Buscar imagen...");
 
 				if (seleccion == JFileChooser.APPROVE_OPTION) {
+
 					File f = fc.getSelectedFile();
+
 					ImageIcon i = null;
+
 					try {
+
 						i = new ImageIcon(f.toURI().toURL());
 
 					} catch (MalformedURLException ex) {
+
 						JOptionPane.showMessageDialog(null, "Error en el formato o al encontrar la imagen.");
 					}
+
+					// Se pone la foto en el label
+
 					labelFoto.setIcon(new ImageIcon(i.getImage().getScaledInstance(labelFoto.getWidth(),
 							labelFoto.getHeight(), Image.SCALE_SMOOTH)));
 					cambiarImagen.setEnabled(true);
 
 					try {
+
+						// Se sube la foto a la base de datos
 
 						Conexion c = new Conexion();
 						Connection miConexion = c.getConexion();
@@ -295,6 +343,12 @@ public class PerfilCliente extends JFrame {
 
 		cambiarImagen.setBounds(48, 192, 137, 23);
 		contentPane.add(cambiarImagen);
+
+		/**
+		 * 
+		 * Este boton permite cambiar la contraseña de la cuenta
+		 * 
+		 */
 		JButton cambiarContraseña = new JButton("Cambiar Contrase\u00F1a");
 		cambiarContraseña.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -329,6 +383,12 @@ public class PerfilCliente extends JFrame {
 		cambiarContraseña.setBounds(642, 182, 167, 23);
 		contentPane.add(cambiarContraseña);
 
+		/**
+		 * 
+		 * Este boton cierra la sesion y te devuelve a la pantalla de login
+		 * 
+		 */
+
 		JButton btnCerrarSesion = new JButton("Cerrar sesion");
 		btnCerrarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -341,6 +401,10 @@ public class PerfilCliente extends JFrame {
 		});
 		btnCerrarSesion.setBounds(48, 228, 137, 23);
 		contentPane.add(btnCerrarSesion);
+
+		/**
+		 * Con este boton vuelves a la pantalla de restaurantes
+		 */
 
 		JButton btnVolverARestaurantes = new JButton("Volver a restaurantes");
 		btnVolverARestaurantes.addActionListener(new ActionListener() {

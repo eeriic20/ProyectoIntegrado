@@ -1,5 +1,13 @@
 package vista;
 
+/**
+ * <h1>Menu Burger King-Proyecto Integrado.</h1>
+ * 
+ * @author David, Alex y Eric.
+ * 
+ * @since 08/06/2021
+ *
+ */
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -32,14 +40,23 @@ public class MenuBurgerKing extends JFrame {
 	private String direccion;
 	private int idCliente;
 	private Date fecha;
-	private int precioTotal = 0;
+	private int precioTotal;
 	private String menuTotal = "";
 
 	/**
-	 * Create the frame.
+	 * 
+	 * El constructor del menuBurguerKing
+	 * 
+	 * @param nombreuser es el nombre del usuario
+	 * @param id         es el id del usuario
+	 * @param localidad  la localidad donde vive el usuario
+	 * @param direccionD la direccion del usuario
+	 * @param empresaE   la empresa la cual vende los menus
 	 */
+
 	public MenuBurgerKing(String nombreuser, int id, String localidad, String direccionD, String empresaE) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuBurgerKing.class.getResource("/vista/Imagenes/logofinal.png")));
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage(MenuBurgerKing.class.getResource("/vista/Imagenes/logofinal.png")));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -99,6 +116,12 @@ public class MenuBurgerKing extends JFrame {
 		precioJR.setBounds(678, 399, 19, 14);
 		contentPane.add(precioJR);
 
+		/**
+		 * 
+		 * Todo lo siguientes son los botones para hacer los pedidos
+		 * 
+		 */
+
 		JButton bigKing = new JButton("New button");
 		bigKing.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -107,19 +130,14 @@ public class MenuBurgerKing extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						if (Numero.esNumero(seleccion)) {
+				if (Numero.esNumero(seleccion)) {
 
-							nMenus = Integer.parseInt(seleccion);
+					nMenus = Integer.parseInt(seleccion);
 
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precioBigK.getText());
@@ -145,19 +163,14 @@ public class MenuBurgerKing extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						if (Numero.esNumero(seleccion)) {
+				if (Numero.esNumero(seleccion)) {
 
-							nMenus = Integer.parseInt(seleccion);
+					nMenus = Integer.parseInt(seleccion);
 
-						}
-
-					} else {
-
-					}
 				}
 
 				nMenus = Integer.parseInt(seleccion);
@@ -184,19 +197,13 @@ public class MenuBurgerKing extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precioWhop.getText());
@@ -223,19 +230,13 @@ public class MenuBurgerKing extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precioSteak.getText());
@@ -262,19 +263,13 @@ public class MenuBurgerKing extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precioHuevo.getText());
@@ -301,21 +296,14 @@ public class MenuBurgerKing extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
-
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
-
-						if (Numero.esNumero(seleccion)) {
-
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
 				}
 
+				if (Numero.esNumero(seleccion)) {
+
+					nMenus = Integer.parseInt(seleccion);
+
+				}
 				precio = Integer.parseInt(precioJR.getText());
 				precioTotal = precioTotal + (precio * nMenus);
 				nombre = seleccion + " King jr";
@@ -342,19 +330,13 @@ public class MenuBurgerKing extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precioBacon.getText());
@@ -380,19 +362,13 @@ public class MenuBurgerKing extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precioKrispy.getText());
@@ -420,19 +396,13 @@ public class MenuBurgerKing extends JFrame {
 
 				while (!Numero.esNumero(seleccion)) {
 
-					if (seleccion != null) {
+					seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				}
 
-						seleccion = JOptionPane.showInputDialog(null, "Por favor introduce un número valido");
+				if (Numero.esNumero(seleccion)) {
 
-						if (Numero.esNumero(seleccion)) {
+					nMenus = Integer.parseInt(seleccion);
 
-							nMenus = Integer.parseInt(seleccion);
-
-						}
-
-					} else {
-
-					}
 				}
 
 				precio = Integer.parseInt(precioLong.getText());
@@ -542,6 +512,10 @@ public class MenuBurgerKing extends JFrame {
 		label_1_2_1_1_1_1_1.setBounds(723, 573, 22, 14);
 		contentPane.add(label_1_2_1_1_1_1_1);
 
+		/**
+		 * Este boton permite regresar atras a la pantalla de restaurantes
+		 */
+
 		JButton btnNewButton = new JButton("");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -555,6 +529,12 @@ public class MenuBurgerKing extends JFrame {
 		btnNewButton.setIcon(new ImageIcon(MenuBurgerKing.class.getResource("/vista/Imagenes/flecha.png")));
 		btnNewButton.setBounds(0, 0, 60, 60);
 		contentPane.add(btnNewButton);
+
+		/**
+		 * 
+		 * Este boton finaliza el pedido y sube los datos a la base de datos
+		 * 
+		 */
 
 		JButton btnNewButton_1 = new JButton("Terminar pedido");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -599,6 +579,10 @@ public class MenuBurgerKing extends JFrame {
 		});
 		btnNewButton_1.setBounds(729, 477, 140, 110);
 		contentPane.add(btnNewButton_1);
+
+		/**
+		 * Este boton te permite ver lo que llevas hasta el momento
+		 */
 
 		JButton btnNewButton_1_1 = new JButton("Ver pedido");
 		btnNewButton_1_1.addActionListener(new ActionListener() {

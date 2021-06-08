@@ -1,7 +1,7 @@
 package vista;
 
 /**
- * <h1>Pantalla de Registro 1-Proyecto Integrado.</h1>
+ * Pantalla de Registro 1-Proyecto Integrado.
  * 
  * @author David, Alex y Eric.
  * 
@@ -43,8 +43,11 @@ public class PantallaRegistrar extends JFrame {
 	public Cliente c;
 
 	/**
-	 * Create the frame.
+	 * 
+	 * Constructor de la clase Pantalla registrar
+	 * 
 	 */
+
 	public PantallaRegistrar() {
 		setTitle("DELIVERY BUFA");
 		setIconImage(Toolkit.getDefaultToolkit()
@@ -102,6 +105,9 @@ public class PantallaRegistrar extends JFrame {
 				nombreUsuario = usuario;
 				contrasenya = pass1;
 				correoE = correo;
+
+				// Se comprueba que los campos no esten vacios en el caso que lo esten saltaran
+				// mensajes de error en el orden en el que esten los textfields
 
 				if (usuario.equals("")) {
 
@@ -166,6 +172,12 @@ public class PantallaRegistrar extends JFrame {
 		passwordField_Rep.setColumns(10);
 		passwordField_Rep.setEchoChar('*');
 
+		/**
+		 * 
+		 * Este boton es para poder ver la contraseña que estara oculta por asteriscos
+		 * 
+		 */
+
 		btn_ver = new JButton("");
 		btn_ver.setIcon(new ImageIcon(PantallaRegistrar.class.getResource("/vista/Imagenes/verpass1.png")));
 		btn_ver.addActionListener(new ActionListener() {
@@ -178,6 +190,12 @@ public class PantallaRegistrar extends JFrame {
 
 			}
 		});
+
+		/**
+		 * 
+		 * Este boton es para dejar de ver la contraseña y se ocultara con asteriscos
+		 * 
+		 */
 
 		btn_ver.setBounds(570, 268, 31, 20);
 		contentPane.add(btn_ver);

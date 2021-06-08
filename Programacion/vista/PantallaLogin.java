@@ -1,49 +1,37 @@
 package vista;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+/**
+ * Pantalla de Login-Proyecto Integrado.
+ * 
+ * @author David, Alex y Eric.
+ * 
+ * @since 25/05/2021
+ *
+ */
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
-
 import conexion.Conexion;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
-import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.Toolkit;
-
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
-import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
-import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
 import java.awt.event.ActionEvent;
-import javax.swing.JCheckBox;
 
 public class PantallaLogin extends JFrame {
-	/**
-	 * <h1>Pantalla de Login-Proyecto Integrado.</h1>
-	 * 
-	 * @author David, Alex y Eric.
-	 * 
-	 * @since 25/05/2021
-	 *
-	 */
+
 	private JPanel contentPane;
-	private JTextField textField;
 	private JTextField usuario;
-	private JTextField textField_2;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_2;
 	private JLabel lblUser;
@@ -56,13 +44,15 @@ public class PantallaLogin extends JFrame {
 	public String nombreUsuLog;
 
 	/**
-	 * Create the frame.
+	 * El constructor de la clase Login
+	 * 
 	 */
 
 	public PantallaLogin() {
 		setFont(null);
 		setTitle("DELIVERY BUFA");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(PantallaLogin.class.getResource("/vista/Imagenes/logofinal.png")));
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(PantallaLogin.class.getResource("/vista/Imagenes/logofinal.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
 		contentPane = new JPanel();
@@ -128,7 +118,7 @@ public class PantallaLogin extends JFrame {
 
 						sql = "select idEmpleado from empleado where idEmpleado = '" + id + "'";
 						rs = s.executeQuery(sql);
-						
+
 						if (rs.next()) {
 
 							vistaEmpleado vE = new vistaEmpleado(user);
@@ -137,7 +127,7 @@ public class PantallaLogin extends JFrame {
 
 						} else {
 
-							// En el caso d eno ser empleado se guardan los datos que seran usados luego
+							// En el caso de no ser empleado se guardan los datos que seran usados luego
 							// para hacer los pedidos
 
 							sql = "select Localidad from persona where ID = '" + id + "'";
@@ -164,11 +154,11 @@ public class PantallaLogin extends JFrame {
 
 						}
 
-					}else {
-						
-						JOptionPane.showMessageDialog(null, "La contraseña/usuario no son correctos o no coinciden", "INFORMATION_MESSAGE",
-								JOptionPane.INFORMATION_MESSAGE);
-						
+					} else {
+
+						JOptionPane.showMessageDialog(null, "La contraseña/usuario no son correctos o no coinciden",
+								"INFORMATION_MESSAGE", JOptionPane.INFORMATION_MESSAGE);
+
 					}
 
 				} catch (SQLException e) {
@@ -179,7 +169,7 @@ public class PantallaLogin extends JFrame {
 		});
 		btnLogin.setBounds(317, 405, 89, 23);
 		contentPane.add(btnLogin);
-		
+
 		/**
 		 * 
 		 * Este es el boton que te lleva a la pantalla de registro
@@ -205,7 +195,7 @@ public class PantallaLogin extends JFrame {
 		contentPane.add(password);
 		password.setColumns(10);
 		password.setEchoChar('*');
-		
+
 		/**
 		 * 
 		 * Este boton permite ver la contraseña
@@ -227,7 +217,7 @@ public class PantallaLogin extends JFrame {
 		btnNewButton.setIcon(new ImageIcon(PantallaLogin.class.getResource("/vista/Imagenes/verpass1.png")));
 		btnNewButton.setBounds(542, 303, 34, 34);
 		contentPane.add(btnNewButton);
-		
+
 		/**
 		 * 
 		 * Este boton permite lo contrario al anterior, sirve para ocultarla
