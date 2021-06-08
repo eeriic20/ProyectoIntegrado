@@ -5,9 +5,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -42,9 +40,8 @@ public class MenuTelepizza extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MenuTelepizza(int id, String localidad, String direccionD, String empresaE) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
+	public MenuTelepizza(String nombreuser, int id, String localidad, String direccionD, String empresaE) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuTelepizza.class.getResource("/vista/Imagenes/logofinal.png")));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -135,7 +132,7 @@ public class MenuTelepizza extends JFrame {
 
 				precio = Integer.parseInt(precio_bbq.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Barbacoa";
+				nombre = seleccion + " Barbacoa";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -174,7 +171,7 @@ public class MenuTelepizza extends JFrame {
 
 				precio = Integer.parseInt(precio_carbonara.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Carbonara";
+				nombre = seleccion + " Carbonara";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -213,7 +210,7 @@ public class MenuTelepizza extends JFrame {
 
 				precio = Integer.parseInt(precio_hawaiana.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Hawaiana";
+				nombre = seleccion + " Hawaiana";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -252,7 +249,7 @@ public class MenuTelepizza extends JFrame {
 
 				precio = Integer.parseInt(precio_cebolla.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Cebolla";
+				nombre = seleccion + " Cebolla";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -291,7 +288,7 @@ public class MenuTelepizza extends JFrame {
 
 				precio = Integer.parseInt(precio_peperoni.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Peperoni";
+				nombre = seleccion + " Peperoni";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -330,7 +327,7 @@ public class MenuTelepizza extends JFrame {
 
 				precio = Integer.parseInt(precio_baconcrispy.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Bacon Crispy";
+				nombre = seleccion + " Bacon Crispy";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -339,7 +336,7 @@ public class MenuTelepizza extends JFrame {
 
 		});
 		baconCrispy
-				.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/baconcrispy.jpg")));
+		.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/baconcrispy.jpg")));
 		baconCrispy.setForeground(Color.WHITE);
 		baconCrispy.setBackground(Color.WHITE);
 		baconCrispy.setBounds(569, 244, 150, 150);
@@ -347,7 +344,7 @@ public class MenuTelepizza extends JFrame {
 
 		JButton vulcanoNachos = new JButton("New button");
 		vulcanoNachos
-				.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/vulcanonachos.jpg")));
+		.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/vulcanonachos.jpg")));
 		vulcanoNachos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int nMenus = 0;
@@ -372,7 +369,7 @@ public class MenuTelepizza extends JFrame {
 
 				precio = Integer.parseInt(precio_vulcanonachos.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Vulcanos Nachos";
+				nombre = seleccion + " Vulcanos Nachos";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -410,7 +407,7 @@ public class MenuTelepizza extends JFrame {
 
 				precio = Integer.parseInt(precio_tandemgourmet.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Tandem Gourmet";
+				nombre = seleccion + " Tandem Gourmet";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -419,7 +416,7 @@ public class MenuTelepizza extends JFrame {
 			}
 		});
 		tandemGourmet
-				.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/tandemgourmet.jpg")));
+		.setIcon(new ImageIcon(MenuTelepizza.class.getResource("/vista/Imagenes/telepizza/tandemgourmet.jpg")));
 		tandemGourmet.setForeground(Color.WHITE);
 		tandemGourmet.setBackground(Color.WHITE);
 		tandemGourmet.setBounds(336, 418, 150, 150);
@@ -450,7 +447,7 @@ public class MenuTelepizza extends JFrame {
 
 				precio = Integer.parseInt(precio_supreme.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Supreme";
+				nombre = seleccion + " Supreme";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -552,7 +549,7 @@ public class MenuTelepizza extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				PantallaRestaurantes pR = new PantallaRestaurantes(id, localidad, direccionD);
+				PantallaRestaurantes pR = new PantallaRestaurantes(nombreuser, id, localidad, direccionD);
 				dispose();
 				pR.setVisible(true);
 

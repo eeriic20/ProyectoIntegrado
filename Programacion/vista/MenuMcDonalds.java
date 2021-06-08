@@ -6,16 +6,13 @@ import javax.swing.border.EmptyBorder;
 import conexion.Conexion;
 import controlador.Numero;
 import controlador.Pedido;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -42,9 +39,8 @@ public class MenuMcDonalds extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MenuMcDonalds(int id, String localidad, String direccionD, String empresaE) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
+	public MenuMcDonalds(String nombreuser, int id, String localidad, String direccionD, String empresaE) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuMcDonalds.class.getResource("/vista/Imagenes/logofinal.png")));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -129,7 +125,7 @@ public class MenuMcDonalds extends JFrame {
 
 				precio = Integer.parseInt(precio_bigmc.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Big Mac";
+				nombre = seleccion + " Big Mac";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -168,7 +164,7 @@ public class MenuMcDonalds extends JFrame {
 
 				precio = Integer.parseInt(precio_cuarto.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Menu Cuarto de Libra";
+				nombre = seleccion + " Menu Cuarto de Libra";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -207,7 +203,7 @@ public class MenuMcDonalds extends JFrame {
 
 				precio = Integer.parseInt(precio_mcpollo.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Menu Mc Pollo";
+				nombre = seleccion + " Menu Mc Pollo";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -248,7 +244,7 @@ public class MenuMcDonalds extends JFrame {
 
 				precio = Integer.parseInt(precio_stylechicken.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Menú American Style Chicken";
+				nombre = seleccion + " Menú American Style Chicken";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -288,7 +284,7 @@ public class MenuMcDonalds extends JFrame {
 
 				precio = Integer.parseInt(precio_happymeal.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Happy Meal";
+				nombre = seleccion + " Happy Meal";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -327,7 +323,7 @@ public class MenuMcDonalds extends JFrame {
 
 				precio = Integer.parseInt(precio_mcextreme.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Grand McExtreme";
+				nombre = seleccion + " Grand McExtreme";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -368,7 +364,7 @@ public class MenuMcDonalds extends JFrame {
 
 				precio = Integer.parseInt(precio_mcfish.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Menú McFish";
+				nombre = seleccion + " Menú McFish";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -406,7 +402,7 @@ public class MenuMcDonalds extends JFrame {
 
 				precio = Integer.parseInt(precio_doblequeso.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Hamburguesa con Doble de Queso";
+				nombre = seleccion + " Hamburguesa con Doble de Queso";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -446,7 +442,7 @@ public class MenuMcDonalds extends JFrame {
 
 				precio = Integer.parseInt(precio_mcwrap.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" McWrap";
+				nombre = seleccion + " McWrap";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -553,7 +549,7 @@ public class MenuMcDonalds extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				PantallaRestaurantes pR = new PantallaRestaurantes(id, localidad, direccionD);
+				PantallaRestaurantes pR = new PantallaRestaurantes(nombreuser, id, localidad, direccionD);
 				dispose();
 				pR.setVisible(true);
 

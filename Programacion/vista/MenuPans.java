@@ -5,9 +5,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -41,9 +39,8 @@ public class MenuPans extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MenuPans(int id, String localidad, String direccionD, String empresaE) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
+	public MenuPans(String nombreuser, int id, String localidad, String direccionD, String empresaE) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPans.class.getResource("/vista/Imagenes/logofinal.png")));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -133,7 +130,7 @@ public class MenuPans extends JFrame {
 
 				precio = Integer.parseInt(precio_pechugapollo.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Pechuga de Pollo";
+				nombre = seleccion + " Pechuga de Pollo";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -172,7 +169,7 @@ public class MenuPans extends JFrame {
 
 				precio = Integer.parseInt(precio_breton.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Breton";
+				nombre = seleccion + " Breton";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -211,7 +208,7 @@ public class MenuPans extends JFrame {
 
 				precio = Integer.parseInt(precio_iberico.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Ibérico";
+				nombre = seleccion + " Ibérico";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -250,7 +247,7 @@ public class MenuPans extends JFrame {
 
 				precio = Integer.parseInt(precio_britishbacon.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" British Bacon";
+				nombre = seleccion + " British Bacon";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -289,7 +286,7 @@ public class MenuPans extends JFrame {
 
 				precio = Integer.parseInt(precio_serranobrie.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Serrano Brie";
+				nombre = seleccion + " Serrano Brie";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -328,7 +325,7 @@ public class MenuPans extends JFrame {
 
 				precio = Integer.parseInt(precio_pollosupreme.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Pollo Supreme";
+				nombre = seleccion + " Pollo Supreme";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -369,7 +366,7 @@ public class MenuPans extends JFrame {
 
 				precio = Integer.parseInt(precio_crujientepollobacon.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Crujiente de Pollo y Bacon";
+				nombre = seleccion + " Crujiente de Pollo y Bacon";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -407,7 +404,7 @@ public class MenuPans extends JFrame {
 
 				precio = Integer.parseInt(precio_pulledporkbbq.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Pulled Pork BBQ";
+				nombre = seleccion + " Pulled Pork BBQ";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -549,7 +546,7 @@ public class MenuPans extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				PantallaRestaurantes pR = new PantallaRestaurantes(id, localidad, direccionD);
+				PantallaRestaurantes pR = new PantallaRestaurantes(nombreuser, id, localidad, direccionD);
 				dispose();
 				pR.setVisible(true);
 

@@ -38,9 +38,8 @@ public class MenuBurgerKing extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MenuBurgerKing(int id, String localidad, String direccionD, String empresaE) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
+	public MenuBurgerKing(String nombreuser, int id, String localidad, String direccionD, String empresaE) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuBurgerKing.class.getResource("/vista/Imagenes/logofinal.png")));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -125,7 +124,7 @@ public class MenuBurgerKing extends JFrame {
 
 				precio = Integer.parseInt(precioBigK.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" BigKing";
+				nombre = seleccion + " BigKing";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -202,7 +201,7 @@ public class MenuBurgerKing extends JFrame {
 
 				precio = Integer.parseInt(precioWhop.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Whopper";
+				nombre = seleccion + " Whopper";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -241,7 +240,7 @@ public class MenuBurgerKing extends JFrame {
 
 				precio = Integer.parseInt(precioSteak.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Steakhouse";
+				nombre = seleccion + " Steakhouse";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -280,7 +279,7 @@ public class MenuBurgerKing extends JFrame {
 
 				precio = Integer.parseInt(precioHuevo.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" King huevo";
+				nombre = seleccion + " King huevo";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -319,7 +318,7 @@ public class MenuBurgerKing extends JFrame {
 
 				precio = Integer.parseInt(precioJR.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" King jr";
+				nombre = seleccion + " King jr";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -360,7 +359,7 @@ public class MenuBurgerKing extends JFrame {
 
 				precio = Integer.parseInt(precioBacon.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" King bacon";
+				nombre = seleccion + " King bacon";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -398,7 +397,7 @@ public class MenuBurgerKing extends JFrame {
 
 				precio = Integer.parseInt(precioKrispy.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" crispy chicken";
+				nombre = seleccion + " crispy chicken";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -438,7 +437,7 @@ public class MenuBurgerKing extends JFrame {
 
 				precio = Integer.parseInt(precioLong.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" long chicken";
+				nombre = seleccion + " long chicken";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -547,7 +546,7 @@ public class MenuBurgerKing extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				PantallaRestaurantes pR = new PantallaRestaurantes(id, localidad, direccionD);
+				PantallaRestaurantes pR = new PantallaRestaurantes(nombreuser, id, localidad, direccionD);
 				dispose();
 				pR.setVisible(true);
 

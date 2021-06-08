@@ -5,9 +5,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -41,9 +39,8 @@ public class MenuFosters extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MenuFosters(int id, String localidad, String direccionD, String empresaE) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
+	public MenuFosters(String nombreuser, int id, String localidad, String direccionD, String empresaE) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuFosters.class.getResource("/vista/Imagenes/logofinal.png")));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -128,7 +125,7 @@ public class MenuFosters extends JFrame {
 
 				precio = Integer.parseInt(precio_hollywood.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Hollywood Combo";
+				nombre = seleccion + " Hollywood Combo";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -167,7 +164,7 @@ public class MenuFosters extends JFrame {
 
 				precio = Integer.parseInt(precio_newyorker.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" The NewYorker";
+				nombre = seleccion + " The NewYorker";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -207,7 +204,7 @@ public class MenuFosters extends JFrame {
 
 				precio = Integer.parseInt(precio_nationalstar.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" National Star";
+				nombre = seleccion + " National Star";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -247,7 +244,7 @@ public class MenuFosters extends JFrame {
 
 				precio = Integer.parseInt(precio_tribeca.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Tribeca";
+				nombre = seleccion + " Tribeca";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -286,7 +283,7 @@ public class MenuFosters extends JFrame {
 
 				precio = Integer.parseInt(precio_guacamole.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Guacamole";
+				nombre = seleccion + " Guacamole";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -367,7 +364,7 @@ public class MenuFosters extends JFrame {
 
 				precio = Integer.parseInt(precio_costillas.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Costillas";
+				nombre = seleccion + " Costillas";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -405,7 +402,7 @@ public class MenuFosters extends JFrame {
 
 				precio = Integer.parseInt(precio_raclette.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Raclette Burger";
+				nombre = seleccion + " Raclette Burger";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -445,7 +442,7 @@ public class MenuFosters extends JFrame {
 
 				precio = Integer.parseInt(precio_cheese.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Cheese Burger";
+				nombre = seleccion + " Cheese Burger";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -554,7 +551,7 @@ public class MenuFosters extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				PantallaRestaurantes pR = new PantallaRestaurantes(id, localidad, direccionD);
+				PantallaRestaurantes pR = new PantallaRestaurantes(nombreuser, id, localidad, direccionD);
 				dispose();
 				pR.setVisible(true);
 

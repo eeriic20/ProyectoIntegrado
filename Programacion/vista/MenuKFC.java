@@ -5,9 +5,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -41,9 +39,8 @@ public class MenuKFC extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MenuKFC(int id, String localidad, String direccionD, String empresaE) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
+	public MenuKFC(String nombreuser, int id, String localidad, String direccionD, String empresaE) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuKFC.class.getResource("/vista/Imagenes/logofinal.png")));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -128,7 +125,7 @@ public class MenuKFC extends JFrame {
 
 				precio = Integer.parseInt(precio_BBQ.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Doble BBQ Bacon Cheese Burger";
+				nombre = seleccion + " Doble BBQ Bacon Cheese Burger";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -167,7 +164,7 @@ public class MenuKFC extends JFrame {
 
 				precio = Integer.parseInt(precio_Original.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Original Doble Cheese Burger";
+				nombre = seleccion + " Original Doble Cheese Burger";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -206,7 +203,7 @@ public class MenuKFC extends JFrame {
 
 				precio = Integer.parseInt(precio_bacon.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" BBQ Bacon Cheese Burger";
+				nombre = seleccion + " BBQ Bacon Cheese Burger";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -245,7 +242,7 @@ public class MenuKFC extends JFrame {
 
 				precio = Integer.parseInt(precio_sobrada.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Sobrada";
+				nombre = seleccion + " Sobrada";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -284,7 +281,7 @@ public class MenuKFC extends JFrame {
 
 				precio = Integer.parseInt(precio_mazorca.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Mazorca";
+				nombre = seleccion + " Mazorca";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -323,7 +320,7 @@ public class MenuKFC extends JFrame {
 
 				precio = Integer.parseInt(precio_twister.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Twisterr";
+				nombre = seleccion + " Twisterr";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -363,7 +360,7 @@ public class MenuKFC extends JFrame {
 
 				precio = Integer.parseInt(precio_Oburger.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Original Burger";
+				nombre = seleccion + " Original Burger";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -401,7 +398,7 @@ public class MenuKFC extends JFrame {
 
 				precio = Integer.parseInt(precio_Mix.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Bucket Mix";
+				nombre = seleccion + " Bucket Mix";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -440,7 +437,7 @@ public class MenuKFC extends JFrame {
 
 				precio = Integer.parseInt(precio_alitas.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Alitas picantes";
+				nombre = seleccion + " Alitas picantes";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -548,7 +545,7 @@ public class MenuKFC extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				PantallaRestaurantes pR = new PantallaRestaurantes(id, localidad, direccionD);
+				PantallaRestaurantes pR = new PantallaRestaurantes(nombreuser, id, localidad, direccionD);
 				dispose();
 				pR.setVisible(true);
 

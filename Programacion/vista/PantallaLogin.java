@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import conexion.Conexion;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import java.awt.Color;
@@ -61,8 +62,7 @@ public class PantallaLogin extends JFrame {
 	public PantallaLogin() {
 		setFont(null);
 		setTitle("DELIVERY BUFA");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(PantallaLogin.class.getResource("/vista/Imagenes/logofinal.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
 		contentPane = new JPanel();
@@ -72,8 +72,7 @@ public class PantallaLogin extends JFrame {
 		this.setResizable(false);
 
 		lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logo.PNG"));
+		lblNewLabel_2.setIcon(new ImageIcon(PantallaLogin.class.getResource("/vista/Imagenes/logo.PNG")));
 		lblNewLabel_2.setBounds(331, -12, 186, 115);
 		contentPane.add(lblNewLabel_2);
 
@@ -129,7 +128,7 @@ public class PantallaLogin extends JFrame {
 
 						sql = "select idEmpleado from empleado where idEmpleado = '" + id + "'";
 						rs = s.executeQuery(sql);
-
+						
 						if (rs.next()) {
 
 							vistaEmpleado vE = new vistaEmpleado(user);
@@ -155,7 +154,7 @@ public class PantallaLogin extends JFrame {
 
 									String direccion = rs.getString("Direccion");
 
-									PantallaRestaurantes pU = new PantallaRestaurantes(id, localidad, direccion);
+									PantallaRestaurantes pU = new PantallaRestaurantes(user, id, localidad, direccion);
 									dispose();
 									pU.setVisible(true);
 
@@ -165,6 +164,11 @@ public class PantallaLogin extends JFrame {
 
 						}
 
+					}else {
+						
+						JOptionPane.showMessageDialog(null, "La contraseña/usuario no son correctos o no coinciden", "INFORMATION_MESSAGE",
+								JOptionPane.INFORMATION_MESSAGE);
+						
 					}
 
 				} catch (SQLException e) {
@@ -220,8 +224,7 @@ public class PantallaLogin extends JFrame {
 			}
 		});
 
-		btnNewButton.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\verpass1.png"));
+		btnNewButton.setIcon(new ImageIcon(PantallaLogin.class.getResource("/vista/Imagenes/verpass1.png")));
 		btnNewButton.setBounds(542, 303, 34, 34);
 		contentPane.add(btnNewButton);
 		
@@ -242,21 +245,18 @@ public class PantallaLogin extends JFrame {
 
 			}
 		});
-		btnNewButton_1.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\noverPass1.png"));
+		btnNewButton_1.setIcon(new ImageIcon(PantallaLogin.class.getResource("/vista/Imagenes/noverPass1.png")));
 		btnNewButton_1.setBounds(542, 303, 34, 34);
 		contentPane.add(btnNewButton_1);
 
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fondo4.jpg"));
+		lblNewLabel_1.setIcon(new ImageIcon(PantallaLogin.class.getResource("/vista/Imagenes/fondo4.jpg")));
 		lblNewLabel_1.setBounds(250, 93, 363, 393);
 		contentPane.add(lblNewLabel_1);
 
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\FondoLogearse.jpg"));
+		lblNewLabel.setIcon(new ImageIcon(PantallaLogin.class.getResource("/vista/Imagenes/FondoLogearse.jpg")));
 		lblNewLabel.setBounds(-133, -81, 1136, 754);
 		contentPane.add(lblNewLabel);
 

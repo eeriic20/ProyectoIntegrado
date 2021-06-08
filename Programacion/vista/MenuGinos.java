@@ -5,9 +5,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -41,9 +39,8 @@ public class MenuGinos extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MenuGinos(int id, String localidad, String direccionD, String empresaE) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
+	public MenuGinos(String nombreuser, int id, String localidad, String direccionD, String empresaE) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuGinos.class.getResource("/vista/Imagenes/logofinal.png")));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -173,7 +170,7 @@ public class MenuGinos extends JFrame {
 
 				precio = Integer.parseInt(precio_prosciutto.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Pizza prosciutto";
+				nombre = seleccion + " Pizza prosciutto";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -212,7 +209,7 @@ public class MenuGinos extends JFrame {
 
 				precio = Integer.parseInt(precio_pollo.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Pollo BBQ";
+				nombre = seleccion + " Pollo BBQ";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -253,7 +250,7 @@ public class MenuGinos extends JFrame {
 
 				precio = Integer.parseInt(precio_Margherita.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Margherita";
+				nombre = seleccion + " Margherita";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -292,7 +289,7 @@ public class MenuGinos extends JFrame {
 
 				precio = Integer.parseInt(precio_piemontese.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Piemontese";
+				nombre = seleccion + " Piemontese";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -332,7 +329,7 @@ public class MenuGinos extends JFrame {
 
 				precio = Integer.parseInt(precio_peperoni.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Peperoni";
+				nombre = seleccion + " Peperoni";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -371,7 +368,7 @@ public class MenuGinos extends JFrame {
 
 				precio = Integer.parseInt(precio_tagliatelle.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Tagliatelle";
+				nombre = seleccion + " Tagliatelle";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -412,7 +409,7 @@ public class MenuGinos extends JFrame {
 
 				precio = Integer.parseInt(precio_spaghetti.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Spaghetti";
+				nombre = seleccion + " Spaghetti";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -450,7 +447,7 @@ public class MenuGinos extends JFrame {
 
 				precio = Integer.parseInt(precio_penne.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Penne";
+				nombre = seleccion + " Penne";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -490,7 +487,7 @@ public class MenuGinos extends JFrame {
 
 				precio = Integer.parseInt(precio_cacio.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Cacio e Pepe";
+				nombre = seleccion + " Cacio e Pepe";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -553,7 +550,7 @@ public class MenuGinos extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				PantallaRestaurantes pR = new PantallaRestaurantes(id, localidad, direccionD);
+				PantallaRestaurantes pR = new PantallaRestaurantes(nombreuser, id, localidad, direccionD);
 				dispose();
 				pR.setVisible(true);
 

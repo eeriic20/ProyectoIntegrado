@@ -9,15 +9,10 @@ package vista;
  *
  */
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import modelo.Cliente;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
@@ -29,7 +24,6 @@ import java.awt.Color;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JOptionPane;
 import java.awt.Toolkit;
 
 public class PantallaRegistrar extends JFrame {
@@ -53,8 +47,8 @@ public class PantallaRegistrar extends JFrame {
 	 */
 	public PantallaRegistrar() {
 		setTitle("DELIVERY BUFA");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage(PantallaRegistrar.class.getResource("/vista/Imagenes/logofinal.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
 		contentPane = new JPanel();
@@ -122,9 +116,9 @@ public class PantallaRegistrar extends JFrame {
 					} else {
 
 						if (pass1.equals("")) {
-							
-							JOptionPane.showMessageDialog(null, "El campo contraseña no puede estar vacio", "INFORMATION_MESSAGE",
-									JOptionPane.INFORMATION_MESSAGE);
+
+							JOptionPane.showMessageDialog(null, "El campo contraseña no puede estar vacio",
+									"INFORMATION_MESSAGE", JOptionPane.INFORMATION_MESSAGE);
 
 						} else {
 							if (pass1.equals(pass2)) {
@@ -132,6 +126,11 @@ public class PantallaRegistrar extends JFrame {
 								Registrarse2 frame = new Registrarse2(pass2, correo, usuario);
 								dispose();
 								frame.setVisible(true);
+							} else {
+
+								JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden",
+										"INFORMATION_MESSAGE", JOptionPane.INFORMATION_MESSAGE);
+
 							}
 
 						}
@@ -168,8 +167,7 @@ public class PantallaRegistrar extends JFrame {
 		passwordField_Rep.setEchoChar('*');
 
 		btn_ver = new JButton("");
-		btn_ver.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\verpass1.png"));
+		btn_ver.setIcon(new ImageIcon(PantallaRegistrar.class.getResource("/vista/Imagenes/verpass1.png")));
 		btn_ver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -196,8 +194,7 @@ public class PantallaRegistrar extends JFrame {
 			}
 		});
 
-		btn_nover.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\noverPass1.png"));
+		btn_nover.setIcon(new ImageIcon(PantallaRegistrar.class.getResource("/vista/Imagenes/noverPass1.png")));
 		btn_nover.setBounds(570, 268, 31, 20);
 		contentPane.add(btn_nover);
 
@@ -212,8 +209,7 @@ public class PantallaRegistrar extends JFrame {
 
 			}
 		});
-		btn_ver2.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\verpass1.png"));
+		btn_ver2.setIcon(new ImageIcon(PantallaRegistrar.class.getResource("/vista/Imagenes/verpass1.png")));
 		btn_ver2.setBounds(570, 320, 31, 20);
 		contentPane.add(btn_ver2);
 
@@ -228,27 +224,23 @@ public class PantallaRegistrar extends JFrame {
 
 			}
 		});
-		btn_nover2.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\noverPass1.png"));
+		btn_nover2.setIcon(new ImageIcon(PantallaRegistrar.class.getResource("/vista/Imagenes/noverPass1.png")));
 		btn_nover2.setBounds(570, 320, 31, 20);
 		contentPane.add(btn_nover2);
 
 		JLabel Logo = new JLabel("");
-		Logo.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logo.PNG"));
+		Logo.setIcon(new ImageIcon(PantallaRegistrar.class.getResource("/vista/Imagenes/logo.PNG")));
 		Logo.setBounds(349, -14, 186, 107);
 		contentPane.add(Logo);
 
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\fondo4.jpg"));
+		lblNewLabel.setIcon(new ImageIcon(PantallaRegistrar.class.getResource("/vista/Imagenes/fondo4.jpg")));
 		lblNewLabel.setBounds(257, 87, 363, 393);
 		contentPane.add(lblNewLabel);
 
 		JLabel Fondo = new JLabel("");
 		Fondo.setHorizontalAlignment(SwingConstants.CENTER);
-		Fondo.setIcon(new ImageIcon(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\FondoLogearse.jpg"));
+		Fondo.setIcon(new ImageIcon(PantallaRegistrar.class.getResource("/vista/Imagenes/FondoLogearse.jpg")));
 		Fondo.setBounds(-54, 0, 1136, 754);
 		contentPane.add(Fondo);
 

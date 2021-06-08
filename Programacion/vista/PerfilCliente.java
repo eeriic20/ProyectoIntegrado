@@ -1,61 +1,126 @@
 package vista;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.text.html.ImageView;
-
-import Conexion.Conexion;
-
+import javax.swing.table.DefaultTableModel;
+import conexion.Conexion;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
 import java.net.MalformedURLException;
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import javax.swing.JFileChooser;
 import javax.swing.ImageIcon;
-import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import java.awt.Image;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.Icon;
 import javax.swing.JButton;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Image;
-
-import javax.swing.JSplitPane;
-import javax.swing.JFileChooser;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
-import java.awt.Color;
+import javax.swing.SwingConstants;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class PerfilCliente extends JFrame {
 
 	private JPanel contentPane;
+	private JTable table;
+	private DefaultTableModel modelo;
+	private String localidad;
+	private String direccionC;
 
 	/**
-	 * Create the frame.
+	 * Se crea el frame
+	 * 
+	 * En el contructor entran todos los datos del cliente para usuarlos en las
+	 * consultas proximas
+	 * 
 	 */
-	public PerfilCliente(int id_cliente, String nom, String cognoms, String usuari, String correu, String direccio, String data, String contrasenya, ImageIcon image) {
+	public PerfilCliente(int id_cliente, String nom, String cognoms, String usuari, String correu, String direccio,
+			String data, String contrasenya, ImageIcon image) {
+
+		/**
+		 * 
+		 * Este evento se activa al abrirse la ventana, es para que en el historial se
+		 * pongan los datos del pedido al momento de iniciar
+		 * 
+		 */
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowOpened(WindowEvent arg0) {
+
+				Conexion c = new Conexion();
+				Connection miConexion = c.getConexion();
+
+				table.setEnabled(false);
+
+				Statement st;
+				try {
+					st = miConexion.createStatement();
+					ResultSet rsUsuarios = st
+							.executeQuery("Select * from pedido where IdCliente = '" + id_cliente + "'");
+
+					Object[] fila = new Object[7];
+
+					while (rsUsuarios.next()) {
+
+						fila[0] = rsUsuarios.getString("Menu");
+						fila[1] = rsUsuarios.getString("FechaPedido");
+						fila[2] = rsUsuarios.getInt("PrecioPedido");
+						fila[3] = rsUsuarios.getString("Empresa");
+						fila[4] = rsUsuarios.getString("direccion");
+						fila[5] = rsUsuarios.getInt("CodigoLocalidad");
+
+						int codigo = (int) fila[5];
+
+						Statement s = c.getConexion().createStatement();
+						String sql = "select Nombre from localidad where Codigo = '" + codigo + "'";
+						ResultSet rs = s.executeQuery(sql);
+
+						if (rs.next()) {
+
+							localidad = rs.getString("Nombre");
+
+							Object ob = localidad;
+
+							fila[6] = ob;
+
+							modelo.addRow(fila);
+
+							sql = "select Direccion from persona where ID = '" + id_cliente + "'";
+							rs = s.executeQuery(sql);
+
+							if (rs.next()) {
+
+								direccionC = rs.getString("Direccion");
+
+							}
+
+						}
+
+					}
+
+					rsUsuarios.close();
+				} catch (SQLException e1) {
+
+					e1.printStackTrace();
+				}
+
+			}
+		});
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(PerfilCliente.class.getResource("/vista/Imagenes/logofinal.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
 		contentPane = new JPanel();
@@ -125,12 +190,8 @@ public class PerfilCliente extends JFrame {
 
 		JLabel lblNewLabel = new JLabel("HISTORIAL:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel.setBounds(370, 261, 137, 42);
+		lblNewLabel.setBounds(374, 243, 137, 42);
 		contentPane.add(lblNewLabel);
-
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setBounds(28, 318, 813, 272);
-		contentPane.add(btnNewButton_1);
 
 		JLabel lblNewLabel_1_6_1 = new JLabel("Fecha de Nacimiento:");
 		lblNewLabel_1_6_1.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -142,10 +203,38 @@ public class PerfilCliente extends JFrame {
 		fecha.setBounds(260, 212, 97, 20);
 		contentPane.add(fecha);
 
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 297, 849, 283);
+		contentPane.add(scrollPane);
+
+		modelo = new DefaultTableModel();
+		table = new JTable(modelo);
+
+		modelo.addColumn("Menu");
+		modelo.addColumn("FechaPedido");
+		modelo.addColumn("PrecioPedido");
+		modelo.addColumn("Empresa");
+		modelo.addColumn("direccion");
+		modelo.addColumn("Localidad");
+
+		scrollPane.setViewportView(table);
+
 		JLabel labelFoto = new JLabel("");
+		labelFoto.setHorizontalAlignment(SwingConstants.CENTER);
+		labelFoto.setFont(new Font("Tahoma", Font.BOLD, 99));
 		labelFoto.setBounds(28, 22, 176, 160);
-		labelFoto.setIcon(new ImageIcon(image.getImage().getScaledInstance(labelFoto.getWidth(), labelFoto.getHeight(), Image.SCALE_SMOOTH)));
-		
+		if (image == null) {
+
+			labelFoto.setText("X");
+			labelFoto.setHorizontalAlignment(SwingConstants.CENTER);
+			labelFoto.setFont(new Font("Tahoma", Font.BOLD, 99));
+			labelFoto.setBounds(28, 22, 176, 160);
+
+		} else {
+			labelFoto.setIcon(new ImageIcon(image.getImage().getScaledInstance(labelFoto.getWidth(),
+					labelFoto.getHeight(), Image.SCALE_SMOOTH)));
+
+		}
 		contentPane.add(labelFoto);
 
 		JButton cambiarImagen = new JButton("Cambiar imagen");
@@ -165,28 +254,28 @@ public class PerfilCliente extends JFrame {
 					ImageIcon i = null;
 					try {
 						i = new ImageIcon(f.toURI().toURL());
-						
+
 					} catch (MalformedURLException ex) {
 						JOptionPane.showMessageDialog(null, "Error en el formato o al encontrar la imagen.");
 					}
-					labelFoto.setIcon(new ImageIcon(i.getImage().getScaledInstance(labelFoto.getWidth(), labelFoto.getHeight(), Image.SCALE_SMOOTH)));
+					labelFoto.setIcon(new ImageIcon(i.getImage().getScaledInstance(labelFoto.getWidth(),
+							labelFoto.getHeight(), Image.SCALE_SMOOTH)));
 					cambiarImagen.setEnabled(true);
-					
+
 					try {
-						
+
 						Conexion c = new Conexion();
 						Connection miConexion = c.getConexion();
-						String sql = "UPDATE persona SET imagen = ? WHERE ID ="+id_cliente;
+						String sql = "UPDATE persona SET imagen = ? WHERE ID =" + id_cliente;
 						FileInputStream is = new FileInputStream(f.getAbsolutePath());
 						PreparedStatement st = miConexion.prepareStatement(sql);
-						
+
 						st.setBlob(1, is);
-						
+
 						st.executeUpdate();
 						is.close();
 						st.close();
-						
-						
+
 					} catch (SQLException e1) {
 
 						e1.printStackTrace();
@@ -198,7 +287,7 @@ public class PerfilCliente extends JFrame {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					
+
 				}
 
 			}
@@ -209,31 +298,61 @@ public class PerfilCliente extends JFrame {
 		JButton cambiarContraseña = new JButton("Cambiar Contrase\u00F1a");
 		cambiarContraseña.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			
+
 				String seleccion = JOptionPane.showInputDialog(null, "Nueva Contraseña:");
-				
+
+				if (seleccion == null) {
+
+					seleccion = contrasenya;
+				}
+
 				try {
-					
+
 					Conexion c = new Conexion();
 					Connection miConexion = c.getConexion();
-					String sql = "UPDATE persona SET Contraseña = ? WHERE ID ="+id_cliente;
+					String sql = "UPDATE persona SET Contraseña = ? WHERE ID =" + id_cliente;
 					PreparedStatement st = miConexion.prepareStatement(sql);
-					
+
 					st.setString(1, seleccion);
-					
+
 					st.executeUpdate();
 					st.close();
-					
-					
+
 				} catch (SQLException e1) {
 
 					e1.printStackTrace();
 
 				}
-			
+
 			}
 		});
 		cambiarContraseña.setBounds(642, 182, 167, 23);
 		contentPane.add(cambiarContraseña);
+
+		JButton btnCerrarSesion = new JButton("Cerrar sesion");
+		btnCerrarSesion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				PantallaLogin pL = new PantallaLogin();
+				dispose();
+				pL.setVisible(true);
+
+			}
+		});
+		btnCerrarSesion.setBounds(48, 228, 137, 23);
+		contentPane.add(btnCerrarSesion);
+
+		JButton btnVolverARestaurantes = new JButton("Volver a restaurantes");
+		btnVolverARestaurantes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				PantallaRestaurantes pR = new PantallaRestaurantes(usuari, id_cliente, localidad, direccionC);
+				dispose();
+				pR.setVisible(true);
+
+			}
+		});
+		btnVolverARestaurantes.setBounds(28, 262, 176, 23);
+		contentPane.add(btnVolverARestaurantes);
 	}
 }

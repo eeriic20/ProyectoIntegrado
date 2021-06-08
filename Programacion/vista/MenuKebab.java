@@ -5,9 +5,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -41,9 +39,8 @@ public class MenuKebab extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MenuKebab(int id, String localidad, String direccionD, String empresaE) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(
-				"C:\\Users\\DAM\\Desktop\\Eclipse\\ProyectoInt\\Delivery\\src\\vista\\Imagenes\\logofinal.png"));
+	public MenuKebab(String nombreuser, int id, String localidad, String direccionD, String empresaE) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuKebab.class.getResource("/vista/Imagenes/logofinal.png")));
 		setTitle("DELIVERY BUFA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 885, 630);
@@ -128,7 +125,7 @@ public class MenuKebab extends JFrame {
 
 				precio = Integer.parseInt(precio_kbTernera.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Kebab mixto";
+				nombre = seleccion + " Kebab mixto";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -167,7 +164,7 @@ public class MenuKebab extends JFrame {
 
 				precio = Integer.parseInt(precio_kbTernera.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Kebab ternera";
+				nombre = seleccion + " Kebab ternera";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -206,7 +203,7 @@ public class MenuKebab extends JFrame {
 
 				precio = Integer.parseInt(precio_kbPollo.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Kebab pollo";
+				nombre = seleccion + " Kebab pollo";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -245,7 +242,7 @@ public class MenuKebab extends JFrame {
 
 				precio = Integer.parseInt(precio_kbPitaMx.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Kebab mixto pan de pita";
+				nombre = seleccion + " Kebab mixto pan de pita";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -284,7 +281,7 @@ public class MenuKebab extends JFrame {
 
 				precio = Integer.parseInt(precio_kbPitaTer.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Kebab ternera pan de pita";
+				nombre = seleccion + " Kebab ternera pan de pita";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -323,7 +320,7 @@ public class MenuKebab extends JFrame {
 
 				precio = Integer.parseInt(precio_kbPitaPoll.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Kebab pollo pan de pita";
+				nombre = seleccion + " Kebab pollo pan de pita";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -363,7 +360,7 @@ public class MenuKebab extends JFrame {
 
 				precio = Integer.parseInt(precio_PKeb.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Pizza kebab";
+				nombre = seleccion + " Pizza kebab";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -400,7 +397,7 @@ public class MenuKebab extends JFrame {
 
 				precio = Integer.parseInt(precio_PizzaJQ.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Pizza jamon y queso";
+				nombre = seleccion + " Pizza jamon y queso";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -439,7 +436,7 @@ public class MenuKebab extends JFrame {
 
 				precio = Integer.parseInt(precio_PizzAaBBq.getText());
 				precioTotal = precioTotal + (precio * nMenus);
-				nombre = seleccion+" Pizza barbacoa";
+				nombre = seleccion + " Pizza barbacoa";
 				menuTotal = nombre + ", " + menuTotal;
 
 				JOptionPane.showMessageDialog(contentPane, "Se ha agregado a su pedido", "Agregado a su pedido",
@@ -547,7 +544,7 @@ public class MenuKebab extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				PantallaRestaurantes pR = new PantallaRestaurantes(id, localidad, direccionD);
+				PantallaRestaurantes pR = new PantallaRestaurantes(nombreuser, id, localidad, direccionD);
 				dispose();
 				pR.setVisible(true);
 
